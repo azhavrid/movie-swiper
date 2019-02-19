@@ -1,0 +1,25 @@
+{
+  "extends": ["rallycoding"],
+  "rules": {
+    "no-nested-ternary": 0,
+    "no-shadow": 0,
+    "global-require": 0,
+    "no-unused-vars": "warn",
+    "max-len": "warn",
+    "no-mixed-operators": 0,
+    "no-param-reassign": 0,
+    "no-constant-condition": 0,
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true,
+        "allowTernary": true
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}

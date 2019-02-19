@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Bottom action bar -->
+        <item name="android:navigationBarColor">@android:color/black</item>
+
+        <!-- Launch colors -->
+        <!-- Background -->
+        <item name="android:windowBackground">@color/background</item>
+        <!-- Status bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="colorAccent">@color/primaryVariant</item>
+    </style>
+
+</resources>
