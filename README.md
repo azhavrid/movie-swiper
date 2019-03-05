@@ -12,8 +12,8 @@
 
 <div align="center">
 
-![Preview](https://i.imgur.com/My0jU3g.gif)
-![Preview](https://i.imgur.com/M4LYzLE.gif)
+![Preview](https://i.imgur.com/E4Cwp4m.gif)
+![Preview](https://i.imgur.com/k4tGhpl.gif)
 
 </div>
 
