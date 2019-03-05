@@ -11,9 +11,10 @@
 ### Gif Preview
 
 <details><summary>Click to open (6Mb)</summary>
-  
+
 ![Preview](https://i.imgur.com/My0jU3g.gif)
 ![Preview](https://i.imgur.com/M4LYzLE.gif)
+
 </details>
 
 ## Made with help of
@@ -24,3 +25,7 @@
 - [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image)
 - [react-native-gesture-handler](https://github.com/kmagiera/react-native-gesture-handler)
 - [axios](https://github.com/axios/axios)
+
+## License
+
+[MIT](https://github.com/azhavrid/movie-swiper/blob/master/LICENSE)
