@@ -42,6 +42,7 @@ const createDefaultStackNavigator = (screensObject, customOptions) =>
     cardStyle: {
       backgroundColor: '#000'
     },
+    headerMode: 'screen',
     transitionConfig: () => fromRightWithFade(),
     ...customOptions
   });

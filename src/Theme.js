@@ -1,4 +1,5 @@
 import { getFontStyleObject } from './utils/font';
+import Config from './Config';
 
 const Theme = {};
 
@@ -23,7 +24,9 @@ Theme.specifications = {
   iconSize: 30,
   largeIconSize: 40,
   hugeIconSize: 120,
-  activityIndicatorSize: 60,
+  activityIndicatorSize: Config.isAndroid ? 60 : 'large',
+  activitySmallIndicatorSize: Config.isAndroid ? 30 : 'small',
+  
 
   posterAspectRation: 0.6667,
   backdropAspectRation: 1.78

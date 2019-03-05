@@ -10,6 +10,7 @@ import {
   getSearchInputLabelIcon
 } from '../utils/icons';
 import Theme from '../Theme';
+import Config from '../Config';
 
 class SearchBlock extends React.PureComponent {
   state = {
@@ -166,6 +167,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: Theme.gray.darkest,
+    paddingVertical: Config.isAndroid ? 0 : 12,
     ...Theme.typography.body,
     ...getFontStyleObject()
   },

@@ -6,7 +6,7 @@ class FooterLoading extends React.PureComponent {
   render() {
     return (
       <View style={styles.container}>
-        <ActivityIndicator size={30} color={Theme.gray.lightest} />
+        <ActivityIndicator size={Theme.specifications.activitySmallIndicatorSize} color={Theme.gray.lightest} />
       </View>
     );
   }

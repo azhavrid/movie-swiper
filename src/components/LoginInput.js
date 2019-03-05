@@ -4,6 +4,7 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import AppText from './common/AppText';
 import { getFontStyleObject } from '../utils/font';
 import Theme from '../Theme';
+import Config from '../Config';
 
 class LoginInput extends React.PureComponent {
   state = { focused: false };
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
   },
   input: {
     marginHorizontal: Theme.spacing.tiny,
+    paddingVertical: Config.isAndroid ? 0 : 10,
     color: '#ffffff',
     ...Theme.typography.input,
     ...getFontStyleObject()

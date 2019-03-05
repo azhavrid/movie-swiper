@@ -50,13 +50,13 @@ export const fromRightWithFade = (duration = 200) => ({
     const { initWidth } = layout;
 
     const translateX = position.interpolate({
-      inputRange: [index - 1, index, index + 1],
-      outputRange: [initWidth * 0.3, 0, 0]
+      inputRange: [index - 1, index],
+      outputRange: [initWidth * 0.3, 0]
     });
 
     const opacity = position.interpolate({
-      inputRange: [index - 1, index, index],
-      outputRange: [0, 1, 1]
+      inputRange: [index - 1, index],
+      outputRange: [0, 1]
     });
 
     return {
