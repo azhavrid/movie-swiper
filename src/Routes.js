@@ -78,7 +78,8 @@ const BottomTabs = createBottomTabNavigator(
       labelStyle: { ...getFontStyleObject() },
       style: {
         borderTopColor: Theme.colors.bottomNavbar,
-        height: Theme.specifications.bottomNavbarHeight
+        height: Theme.specifications.bottomNavbarHeight,
+        backgroundColor: Theme.colors.bottomNavbar
       }
     },
     defaultNavigationOptions: ({ navigation }) => ({

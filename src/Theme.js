@@ -1,3 +1,4 @@
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { getFontStyleObject } from './utils/font';
 import Config from './Config';
 
@@ -16,7 +17,7 @@ Theme.spacing = {
 };
 
 Theme.specifications = {
-  statusBarHeight: 24,
+  statusBarHeight: getStatusBarHeight(),
   headerHeight: 54,
   bottomNavbarHeight: 50,
 
