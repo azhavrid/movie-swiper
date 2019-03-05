@@ -10,14 +10,14 @@
 
 ### Gif Preview
 
-<details><summary>Click to open (6Mb)</summary>
+<div align="center">
 
 ![Preview](https://i.imgur.com/My0jU3g.gif)
 ![Preview](https://i.imgur.com/M4LYzLE.gif)
 
-</details>
+</div>
 
-## Made with help of
+ ## Made with help of
 
 - [react-native](https://github.com/facebook/react-native)
 - [react-navigation](https://github.com/react-community/react-navigation)
