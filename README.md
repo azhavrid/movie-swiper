@@ -1,23 +1,39 @@
 # Movie Swiper
 
-> Unofficial [TMDb](https://www.themoviedb.org/) client for iOS and Android.
+![React version](https://img.shields.io/badge/react-16.6-green.svg)
+![React Native version](https://img.shields.io/badge/react--native-0.57-blue.svg)
+![License](https://img.shields.io/github/license/azhavrid/movie-swiper.svg)
+
+Unofficial client for [TMDb](https://www.themoviedb.org/) created with [React Native](https://facebook.github.io/react-native/). Developed as a training project.
 
 ## App Preview
 
 ### Screen Showcase
 
-![Preview](https://i.imgur.com/8DEW8ED.jpg)
+![Movie swiper screen showcase](https://i.imgur.com/8DEW8ED.jpg)
 
 ### Gif Preview
 
 <div align="center">
 
-![Preview](https://i.imgur.com/E4Cwp4m.gif)
-![Preview](https://i.imgur.com/k4tGhpl.gif)
+![Browse tab gif preview](https://i.imgur.com/E4Cwp4m.gif)
+![Explore tab gif preview](https://i.imgur.com/k4tGhpl.gif)
 
 </div>
 
- ## Made with help of
+## Getting Started
+
+1. [Set up React Native.](https://facebook.github.io/react-native/docs/getting-started.html) Choose tab **Building Projects with Native Code**
+2. `cd` into this project directory
+3. `npm install` or `yarn install`
+4. Run `react-native run-android` or `react-native run-ios`
+
+## Functionality
+
+App uses [TMDb api](https://developers.themoviedb.org/3) to fetch movies. API doesn't support recommendation for account therefore _Explore_ tab shows a list of the current popular movies on TMDb. _Explore_ tab has offline queue ensuring that movies which are swiped without an internet connection will be processed when the connection is back online.
+Note that app does not support details of people: actors, directors, etc.
+
+## Made with help of
 
 - [react-native](https://github.com/facebook/react-native)
 - [react-navigation](https://github.com/react-community/react-navigation)
