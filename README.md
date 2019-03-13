@@ -10,14 +10,14 @@ Unofficial client for [TMDb](https://www.themoviedb.org/) created with [React Na
 
 ### Screen Showcase
 
-![Movie swiper screen showcase](https://i.imgur.com/8DEW8ED.jpg)
+![Movie Swiper screen showcase](https://i.imgur.com/8DEW8ED.jpg)
 
 ### Gif Preview
 
 <div align="center">
 
-![Browse tab gif preview](https://i.imgur.com/E4Cwp4m.gif)
-![Explore tab gif preview](https://i.imgur.com/k4tGhpl.gif)
+![Browse tab gif preview](https://i.imgur.com/Y9D44kr.gif)
+![Explore tab gif preview](https://i.imgur.com/Fy9eXev.gif)
 
 </div>
 
@@ -30,8 +30,7 @@ Unofficial client for [TMDb](https://www.themoviedb.org/) created with [React Na
 
 ## Functionality
 
-App uses [TMDb api](https://developers.themoviedb.org/3) to fetch movies. API doesn't support recommendation for account therefore _Explore_ tab shows a list of the current popular movies on TMDb. _Explore_ tab has offline queue ensuring that movies which are swiped without an internet connection will be processed when the connection is back online.
-Note that app does not support details of people: actors, directors, etc.
+App uses [TMDb api](https://developers.themoviedb.org/3) to fetch movies. API doesn't support recommendation for account therefore _Explore_ tab shows the list of currently popular movies on TMDb and locally stores seen movies. _Explore_ tab has offline queue ensuring that movies which are swiped without an internet connection will be processed when the connection is back online. Note that app does not support people information: actors, directors, etc.
 
 ## Made with help of
 
