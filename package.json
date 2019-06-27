@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "hoist-non-react-statics": "^3.3.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
