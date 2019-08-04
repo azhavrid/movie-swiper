@@ -1,25 +1,38 @@
 {
-  "extends": ["rallycoding"],
-  "rules": {
-    "no-nested-ternary": 0,
-    "no-shadow": 0,
-    "global-require": 0,
-    "no-unused-vars": "warn",
-    "max-len": "warn",
-    "no-mixed-operators": 0,
-    "no-param-reassign": 0,
-    "no-constant-condition": 0,
-    "no-unused-expressions": [
-      "error",
-      {
-        "allowShortCircuit": true,
-        "allowTernary": true
-      }
-    ]
-  },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-empty-interface": "off"
+  },
+  "globals": {
+    "__DEV__": true
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
   }
 }
