@@ -1,5 +1,5 @@
 {
-  "editor.rulers": [100],
+  "editor.rulers": [120],
   "eslint.autoFixOnSave": true,
   "eslint.validate": [
     "javascript",
