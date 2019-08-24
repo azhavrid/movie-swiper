@@ -34,13 +34,3 @@ target 'MovieSwiper' do
 
   use_native_modules!
 end
-
-target 'MovieSwiper-tvOS' do
-  # Pods for MovieSwiper-tvOS
-
-  target 'MovieSwiper-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-end
