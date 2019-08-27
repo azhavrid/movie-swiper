@@ -12,9 +12,9 @@
     "axios": "^0.19.0",
     "hoist-non-react-statics": "^3.3.0",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "react-native-easy-toast": "^1.2.0",
     "react-native-fast-image": "^7.0.2",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-linear-gradient": "^2.5.6",
@@ -54,6 +54,9 @@
     "metro-react-native-babel-preset": "^0.55.0",
     "prettier": "^1.18.2",
     "react-test-renderer": "16.8.6",
+    "reactotron-react-native": "^3.6.5",
+    "reactotron-redux": "^3.1.1",
+    "reactotron-redux-saga": "^4.2.2",
     "typescript": "^3.5.3"
   },
   "jest": {
