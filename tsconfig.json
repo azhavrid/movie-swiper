@@ -12,7 +12,7 @@
     "esModuleInterop": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true /* Enable importing from JSON files */,
-    "isolatedModules": true,
+    // "isolatedModules": true, /* Check why???? */,
     "noEmit": true /* Do not emit outputs. */,
     "strict": true /* Strict Type-Checking Options */,
     "noUnusedLocals": true /* Report errors on unused locals. */,
