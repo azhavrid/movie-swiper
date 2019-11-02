@@ -1,6 +1,7 @@
 // Configure reactotron
 if (__DEV__) {
-  import('./src/configs/reactotron');
+  import('./src/configs/reactotron/reactotron');
+  import('./src/configs/reactotron/commands');
 }
 
 // App
