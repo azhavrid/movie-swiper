@@ -19,10 +19,11 @@ export const reactotron = Reactotron.configure({ name: 'Movie Swiper' })
 // Clear Reactotron on app start
 Reactotron.clear && Reactotron.clear();
 
-// Add Reactotron to console and declare global Console
-console.tron = reactotron;
+// Add reactotron to console
 declare global {
   interface Console {
     tron: typeof reactotron;
   }
 }
+
+console.tron = reactotron;
