@@ -654,7 +654,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.5.5":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
@@ -1048,10 +1048,10 @@
     shell-quote "1.6.1"
     ws "^1.1.0"
 
-"@react-native-community/netinfo@^4.1.2":
-  version "4.1.5"
-  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-4.1.5.tgz#4bb44842db6a1a18f00a0f061b0e3dcc638f67dd"
-  integrity sha512-lagdZr9UiVAccNXYfTEj+aUcPCx9ykbMe9puffeIyF3JsRuMmlu3BjHYx1klUHX7wNRmFNC8qVP0puxUt1sZ0A==
+"@react-native-community/netinfo@^4.6.0":
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-4.6.0.tgz#fc0b79a226da78371158f885a2f798ff07c926be"
+  integrity sha512-wz39BUpExDU1kTpLlBkDwwb0Efg+uuwixToosTSarZgpzG/CmcRvWdD786TMiE5tLDd+Mpi2xh3w4FrVM8zjoA==
 
 "@react-navigation/core@~3.5.0":
   version "3.5.0"
@@ -5659,17 +5659,6 @@ react-native-linear-gradient@^2.5.6:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
-react-native-offline@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-offline/-/react-native-offline-5.0.0.tgz#981a73c9f2075ad458cbc38652717a955e960a92"
-  integrity sha512-VaUQzuhx7SRFUfirCT6USMQkuqZWrlW3BlKHjiqUaSvQ794tmegF5uvyVFSpwIiMhv69aIU0kxfMV+o7EqLb5g==
-  dependencies:
-    "@react-native-community/netinfo" "^4.1.2"
-    lodash "^4.17.11"
-    react-redux "^6.0.0 || ^7.0.0"
-    redux "4.x"
-    redux-saga "^1.0.2"
-
 react-native-reanimated@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.2.0.tgz#9219227a52a5dfa4d34c324596d6726ccd874293"
@@ -5785,18 +5774,6 @@ react-proxy@^1.1.7:
   dependencies:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
-
-"react-redux@^6.0.0 || ^7.0.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"
-  integrity sha512-hyu/PoFK3vZgdLTg9ozbt7WF3GgX5+Yn3pZm5/96/o4UueXA+zj08aiSC9Mfj2WtD1bvpIb3C5yvskzZySzzaw==
-  dependencies:
-    "@babel/runtime" "^7.4.5"
-    hoist-non-react-statics "^3.3.0"
-    invariant "^2.2.4"
-    loose-envify "^1.4.0"
-    prop-types "^15.7.2"
-    react-is "^16.8.6"
 
 react-redux@^7.1.1:
   version "7.1.1"
@@ -5927,7 +5904,7 @@ redux-persist@^6.0.0:
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
   integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
 
-redux-saga@^1.0.2, redux-saga@^1.0.5:
+redux-saga@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.5.tgz#03317261bc5fa7ee2ecb778f4e4848f573557bbb"
   integrity sha512-ytGFtaHyz6NQMQp7/LpQ/6CtOkbPRCcAeljUpc4c95hRm5U6dFvrRiZHeBPuQZ56L3oXfTX3hiYh8/3ZudsiNg==
@@ -5939,7 +5916,7 @@ redux-thunk@^2.3.0:
   resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.3.0.tgz#51c2c19a185ed5187aaa9a2d08b666d0d6467622"
   integrity sha512-km6dclyFnmcvxhAcrQV2AkZmPQjzPDjgVlQtR0EQjxZPyJ0BnMf3in1ryuR8A2qU0HldVRfxYXbFSKlI3N7Slw==
 
-redux@4.x, "redux@>=0.10 <5", redux@^4.0.0, redux@^4.0.4:
+"redux@>=0.10 <5", redux@^4.0.0, redux@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
   integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==

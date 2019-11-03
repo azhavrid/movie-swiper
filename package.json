@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.1",
+    "@react-native-community/netinfo": "^4.6.0",
     "axios": "^0.19.0",
     "fsevents": "^2.0.7",
     "hoist-non-react-statics": "^3.3.0",
@@ -21,7 +22,6 @@
     "react-native-fast-image": "^7.0.2",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-offline": "^5.0.0",
     "react-native-reanimated": "^1.2.0",
     "react-native-status-bar-height": "^2.4.0",
     "react-native-vector-icons": "^6.6.0",
