@@ -7,6 +7,4 @@
     { "language": "typescript", "autoFix": true },
     { "language": "typescriptreact", "autoFix": true }
   ],
-  // Temporary fix for eslint 6.1 plugin imports
-  "prettier.eslintIntegration": false,
 }
