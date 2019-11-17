@@ -14,6 +14,15 @@ import swipeSkip from './assets/images/swipe_labels/skip.png';
 // General
 import tmdbLogo from './assets/images/tmdb.png';
 
+// Types
+import { SocialActionType } from './redux/explore/types';
+
+const swipeLabels: Record<SocialActionType, number> = {
+  favorite: swipeLike,
+  watchlist: swipeSave,
+  skip: swipeSkip,
+};
+
 export default {
   welcomeArray: [
     welcomeJurassicWorld,
@@ -23,10 +32,6 @@ export default {
     welcomeTheGodfather,
     welcomeTheSixthSense,
   ],
-  swipeLabels: {
-    like: swipeLike,
-    save: swipeSave,
-    skip: swipeSkip,
-  },
+  swipeLabels,
   tmdbLogo,
 };
