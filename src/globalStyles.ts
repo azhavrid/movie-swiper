@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { theme } from './theme';
+import { config } from './configs/config';
 
 export const globalStyles = StyleSheet.create({
   screenContainer: {
@@ -18,5 +19,8 @@ export const globalStyles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 3,
+  },
+  inputPaddingVertical: {
+    paddingVertical: config.isAndroid ? 10 : theme.spacing.small,
   },
 });
