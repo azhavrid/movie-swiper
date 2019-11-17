@@ -7,15 +7,10 @@ import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { theme } from '../theme';
-import { ViewStyle } from 'react-native';
 
 /* ------------- Types ------------- */
 interface TintColorParam {
   tintColor: string;
-}
-
-interface StyleParam {
-  style: ViewStyle;
 }
 
 /* ------------- Localize ------------- */
@@ -46,7 +41,7 @@ export const getOpenImdbIcon = ({ disabled }: { disabled: boolean }) => (
   <IconMaterialCommunityIcons name="movie-roll" color={disabled ? light : lightest} size={iconSize} />
 );
 
-// --- MovieSearchResults ---
+// --- MovieSearchWrapper ---
 export const getEmptySearchIcon = () => <IconFeather name="alert-circle" color={lightest} size={hugeIconSize} />;
 
 export const getInitialSearchIcon = () => <IconEvilIcons name="search" color={lightest} size={hugeIconSize} />;
@@ -55,8 +50,8 @@ export const getInitialSearchIcon = () => <IconEvilIcons name="search" color={li
 export const getGuestInfoIcon = () => <IconFeather name="user" color={lightest} size={hugeIconSize} />;
 
 // --- SearchInput ---
-export const getSearchInputBackIcon = ({ style }: StyleParam) => (
-  <IconEntypo name="chevron-thin-left" size={smallIconSize} color={darkest} style={style} />
+export const getSearchInputBackIcon = () => (
+  <IconEntypo name="chevron-thin-left" size={smallIconSize} color={darkest} />
 );
 
 export const getSearchInputLabelIcon = () => (
