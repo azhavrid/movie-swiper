@@ -1,22 +1,17 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "plugins": [{ "name": "typescript-tslint-plugin" }],
-    "module": "commonjs",
-    "jsx": "react-native",
-    "lib": ["esnext"],
-
     "allowJs": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true,
-    "esModuleInterop": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true /* Enable importing from JSON files */,
-    // "isolatedModules": true, /* Check why???? */,
-    "noEmit": true /* Do not emit outputs. */,
-    "strict": true /* Strict Type-Checking Options */,
-    "noUnusedLocals": true /* Report errors on unused locals. */,
-    "noUnusedParameters": true /* Report errors on unused parameters. */
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es6"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "skipLibCheck": true
   },
-  "exclude": ["node_modules", "ios", "android", "babel.config.js", "metro.config.js"]
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
