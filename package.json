@@ -5,10 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 11 Pro Max'",
-    "start": "react-native start",
-    "build": "tsc",
-    "lint": "eslint '**/*.{js,ts,tsx}'",
-    "lint:fix": "yarn lint --fix"
+    "start": "react-native start"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.2",
@@ -37,6 +34,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "throttle-debounce": "^2.1.0",
+    "uuid": "^3.3.3",
     "validator": "^12.0.0"
   },
   "devDependencies": {
@@ -48,6 +46,8 @@
     "@types/react-native": "^0.60.22",
     "@types/react-native-vector-icons": "^6.4.4",
     "@types/react-redux": "^7.1.5",
+    "@types/throttle-debounce": "^2.1.0",
+    "@types/uuid": "^3.4.6",
     "@types/validator": "^12.0.0",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
