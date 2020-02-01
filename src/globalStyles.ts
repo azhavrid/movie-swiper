@@ -3,6 +3,7 @@ import { theme } from './theme';
 import { config } from './configs/config';
 
 export const globalStyles = StyleSheet.create({
+  empty: {},
   screenContainer: {
     flex: 1,
     backgroundColor: theme.colors.background,
