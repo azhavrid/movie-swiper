@@ -1,50 +1,36 @@
 import validator from 'validator';
 
 /* ------------- Types ------------- */
-interface CustomValidator {
-  validator: (value: string) => boolean;
-  errorMessage: string;
-}
+type ErrorMessage = string;
+type ValidatorFunction = (str: string) => boolean;
+type CustomValidator = [ValidatorFunction, ErrorMessage];
 
 interface ValidatorResponse {
   isValid: boolean;
-  message: string;
+  errorMessage: string;
 }
 
 /* ------------- Validators ------------- */
-export const validateUsername = (username: string): ValidatorResponse => {
-  const validators: CustomValidator[] = [
-    {
-      validator: validator.isEmpty,
-      errorMessage: 'Please enter your username',
-    },
-  ];
+// Username
+const usernameValidators: CustomValidator[] = [[validator.isEmpty, 'Please enter your username']];
+export const validateUsername = (username: string) => validateString(usernameValidators, username);
 
-  return validateString(validators, username);
-};
+// Password
+const passwordValidators: CustomValidator[] = [
+  [validator.isEmpty, 'Please enter your password'],
+  [value => value.length < 4, 'Password is too short'],
+];
+export const validatePassword = (password: string) => validateString(passwordValidators, password);
 
-export const validatePassword = (password: string): ValidatorResponse => {
-  const validators: CustomValidator[] = [
-    {
-      validator: validator.isEmpty,
-      errorMessage: 'Please enter your password',
-    },
-    {
-      validator: value => value.length < 4,
-      errorMessage: 'Password is too short',
-    },
-  ];
-
-  return validateString(validators, password);
-};
-
-/* ------------- Local Helpers ------------- */
+/* ------------- Helpers ------------- */
 const validateString = (validators: CustomValidator[], value: string): ValidatorResponse => {
-  validators.map(customValidator => {
-    if (customValidator.validator(value)) {
-      return { isValid: false, message: customValidator.errorMessage };
+  for (let i = 0; i < validators.length; i++) {
+    const validator = validators[i];
+    const [validateFunction, errorMessage] = validator;
+    if (validateFunction(value)) {
+      return { isValid: false, errorMessage };
     }
-  });
+  }
 
-  return { isValid: true, message: '' };
+  return { isValid: true, errorMessage: '' };
 };
