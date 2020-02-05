@@ -3,17 +3,12 @@ import sagaPlugin from 'reactotron-redux-saga';
 import { reactotronRedux } from 'reactotron-redux';
 
 export const reactotron = Reactotron.configure({ name: 'Movie Swiper' })
-  // TODO: Check which plugins to use
-  // .use(
-  //   trackGlobalErrors({
-  //     // ignore all error frames from react-native (for example)
-  //     veto: frame => frame.fileName.indexOf('/node_modules/react-native/') >= 0,
-  //   }),
-  // )
-  // .use(networking())
   .use(sagaPlugin({}))
   .use(reactotronRedux({}))
-  .useReactNative({})
+  .useReactNative({
+    // Ignore netinfo package ping url
+    networking: { ignoreUrls: /generate_204/ },
+  })
   .connect();
 
 // Clear Reactotron on app start
