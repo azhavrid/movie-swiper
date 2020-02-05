@@ -13,7 +13,7 @@ interface TintColorParam {
   tintColor: string;
 }
 
-/* ------------- Localize ------------- */
+/* ------------- Local ------------- */
 const { smallIconSize, iconSize, hugeIconSize } = theme.specifications;
 const { primary } = theme.colors;
 const { lightest, light, darkest } = theme.gray;
@@ -61,7 +61,9 @@ export const getSearchInputLabelIcon = () => (
 export const getSearchInputCloseIcon = () => <IconAntDesign name="close" color={darkest} size={smallIconSize * 1.2} />;
 
 // --- MovieList ---
-export const getMovieListEmptyIcon = () => <IconAntDesign name="smileo" color={lightest} size={hugeIconSize} />;
+export const getMovieListEmptyIcon = () => (
+  <IconMaterialCommunityIcons name="movie-outline" color={lightest} size={hugeIconSize} />
+);
 
 // --- Library ---
 export const getLibrarySettingsIcon = () => (
