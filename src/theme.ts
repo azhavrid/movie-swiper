@@ -1,7 +1,7 @@
 import { TextStyle, StyleSheet } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import { getFontStyleObject } from './utils/fonts';
+import { getFontStyle } from './utils/fonts';
 
 /* ------------- Types ------------- */
 interface AppTypography {
@@ -110,12 +110,12 @@ export const theme = {
     header: {
       fontSize: 18,
       letterSpacing: 0.5,
-      ...getFontStyleObject({ weight: 'SemiBold' }),
+      ...getFontStyle({ weight: 'SemiBold' }),
     },
     button: {
       fontSize: 18,
       letterSpacing: 0.5,
-      ...getFontStyleObject({ weight: 'Bold' }),
+      ...getFontStyle({ weight: 'Bold' }),
     },
     onlyTextButton: {
       fontSize: 16,
@@ -126,7 +126,7 @@ export const theme = {
     headline: {
       fontSize: 17,
       letterSpacing: 0.5,
-      ...getFontStyleObject({ weight: 'SemiBold' }),
+      ...getFontStyle({ weight: 'SemiBold' }),
     },
     body: {
       fontSize: 15,

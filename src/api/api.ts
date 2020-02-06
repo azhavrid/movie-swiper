@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { config } from '../configs/config';
-import { store } from '../redux/store';
+import StoreService from '../redux/StoreService';
 import { logOut } from '../redux/auth/actions';
 
 const api = axios.create({
@@ -30,7 +30,7 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     // On unauthorized error logout and navigate to AuthStack
     if (error.response && error.response.status === 401) {
-      store.dispatch(logOut());
+      StoreService.dispatch(logOut());
     }
 
     if (config.logNetworkMessages) {
