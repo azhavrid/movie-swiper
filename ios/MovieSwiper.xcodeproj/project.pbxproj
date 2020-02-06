@@ -7,20 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06A8BAA047A24607AB541657 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44C33932EEC74CCD81B3BF22 /* Raleway-Regular.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		A416AE77C3C54BF589BBEF06 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D15E91E693645E2844D35C8 /* Raleway-SemiBold.ttf */; };
+		16ACCDC017684A7E9D4C1AF7 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 422B3F1CA57C46D7AA150F14 /* Inter-Bold.otf */; };
+		5716B975E9844BF9A6727F7A /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBD284362BB4B8786BE4D4C /* Inter-Light.otf */; };
+		7F21C119643C41DE99B293A4 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AD70333AC54B868A98FF83 /* Inter-Medium.otf */; };
+		884E7F1624D74C97BB552BC6 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6BAA8DF0ADCF4677B446593C /* Inter-Regular.otf */; };
+		8F38F3491D7849D9879DE26C /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 46E069DEBD4044C59BFD33A5 /* Inter-SemiBold.otf */; };
 		BE18EC5468A18DA7DFC03D9A /* libPods-MovieSwiper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5974C127E8F505BF25AD49C /* libPods-MovieSwiper.a */; };
-		EB7C9C4F341643688ACFA63C /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2225B412164849AFA74CF3 /* Raleway-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MovieSwiperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieSwiperTests.m; sourceTree = "<group>"; };
+		02AD70333AC54B868A98FF83 /* Inter-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.otf"; path = "../src/assets/fonts/Inter-Medium.otf"; sourceTree = "<group>"; };
 		0CE06715B52640DC8B24CA81 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		0F9469737A1A4B4F8948EC5A /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		0FA1393DA1407B51F457EA63 /* Pods-MovieSwiper-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSwiper-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-MovieSwiper-tvOS/Pods-MovieSwiper-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -31,11 +34,11 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MovieSwiper/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MovieSwiper/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MovieSwiper/main.m; sourceTree = "<group>"; };
-		1D15E91E693645E2844D35C8 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-SemiBold.ttf"; path = "../src/assets/fonts/Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		1DBD284362BB4B8786BE4D4C /* Inter-Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Light.otf"; path = "../src/assets/fonts/Inter-Light.otf"; sourceTree = "<group>"; };
 		3A3AA1753BD74D7FB73D6F77 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		3A4CE13F89A4408894AC82AD /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		3E2225B412164849AFA74CF3 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Bold.ttf"; path = "../src/assets/fonts/Raleway-Bold.ttf"; sourceTree = "<group>"; };
-		44C33932EEC74CCD81B3BF22 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Raleway-Regular.ttf"; path = "../src/assets/fonts/Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		422B3F1CA57C46D7AA150F14 /* Inter-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.otf"; path = "../src/assets/fonts/Inter-Bold.otf"; sourceTree = "<group>"; };
+		46E069DEBD4044C59BFD33A5 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.otf"; path = "../src/assets/fonts/Inter-SemiBold.otf"; sourceTree = "<group>"; };
 		47538C95574143FE9D9C499C /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		487C7C77A2AA4A05AF25DA24 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		4A6395E4D46948EBBFA7F01A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		565BC0F2244D4D9F0BE02193 /* Pods-MovieSwiperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSwiperTests.release.xcconfig"; path = "Target Support Files/Pods-MovieSwiperTests/Pods-MovieSwiperTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F66DCA5C7FDD093CF5B13AC /* libPods-MovieSwiper-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MovieSwiper-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F092E5EC854FFE85CE9F8D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		6BAA8DF0ADCF4677B446593C /* Inter-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.otf"; path = "../src/assets/fonts/Inter-Regular.otf"; sourceTree = "<group>"; };
 		7235E279BB2C408EB7B75975 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		7E08E2F04E13A383FDCD3391 /* libPods-MovieSwiper-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MovieSwiper-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8305E56B8D0B4A548CC77A42 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
@@ -122,9 +126,6 @@
 		714F9BBB7FBF47B28FB13DA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3E2225B412164849AFA74CF3 /* Raleway-Bold.ttf */,
-				44C33932EEC74CCD81B3BF22 /* Raleway-Regular.ttf */,
-				1D15E91E693645E2844D35C8 /* Raleway-SemiBold.ttf */,
 				4FD6D3496321423780BE6E5F /* AntDesign.ttf */,
 				D84FB66D1C7B42679C19C63C /* Entypo.ttf */,
 				BFE96EA612D247A6B4CDA1B6 /* EvilIcons.ttf */,
@@ -141,6 +142,11 @@
 				0F9469737A1A4B4F8948EC5A /* Octicons.ttf */,
 				487C7C77A2AA4A05AF25DA24 /* SimpleLineIcons.ttf */,
 				F53D523F58F548238E902B34 /* Zocial.ttf */,
+				422B3F1CA57C46D7AA150F14 /* Inter-Bold.otf */,
+				1DBD284362BB4B8786BE4D4C /* Inter-Light.otf */,
+				02AD70333AC54B868A98FF83 /* Inter-Medium.otf */,
+				6BAA8DF0ADCF4677B446593C /* Inter-Regular.otf */,
+				46E069DEBD4044C59BFD33A5 /* Inter-SemiBold.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -250,9 +256,11 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				EB7C9C4F341643688ACFA63C /* Raleway-Bold.ttf in Resources */,
-				06A8BAA047A24607AB541657 /* Raleway-Regular.ttf in Resources */,
-				A416AE77C3C54BF589BBEF06 /* Raleway-SemiBold.ttf in Resources */,
+				16ACCDC017684A7E9D4C1AF7 /* Inter-Bold.otf in Resources */,
+				5716B975E9844BF9A6727F7A /* Inter-Light.otf in Resources */,
+				7F21C119643C41DE99B293A4 /* Inter-Medium.otf in Resources */,
+				884E7F1624D74C97BB552BC6 /* Inter-Regular.otf in Resources */,
+				8F38F3491D7849D9879DE26C /* Inter-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
