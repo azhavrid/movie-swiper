@@ -1,6 +1,9 @@
 import { Linking, Image } from 'react-native';
+import { AxiosError } from 'axios';
 
 export const isNetworkError = (error: any) => !error.response;
+
+export const isServerError = (error: AxiosError) => error.code.startsWith('5');
 
 export const safeOpenURL = (url: string) => {
   Linking.canOpenURL(url).then(supported => {
