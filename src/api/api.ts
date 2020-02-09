@@ -29,7 +29,7 @@ api.interceptors.response.use(
   },
   (error: AxiosError) => {
     // On unauthorized error logout and navigate to AuthStack
-    if (error.response && error.response.status === 401) {
+    if (error?.response?.status === 401) {
       StoreService.dispatch(logOut());
     }
 
