@@ -58,6 +58,7 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.57.0",
     "prettier": "1.18.0",
@@ -66,6 +67,11 @@
     "reactotron-redux": "^3.1.2",
     "reactotron-redux-saga": "^4.2.3",
     "typescript": "^3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn compile && yarn lint"
+    }
   },
   "jest": {
     "preset": "react-native"
