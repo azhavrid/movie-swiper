@@ -9,11 +9,14 @@ const setStoreReference = (storeRef: Store<RootState, RootAction>) => {
   _store = storeRef;
 };
 
+const getState = () => _store.getState();
+
 const dispatch = (action: RootAction) => {
   _store.dispatch(action);
 };
 
 export default {
   setStoreReference,
+  getState,
   dispatch,
 };
