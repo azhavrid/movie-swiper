@@ -2,6 +2,7 @@ import { TextStyle, StyleSheet } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 import { getFontStyle } from './utils/fonts';
+import { config } from './configs/config';
 
 /* ------------- Types ------------- */
 interface AppTypography {
@@ -69,13 +70,8 @@ export const theme = {
     iconSize: 30,
     largeIconSize: 40,
     hugeIconSize: 120,
-
-    // TODO: Check
-    // activityIndicatorSize: config.isAndroid ? 60 : 'large',
-    // activitySmallIndicatorSize: config.isAndroid ? 30 : 'small',
-    activityIndicatorSize: 60,
-    activitySmallIndicatorSize: 30,
-
+    activityIndicatorSize: config.isAndroid ? 60 : <const>'large',
+    activitySmallIndicatorSize: config.isAndroid ? 30 : <const>'small',
     posterAspectRation: 0.6667,
     backdropAspectRation: 1.78,
   },
