@@ -1,4 +1,4 @@
-package com.movieswiper;
+package com.azhavrid.movieswiper;
 
 import android.app.Application;
 import android.content.Context;
