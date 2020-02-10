@@ -61,7 +61,7 @@
     "husky": "^4.2.1",
     "jest": "^24.9.0",
     "metro-react-native-babel-preset": "^0.57.0",
-    "prettier": "1.19.1",
+    "prettier": "1.18.0",
     "react-test-renderer": "16.12.0",
     "reactotron-react-native": "^4.0.3",
     "reactotron-redux": "^3.1.2",
