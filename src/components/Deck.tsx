@@ -188,14 +188,11 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
     return (
       <PanGestureHandler
         avgTouches
-        key={keyExtractor && keyExtractor(item)}
+        key={keyExtractor(item)}
         onGestureEvent={this.onPanGestureEvent}
         onHandlerStateChange={this.onPanGestureStateChange}
       >
-        <Animated.View
-          style={[styles.topCardStyle, this.getTopCardAnimatedStyle()]}
-          key={keyExtractor && keyExtractor(item)}
-        >
+        <Animated.View key={keyExtractor(item)} style={[styles.topCardStyle, this.getTopCardAnimatedStyle()]}>
           {renderCard(item, params)}
         </Animated.View>
       </PanGestureHandler>
@@ -207,7 +204,7 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
     const params: RenderCardParams = { isTopCard: false };
 
     return (
-      <Animated.View key={keyExtractor && keyExtractor(item)} style={[styles.cardStyle, this.getCardAnimatedStyle()]}>
+      <Animated.View key={keyExtractor(item)} style={[styles.cardStyle, this.getCardAnimatedStyle()]}>
         {renderCard(item, params)}
       </Animated.View>
     );

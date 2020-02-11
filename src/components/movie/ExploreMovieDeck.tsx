@@ -17,15 +17,18 @@ class ExploreMovieDeck extends React.PureComponent<Props> {
   }
 
   onSwipedLeft = () => {
-    this.props.exploreMovieSwiped('left');
+    const { exploreMovieSwiped } = this.props;
+    exploreMovieSwiped('left');
   };
 
   onSwipedTop = () => {
-    this.props.exploreMovieSwiped('top');
+    const { exploreMovieSwiped } = this.props;
+    exploreMovieSwiped('top');
   };
 
   onSwipedRight = () => {
-    this.props.exploreMovieSwiped('right');
+    const { exploreMovieSwiped } = this.props;
+    exploreMovieSwiped('right');
   };
 
   render() {
