@@ -13,7 +13,7 @@ interface AppTypography {
   titleCaption: TextStyle;
   header: TextStyle;
   button: TextStyle;
-  onlyTextButton: TextStyle;
+  textButton: TextStyle;
   input: TextStyle;
   headline: TextStyle;
   body: TextStyle;
@@ -119,9 +119,9 @@ export const theme = {
     button: {
       fontSize: 18,
       letterSpacing: 0.5,
-      ...getFontStyle({ weight: 'Bold' }),
+      ...getFontStyle({ weight: 'SemiBold' }),
     },
-    onlyTextButton: {
+    textButton: {
       fontSize: 16,
     },
     input: {

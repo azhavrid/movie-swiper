@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import PageSpinner from '../../components/common/PageSpinner';
 import ImageOpacityCycler from '../../components/ImageOpacityCycler';
-import { AppButton, AppText } from '../../components/common';
+import { AppText, TextButton, PrimaryButton, SecondaryButton } from '../../components/common';
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
 import { createGuestSessionRequest } from '../../redux/auth/actions';
 import { RootState } from '../../redux/types';
@@ -48,8 +48,8 @@ class AuthWelcome extends React.Component<Props> {
     return (
       <View style={globalStyles.screenContainer}>
         <ImageOpacityCycler style={styles.opacityCircler} images={images.welcomeArray} />
-        <View style={styles.content}>
-          <View>
+        <View style={styles.container}>
+          <View style={styles.topContainer}>
             <FastImage style={styles.tmdbLogo} source={images.tmdbLogo} resizeMode="contain" />
             <AppText style={styles.welcomeText} type="title1">
               Welcome to Movie Swiper
@@ -58,34 +58,17 @@ class AuthWelcome extends React.Component<Props> {
               Powered by The Movie Database
             </AppText>
           </View>
-
-          <AppButton onlyText style={styles.guestButton} color={theme.gray.lighter} onPress={this.onGuestLoginPress}>
-            Continue as Guest
-          </AppButton>
+          <View style={styles.bottomContainer}>
+            <TextButton
+              text="Continue as Guest"
+              style={styles.guestButton}
+              color={theme.gray.lighter}
+              onPress={this.onGuestLoginPress}
+            />
+            <PrimaryButton stretch text="Log In" style={styles.button} onPress={this.onLoginPress} />
+            <SecondaryButton stretch text="Sign Up" style={styles.button} onPress={this.onSignUpPress} />
+          </View>
         </View>
-        <View style={styles.buttonContainer}>
-          <AppButton
-            solid
-            toScale={false}
-            style={styles.button}
-            textStyle={styles.buttonText}
-            color={theme.colors.success}
-            onPress={this.onLoginPress}
-          >
-            Log In
-          </AppButton>
-          <AppButton
-            solid
-            toScale={false}
-            style={styles.button}
-            textStyle={styles.buttonText}
-            color={theme.colors.info}
-            onPress={this.onSignUpPress}
-          >
-            Sign Up
-          </AppButton>
-        </View>
-
         <PageSpinner visible={createGuestSessionPending} />
       </View>
     );
@@ -93,9 +76,15 @@ class AuthWelcome extends React.Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  content: {
-    flex: 7,
+  container: {
+    flex: 1,
     justifyContent: 'space-between',
+  },
+  topContainer: {
+    marginTop: 60,
+  },
+  bottomContainer: {
+    marginBottom: 35,
   },
   opacityCircler: {
     ...StyleSheet.absoluteFillObject,
@@ -114,20 +103,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   guestButton: {
-    height: 48,
+    height: 42,
     alignSelf: 'center',
-    paddingHorizontal: theme.spacing.base,
-  },
-  buttonContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: theme.gray.darkest,
   },
   button: {
-    flex: 1,
-  },
-  buttonText: {
-    fontSize: 26,
+    marginBottom: theme.spacing.tiny,
   },
 });
 

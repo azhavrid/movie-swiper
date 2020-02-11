@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { View, StyleSheet, ScrollView } from 'react-native';
 
-import { AppButton, PageSpinner } from '../../components/common';
+import { PageSpinner, PrimaryButton, TextButton } from '../../components/common';
 import LoginInput from '../../components/LoginInput';
 import { createAuthenticatedSessionRequest } from '../../redux/auth/actions';
 import { RootState } from '../../redux/types';
@@ -84,7 +84,7 @@ class AuthLogin extends React.Component<Props, State> {
           <LoginInput
             label="Username"
             value={username}
-            errorText={createAuthenticatedSessionError && createAuthenticatedSessionError.message}
+            errorText={createAuthenticatedSessionError && ' '}
             onChangeText={this.onUsernameTextChange}
           />
           <LoginInput
@@ -92,15 +92,16 @@ class AuthLogin extends React.Component<Props, State> {
             textContentType="password"
             secureTextEntry={true}
             value={password}
-            errorText={createAuthenticatedSessionError && createAuthenticatedSessionError.message}
+            errorText={createAuthenticatedSessionError?.message}
             onChangeText={this.onPasswordTextChange}
           />
-          <AppButton style={styles.loginButton} onPress={this.onLoginPress}>
-            LOG IN
-          </AppButton>
-          <AppButton onlyText style={styles.forgotButton} color={theme.gray.lighter} onPress={this.onForgotPress}>
-            Forgot the password?
-          </AppButton>
+          <PrimaryButton stretch text="LOG IN" style={styles.loginButton} onPress={this.onLoginPress} />
+          <TextButton
+            text="Forgot the password?"
+            style={styles.forgotButton}
+            color={theme.gray.lighter}
+            onPress={this.onForgotPress}
+          />
         </ScrollView>
 
         <PageSpinner visible={createAuthenticatedSessionPending} />
@@ -113,10 +114,8 @@ const styles = StyleSheet.create({
   scrollContentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: theme.spacing.small,
   },
   loginButton: {
-    alignSelf: 'stretch',
     marginVertical: theme.spacing.tiny,
   },
   forgotButton: {

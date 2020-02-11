@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { withNavigation, NavigationInjectedProps } from 'react-navigation';
 import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
-import { AppText, AppButton } from '../common';
+import { AppText, TextButton } from '../common';
 import { routeNames } from '../../routes/routeNames';
 import { getFontStyle } from '../../utils/fonts';
 import { theme } from '../../theme';
@@ -40,9 +40,12 @@ class SectionHorizontalScroll extends React.PureComponent<Props> {
           <AppText style={styles.title} type="title2">
             {title}
           </AppText>
-          <AppButton onlyText style={styles.moreButton} textStyle={styles.moreButtonText} onPress={this.onMorePress}>
-            MORE
-          </AppButton>
+          <TextButton
+            text="MORE"
+            style={styles.moreButton}
+            textStyle={styles.moreButtonText}
+            onPress={this.onMorePress}
+          />
         </View>
         <MoviesHorizontalFlatList movieIds={movieIds} />
       </View>
