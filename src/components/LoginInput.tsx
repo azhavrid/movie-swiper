@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     marginVertical: theme.spacing.tiny,
+    marginHorizontal: theme.spacing.small,
   },
   label: {
     ...getFontStyle({ weight: 'Bold' }),
