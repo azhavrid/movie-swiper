@@ -37,6 +37,7 @@ const rootConfig = {
 export const persistedReducer = persistReducer(rootConfig, combinedReducers);
 
 /* ------------- Logout Reducer ------------- */
+// List of sub stores that are not cleared after logout
 const persistReducersAfterLogoutKeys: Partial<ReducersKey>[] = ['network', '_persist'];
 
 const logoutReducer = (inputState: RootState, action: RootAction): RootState => {
