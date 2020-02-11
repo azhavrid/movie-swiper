@@ -42,17 +42,17 @@ const BottomTabs = createBottomTabNavigator(
   {
     [tabNames.browse]: {
       screen: createDefaultStackNavigator({
-        BrowseScreen,
+        [tabNames.browse]: BrowseScreen,
         [routeNames.SectionListScreen]: SectionListScreen,
         [routeNames.MovieDetailsScreen]: MovieDetailsScreen,
       }),
     },
     [tabNames.explore]: {
-      screen: createDefaultStackNavigator({ ExploreScreen }),
+      screen: createDefaultStackNavigator({ [tabNames.explore]: ExploreScreen }),
     },
     [tabNames.library]: {
       screen: createDefaultStackNavigator({
-        LibraryScreen,
+        [tabNames.library]: LibraryScreen,
         [routeNames.Settings]: SettingsScreen,
         [routeNames.SectionListScreen]: SectionListScreen,
         [routeNames.MovieDetailsScreen]: MovieDetailsScreen,
