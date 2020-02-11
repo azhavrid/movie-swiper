@@ -12,13 +12,13 @@ import { Section } from './types';
 import { AxiosResponse } from 'axios';
 import { MovieListApiResponse } from '../../api/movies';
 import { sectionData } from './sectionData';
-import { addMovies } from '../movies/actions';
 import { userIdParamsSelector } from '../auth/selectors';
 import { UserIdsParams } from '../../api/types';
-import { normalizeMovies, isLastMovieList } from '../../utils/movies';
+import { isLastMovieList } from '../../utils/movies';
 import { handleNetworkReduxError } from '../network/actions';
 import { isSameSectionRequest } from './utils';
 import { FETCH_SECTION_NEXT_PAGE } from './constants';
+import { normalizeAndAddMovies } from '../movies/helpers';
 
 export function* refreshSectionRequestSaga(action: RefreshSectionRequest) {
   try {
@@ -27,9 +27,7 @@ export function* refreshSectionRequestSaga(action: RefreshSectionRequest) {
     const userIds: UserIdsParams = yield select(userIdParamsSelector);
     const { data }: AxiosResponse<MovieListApiResponse> = yield call(fetchFunction, { page: 1, ...userIds });
 
-    const movies = normalizeMovies(data.results);
-    const movieIds = movies.map(movie => movie.id);
-    yield put(addMovies(movies));
+    const { movieIds } = normalizeAndAddMovies(data.results);
 
     yield put(refreshSectionSuccess({ sectionKey, movieIds, isLastPage: isLastMovieList(data) }));
   } catch (error) {
@@ -69,10 +67,7 @@ export function* fetchSectionNextPageSaga(action: FetchSectionNextPage) {
     const isRelevantUpdate = requestTime.isAfter(lastUpdated);
 
     if (isRelevantUpdate) {
-      const movies = normalizeMovies(data.results);
-      const movieIds = movies.map(movie => movie.id);
-      yield put(addMovies(movies));
-
+      const { movieIds } = normalizeAndAddMovies(data.results);
       yield put(fetchSectionNextPageSuccess({ sectionKey, movieIds, isLastPage: isLastMovieList(data) }));
     }
   } catch (error) {

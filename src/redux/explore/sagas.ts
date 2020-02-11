@@ -12,11 +12,10 @@ import { UserIdsParams } from '../../api/types';
 import { userIdParamsSelector } from '../auth/selectors';
 import { getPopularMoviesApi, MovieListApiResponse } from '../../api/movies';
 import { AxiosResponse } from 'axios';
-import { addMovies } from '../movies/actions';
 import { exploreMovieIdsSelector, isExploreLoadingSelector, exploredSeenIdsMapSelector } from './selectors';
 import { MovieId } from '../movies/types';
-import { normalizeMovies } from '../../utils/movies';
 import { handleNetworkReduxError } from '../network/actions';
+import { normalizeAndAddMovies } from '../movies/helpers';
 
 const isEnoughMovies = (movieIds: MovieId[]) => movieIds.length > 10;
 
@@ -55,10 +54,7 @@ export function* exploreMoviesLoadSaga(action: ExploreMoviesLoad) {
 
       const seenIdsMap: ReturnType<typeof exploredSeenIdsMapSelector> = yield select(exploredSeenIdsMapSelector);
       const unexploredMovies = data.results.filter(notNormalizedMovie => !seenIdsMap[notNormalizedMovie.id]);
-
-      const movies = normalizeMovies(unexploredMovies);
-      const movieIds = movies.map(movie => movie.id);
-      yield put(addMovies(movies));
+      const { movieIds } = normalizeAndAddMovies(unexploredMovies);
 
       accumulateMovieIds.push(...movieIds);
     }

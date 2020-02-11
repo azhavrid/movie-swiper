@@ -4,7 +4,6 @@ import {
   fetchMovieRecommendationsSuccess,
   FetchMovieRecommendationsRequest,
   FetchDetailedMovieRequest,
-  addMovies,
   fetchDetailedMovieSuccess,
   ChangeMovieStatusRequest,
   changeMovieStatusSuccess,
@@ -22,8 +21,8 @@ import {
 } from '../../api/movies';
 import { UserIdsParams, MovieDetailed } from '../../api/types';
 import { userIdParamsSelector } from '../auth/selectors';
-import { normalizeMovies } from '../../utils/movies';
 import { handleNetworkReduxError } from '../network/actions';
+import { normalizeAndAddMovies } from './helpers';
 
 export function* fetchDetailedMovieSaga(action: FetchDetailedMovieRequest) {
   const { movieId, onSuccess, onError } = action;
@@ -67,9 +66,7 @@ export function* fetchMovieRecommendationsSaga(action: FetchMovieRecommendations
       page: 1,
     });
 
-    const movies = normalizeMovies(data.results);
-    const movieIds = movies.map(movie => movie.id);
-    yield put(addMovies(movies));
+    const { movieIds } = normalizeAndAddMovies(data.results);
 
     yield put(fetchMovieRecommendationsSuccess({ movieId, recommendedMovieIds: movieIds }));
     onSuccess && onSuccess();

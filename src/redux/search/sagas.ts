@@ -14,14 +14,13 @@ import {
 } from './actions';
 import { MovieListApiResponse, getMoviesBySearchQueryApi } from '../../api/movies';
 import { AxiosResponse } from 'axios';
-import { addMovies } from '../movies/actions';
 import {
   searchTextSelector,
   searchCurrentPageSelector,
   searchLastUpdatedSelector,
   isSearchPaginationPendingSelector,
 } from './selectors';
-import { normalizeMovies, isLastMovieList } from '../../utils/movies';
+import { isLastMovieList } from '../../utils/movies';
 import { handleNetworkReduxError, clearReduxActionsFromQueue } from '../network/actions';
 import {
   SEARCH_MOVIES_PAGINATION_FETCH,
@@ -29,6 +28,7 @@ import {
   SEARCH_TEXT_CHANGED,
   SEARCH_MOVIES_SUCCESS,
 } from './constants';
+import { normalizeAndAddMovies } from '../movies/helpers';
 
 export function* searchTextChangedSaga({ query }: SearchTextChanged) {
   if (query.length === 0) {
@@ -54,9 +54,7 @@ export function* searchMoviesSaga(action: SearchMoviesRequest) {
 
     const { data }: AxiosResponse<MovieListApiResponse> = yield call(getMoviesBySearchQueryApi, { page: 1, query });
 
-    const movies = normalizeMovies(data.results);
-    const movieIds = movies.map(movie => movie.id);
-    yield put(addMovies(movies));
+    const { movieIds } = normalizeAndAddMovies(data.results);
 
     yield put(searchMoviesSuccess(movieIds, isLastMovieList(data)));
   } catch (error) {
@@ -95,10 +93,7 @@ export function* searchMoviesPaginationFetchSaga(action: SearchMoviesPaginationF
     const isRelevantUpdate = requestTime.isAfter(lastUpdated);
 
     if (isRelevantUpdate) {
-      const movies = normalizeMovies(data.results);
-      const movieIds = movies.map(movie => movie.id);
-      yield put(addMovies(movies));
-
+      const { movieIds } = normalizeAndAddMovies(data.results);
       yield put(searchMoviesPaginationSuccess(movieIds, isLastMovieList(data)));
     }
   } catch (error) {
