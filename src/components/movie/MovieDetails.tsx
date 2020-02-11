@@ -32,7 +32,10 @@ class MovieDetails extends React.PureComponent<Props> {
     return isRecommendationsEmpty ? (
       this.renderEmptyRecommendations()
     ) : (
-      <MoviesHorizontalFlatList movieIds={recommendations || []} />
+      <MoviesHorizontalFlatList
+        movieIds={recommendations || []}
+        moviePreviewAdditionalProps={{ withRatingBadge: true }}
+      />
     );
   };
 

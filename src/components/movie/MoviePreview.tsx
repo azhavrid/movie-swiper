@@ -3,7 +3,7 @@ import { withNavigation, NavigationInjectedProps } from 'react-navigation';
 import FastImage from 'react-native-fast-image';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import uuid from 'uuid';
-import { TouchableScale } from '../common';
+import { TouchableScale, AppText } from '../common';
 import { routeNames } from '../../routes/routeNames';
 import { theme } from '../../theme';
 import { getW185ImageUrl } from '../../api/urls';
@@ -19,9 +19,10 @@ const previewWidth = width * 0.27;
 export const getMoviePreviewHeight = () => previewWidth / theme.specifications.posterAspectRation;
 
 /* ------------- Props and State ------------- */
-type OwnProps = {
+export type OwnProps = {
   movieId?: MovieId;
   highPriority?: boolean;
+  withRatingBadge?: boolean;
 };
 
 type MapStateToProps = ReturnType<typeof makeMapStateToProps>;
@@ -39,12 +40,31 @@ class MoviePreview extends React.PureComponent<Props> {
     navigation.navigate({ routeName: routeNames.MovieDetailsScreen, params, key: `${movieId}_${uuid.v4()}` });
   };
 
+  renderRatingBadge = () => {
+    const { movie } = this.props;
+    const { vote_average } = movie;
+    const badgeColor = vote_average >= 7 ? theme.colors.success : theme.gray.light;
+
+    return (
+      vote_average && (
+        <View style={[styles.ratingBadge, { backgroundColor: badgeColor }]}>
+          <AppText type="caption2">{vote_average.toFixed(1)}</AppText>
+        </View>
+      )
+    );
+  };
+
   renderMoviePreview() {
-    const { movie, highPriority } = this.props;
+    const { movie, highPriority, withRatingBadge } = this.props;
     if (!movie) return;
 
     const priority = highPriority ? FastImage.priority.high : FastImage.priority.normal;
-    return <FastImage style={styles.image} source={{ uri: getW185ImageUrl(movie.poster_path), priority }} />;
+    return (
+      <>
+        <FastImage style={styles.image} source={{ uri: getW185ImageUrl(movie.poster_path), priority }} />
+        {withRatingBadge && this.renderRatingBadge()}
+      </>
+    );
   }
 
   renderEmptyMoviePreview = () => <View style={styles.image} />;
@@ -69,6 +89,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: theme.colors.transparentBlack,
   },
+  ratingBadge: {
+    position: 'absolute',
+    left: -6,
+    top: '15%',
+    borderRadius: 4,
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+  },
 });
 
 const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
@@ -83,4 +111,4 @@ const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
 
 const mapDispatchToProps = {};
 
-export default connect(makeMapStateToProps, mapDispatchToProps)(withNavigation(MoviePreview));
+export default withNavigation(connect(makeMapStateToProps, mapDispatchToProps)(MoviePreview));

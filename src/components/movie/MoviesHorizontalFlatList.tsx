@@ -2,7 +2,7 @@ import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import times from 'lodash/times';
 
-import MoviePreview from './MoviePreview';
+import MoviePreview, { OwnProps as MoviePreviewProps } from './MoviePreview';
 import { theme } from '../../theme';
 import { movieIdsKeyExtractor } from '../../utils/movies';
 import { MovieId } from '../../redux/movies/types';
@@ -10,12 +10,13 @@ import { MovieId } from '../../redux/movies/types';
 /* ------------- Props and State ------------- */
 type Props = {
   movieIds: MovieId[];
+  moviePreviewAdditionalProps?: Partial<MoviePreviewProps>;
 };
 
 /* ------------- Class ------------- */
 class MoviesHorizontalList extends React.PureComponent<Props> {
   renderPreview = ({ item, index }: { item: MovieId; index: number }) => (
-    <MoviePreview movieId={item} highPriority={index < 5} />
+    <MoviePreview movieId={item} highPriority={index < 5} {...this.props.moviePreviewAdditionalProps} />
   );
 
   renderEmptyContainer = () => (
