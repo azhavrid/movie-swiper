@@ -4,9 +4,7 @@ import FastImage from 'react-native-fast-image';
 import { View, StyleSheet, Dimensions } from 'react-native';
 import uuid from 'uuid';
 import { TouchableScale } from '../common';
-// import MovieDetailsScreen from '../../screens/Movie/MovieDetailsScreen';
 import { routeNames } from '../../routes/routeNames';
-// import { getW185ImageUrl } from '../../api/urls';
 import { theme } from '../../theme';
 import { getW185ImageUrl } from '../../api/urls';
 import { MovieDetailsScreenNavigationParams } from '../../screens/movie/MovieDetailsScreen';
@@ -63,7 +61,7 @@ class MoviePreview extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: theme.spacing.tiny,
+    marginHorizontal: theme.spacing.tiny,
   },
   image: {
     width: previewWidth,
@@ -85,4 +83,4 @@ const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
 
 const mapDispatchToProps = {};
 
-export default withNavigation(connect(makeMapStateToProps, mapDispatchToProps)(MoviePreview));
+export default connect(makeMapStateToProps, mapDispatchToProps)(withNavigation(MoviePreview));
