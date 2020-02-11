@@ -12,6 +12,7 @@ import { RootState } from '../../redux/types';
 import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { connect } from 'react-redux';
 import { MovieId } from '../../redux/movies/types';
+import { isGoodMovieRating } from '../../utils/movies';
 
 /* ------------- Local ------------- */
 const { width } = Dimensions.get('window');
@@ -43,7 +44,7 @@ class MoviePreview extends React.PureComponent<Props> {
   renderRatingBadge = () => {
     const { movie } = this.props;
     const { vote_average } = movie;
-    const badgeColor = vote_average >= 7 ? theme.colors.success : theme.gray.light;
+    const badgeColor = isGoodMovieRating(vote_average) ? theme.colors.success : theme.gray.light;
 
     return (
       vote_average && (

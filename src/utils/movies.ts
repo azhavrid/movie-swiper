@@ -22,6 +22,10 @@ export const requiredMovieProps: MovieRequiredPropsKey[] = [
   'backdrop_path',
 ];
 
+export const isGoodMovieRating = (rating: number) => rating >= 7;
+export const isNormalMovieRating = (rating: number) => rating >= 5;
+export const isBadMovieRating = (rating: number) => rating < 5;
+
 export const isLastMovieList = (data: MovieListApiResponse) => data.page >= data.total_pages;
 
 const isEnoughMovieInfo = (movie: MovieApiResponse) => requiredMovieProps.every(prop => !!movie[prop]);

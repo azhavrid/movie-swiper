@@ -4,6 +4,7 @@ import { AppText } from '../common';
 import { getFontStyle } from '../../utils/fonts';
 import { theme } from '../../theme';
 import { Movie } from '../../redux/movies/types';
+import { isNormalMovieRating, isGoodMovieRating } from '../../utils/movies';
 
 /* ------------- Props and State ------------- */
 type Props = {
@@ -15,7 +16,7 @@ type Props = {
 class MovieUserScore extends React.Component<Props> {
   getScoreColorStyle(score: number) {
     const { success, danger, warning } = theme.colors;
-    const color = score > 7 ? success : score > 5 ? warning : danger;
+    const color = isGoodMovieRating(score) ? success : isNormalMovieRating(score) ? warning : danger;
     return { color };
   }
 
