@@ -19,7 +19,6 @@ type OwnProps = {
 type Props = OwnProps & FastImageProperties;
 
 /* ------------- Class ------------- */
-// TODO: Use reanimated for animation, check if properly displayed
 const ProgressiveImage = (props: Props) => {
   const { style, source, imageStyle, thumbnailSource, onLoad, ...otherProps } = props;
   const [isImageShown, setIsImageShown] = useState(false);

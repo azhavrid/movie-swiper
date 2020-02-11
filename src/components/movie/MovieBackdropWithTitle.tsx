@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   image: {
     width,
     height: movieBackdropWithTitleHeight,
+    backgroundColor: theme.colors.transparentBlack,
   },
   titleWrapper: {
     position: 'absolute',
