@@ -1,11 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
 import MovieSearchWrapper from '../components/movie/MovieSearchWrapper';
-import { globalStyles } from '../globalStyles';
 import BrowseSections from '../components/movie/BrowseSections';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type Props = NavigationStackScreenProps<{}>;
@@ -14,11 +13,11 @@ type Props = NavigationStackScreenProps<{}>;
 class Browse extends React.Component<Props> {
   render() {
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <MovieSearchWrapper>
           <BrowseSections />
         </MovieSearchWrapper>
-      </View>
+      </ScreenWrapper>
     );
   }
 }

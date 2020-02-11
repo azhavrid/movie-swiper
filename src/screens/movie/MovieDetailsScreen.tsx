@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, InteractionManager } from 'react-native';
+import { InteractionManager } from 'react-native';
 import Animated from 'react-native-reanimated';
 import MovieDetails from '../../components/movie/MovieDetails';
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
 
 import { MovieId } from '../../redux/movies/types';
-import { globalStyles } from '../../globalStyles';
 import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
 import { RootState } from '../../redux/types';
 import { getMovieSelectorById } from '../../redux/movies/selectors';
@@ -16,7 +15,7 @@ import {
   fetchMovieAccountStateRequest,
 } from '../../redux/movies/actions';
 import { connect } from 'react-redux';
-import { withNavigationFocus, NavigationFocusInjectedProps } from 'react-navigation';
+import ScreenWrapper from '../../components/ScreenWrapper';
 
 /* ------------- Local ------------- */
 const { Value } = Animated;
@@ -63,9 +62,9 @@ class MovieDetailsScreen extends React.PureComponent<Props> {
     const { movie } = this.props;
 
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <MovieDetails movie={movie} />
-      </View>
+      </ScreenWrapper>
     );
   }
 }

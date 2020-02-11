@@ -1,12 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { RootState } from '../redux/types';
 import { userSelector } from '../redux/auth/selectors';
 import { routeNames } from '../routes/routeNames';
-import { globalStyles } from '../globalStyles';
 import { NavigationSwitchScreenProps } from 'react-navigation';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
@@ -21,7 +20,7 @@ class Splash extends React.Component<Props> {
   }
 
   render() {
-    return <View style={globalStyles.screenContainer} />;
+    return <ScreenWrapper />;
   }
 }
 

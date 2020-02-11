@@ -16,8 +16,8 @@ import { routeNames } from '../../routes/routeNames';
 import { theme } from '../../theme';
 import images from '../../images';
 import { createGuestSessionPendingSelector } from '../../redux/auth/selectors';
-import { globalStyles } from '../../globalStyles';
 import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import ScreenWrapper from '../../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
@@ -46,7 +46,7 @@ class AuthWelcome extends React.Component<Props> {
     const { createGuestSessionPending } = this.props;
 
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <ImageOpacityCycler style={styles.opacityCircler} images={images.welcomeArray} />
         <View style={styles.container}>
           <View style={styles.topContainer}>
@@ -70,7 +70,7 @@ class AuthWelcome extends React.Component<Props> {
           </View>
         </View>
         <PageSpinner visible={createGuestSessionPending} />
-      </View>
+      </ScreenWrapper>
     );
   }
 }

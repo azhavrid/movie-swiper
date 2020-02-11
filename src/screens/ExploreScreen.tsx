@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View } from 'react-native';
 import { StatusBarSpacer } from '../components/common';
 import ExploreMovieDeck from '../components/movie/ExploreMovieDeck';
 import GuestInfo from '../components/GuestInfo';
@@ -9,8 +8,8 @@ import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
 import { RootState } from '../redux/types';
 import AuthenticatedLock from '../components/AuthenticatedLock';
 import { isAuthenticatedUserSelector } from '../redux/auth/selectors';
-import { globalStyles } from '../globalStyles';
 import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type OwnNavigationProps = { isAuthenticatedUser?: boolean };
@@ -32,12 +31,12 @@ class Explore extends React.Component<Props> {
 
   render() {
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <AuthenticatedLock placeholder={<GuestInfo />}>
           <StatusBarSpacer />
           <ExploreMovieDeck />
         </AuthenticatedLock>
-      </View>
+      </ScreenWrapper>
     );
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 import { PageSpinner, PrimaryButton, TextButton } from '../../components/common';
 import LoginInput from '../../components/LoginInput';
@@ -15,8 +15,8 @@ import {
   createAuthenticatedSessionErrorSelector,
   userSelector,
 } from '../../redux/auth/selectors';
-import { globalStyles } from '../../globalStyles';
 import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import ScreenWrapper from '../../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
@@ -79,7 +79,7 @@ class AuthLogin extends React.Component<Props, State> {
     const { username, password } = this.state;
     const { createAuthenticatedSessionPending, createAuthenticatedSessionError } = this.props;
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <ScrollView contentContainerStyle={styles.scrollContentContainer}>
           <LoginInput
             label="Username"
@@ -105,7 +105,7 @@ class AuthLogin extends React.Component<Props, State> {
         </ScrollView>
 
         <PageSpinner visible={createAuthenticatedSessionPending} />
-      </View>
+      </ScreenWrapper>
     );
   }
 }

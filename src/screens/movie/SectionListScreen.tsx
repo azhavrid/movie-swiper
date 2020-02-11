@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import MovieList from '../../components/movie/MovieList';
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
 
@@ -9,8 +8,8 @@ import { RootState } from '../../redux/types';
 import { refreshSectionRequest, fetchSectionNextPageRequest } from '../../redux/sections/actions';
 import { SectionId } from '../../redux/sections/types';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
-import { globalStyles } from '../../globalStyles';
 import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
+import ScreenWrapper from '../../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 export interface SectionListScreenNavigationParams {
@@ -48,7 +47,7 @@ class SectionListScreen extends React.Component<Props> {
     const { section } = this.props;
     const { movieIds, isRefreshing, isPaginationPending } = section;
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <MovieList
           movieIds={movieIds}
           showFullscreenLoading={isRefreshing && movieIds.length === 0}
@@ -57,7 +56,7 @@ class SectionListScreen extends React.Component<Props> {
           onRefresh={this.onRefresh}
           onEndReached={this.onEndReached}
         />
-      </View>
+      </ScreenWrapper>
     );
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { TouchableScale } from '../components/common';
 import BlockButton from '../components/BlockButton';
 import GuestInfo from '../components/GuestInfo';
@@ -11,9 +10,9 @@ import AuthenticatedLock from '../components/AuthenticatedLock';
 import { sectionData, librarySectionsKeys } from '../redux/sections/sectionData';
 import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
 import { LibrarySectionId } from '../redux/sections/types';
-import { globalStyles } from '../globalStyles';
-import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
+import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import NavigationService from '../routes/NavigationService';
+import ScreenWrapper from '../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */
 type NavigationProps = NavigationStackScreenProps<{}>;
@@ -53,9 +52,9 @@ class Library extends React.PureComponent<Props> {
 
   render() {
     return (
-      <View style={globalStyles.screenContainer}>
+      <ScreenWrapper>
         <AuthenticatedLock placeholder={<GuestInfo />}>{this.renderLibrarySections()}</AuthenticatedLock>
-      </View>
+      </ScreenWrapper>
     );
   }
 }
