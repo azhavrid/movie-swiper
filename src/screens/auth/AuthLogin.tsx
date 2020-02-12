@@ -95,7 +95,7 @@ class AuthLogin extends React.Component<Props, State> {
             errorText={createAuthenticatedSessionError?.message}
             onChangeText={this.onPasswordTextChange}
           />
-          <PrimaryButton stretch text="LOG IN" style={styles.loginButton} onPress={this.onLoginPress} />
+          <PrimaryButton stretch text="Log In" style={styles.loginButton} onPress={this.onLoginPress} />
           <TextButton
             text="Forgot the password?"
             style={styles.forgotButton}
