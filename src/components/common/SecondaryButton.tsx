@@ -12,6 +12,7 @@ const SecondaryButton: React.FC<Props> = props => {
   return (
     <PrimaryButton
       style={[styles.button, style]}
+      color={color}
       textStyle={StyleSheet.flatten([{ color }, textStyle])}
       {...otherProps}
     >
