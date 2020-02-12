@@ -25,7 +25,7 @@ const PrimaryButton: React.FC<Props> = props => {
       {...otherProps}
     >
       {text && (
-        <AppText style={[styles.text, textStyle]} type="button">
+        <AppText style={[styles.text, textStyle]} type="button" numberOfLines={1}>
           {text}
         </AppText>
       )}
@@ -37,7 +37,8 @@ const PrimaryButton: React.FC<Props> = props => {
 const styles = StyleSheet.create({
   button: {
     minWidth: 140,
-    borderRadius: 10,
+    height: 60,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -46,7 +47,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 26,
   },
   text: {
-    paddingVertical: 16,
     paddingHorizontal: theme.spacing.small,
     color: theme.gray.lightest,
   },
