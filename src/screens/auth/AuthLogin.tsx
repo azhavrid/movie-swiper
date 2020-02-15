@@ -83,6 +83,7 @@ class AuthLogin extends React.Component<Props, State> {
         <ScrollView contentContainerStyle={styles.scrollContentContainer}>
           <LoginInput
             label="Username"
+            style={styles.usernameInput}
             value={username}
             errorText={createAuthenticatedSessionError && ' '}
             onChangeText={this.onUsernameTextChange}
@@ -114,6 +115,9 @@ const styles = StyleSheet.create({
   scrollContentContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  usernameInput: {
+    marginTop: theme.spacing.small,
   },
   loginButton: {
     marginVertical: theme.spacing.tiny,
