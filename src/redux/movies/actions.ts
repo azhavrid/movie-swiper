@@ -14,6 +14,7 @@ export interface FetchMovieRecommendationsSuccess extends ReturnType<typeof fetc
 export interface ChangeMovieStatusRequest extends ReturnType<typeof changeMovieStatusRequest> {}
 export interface ChangeMovieStatusSuccess extends ReturnType<typeof changeMovieStatusSuccess> {}
 export interface ChangeMovieStatusFailure extends ReturnType<typeof changeMovieStatusFailure> {}
+export interface FilterUnusedMovieData extends ReturnType<typeof filterUnusedMovieData> {}
 
 export type MoviesAction =
   | AddMovies
@@ -25,7 +26,8 @@ export type MoviesAction =
   | FetchMovieRecommendationsSuccess
   | ChangeMovieStatusRequest
   | ChangeMovieStatusSuccess
-  | ChangeMovieStatusFailure;
+  | ChangeMovieStatusFailure
+  | FilterUnusedMovieData;
 
 /* ------------- Others ------------- */
 interface ChangeMovieStatusParams {
@@ -92,5 +94,11 @@ export const changeMovieStatusSuccess = (params: ChangeMovieStatusParams) =>
 export const changeMovieStatusFailure = (params: ChangeMovieStatusParams) =>
   <const>{
     type: movieConstants.CHANGE_MOVIE_STATUS_FAILURE,
+    ...params,
+  };
+
+export const filterUnusedMovieData = (params: { movieIds: MovieId[] }) =>
+  <const>{
+    type: movieConstants.FILTER_UNUSED_MOVIE_DATA,
     ...params,
   };

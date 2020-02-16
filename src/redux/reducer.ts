@@ -31,7 +31,7 @@ const combinedReducers = combineReducers(reducers);
 const rootConfig = {
   storage: AsyncStorage,
   key: 'root',
-  whitelist: ['auth', 'explore'],
+  whitelist: ['auth', 'explore', 'movies'],
 };
 
 export const persistedReducer = persistReducer(rootConfig, combinedReducers);

@@ -1,3 +1,4 @@
+import pickBy from 'lodash/pickBy';
 import keyBy from 'lodash/keyBy';
 import {
   MoviesAction,
@@ -11,6 +12,7 @@ import {
   ChangeMovieStatusFailure,
   FetchMovieAccountStateRequest,
   FetchMovieAccountStateSuccess,
+  FilterUnusedMovieData,
 } from './actions';
 import * as movieConstants from './constants';
 import { MovieId, Movie } from './types';
@@ -115,6 +117,12 @@ const changeMovieStatusFailure = (state: MovieState, action: ChangeMovieStatusFa
   };
 };
 
+const filterUnusedMovieData = (state: MovieState, action: FilterUnusedMovieData): MovieState => {
+  const { movieIds: persistMovieIds } = action;
+  const filteredState = pickBy(state, movie => persistMovieIds.includes(movie.id));
+  return filteredState;
+};
+
 const moviesReducer = (state: MovieState | undefined = initialState, action: MoviesAction): MovieState => {
   switch (action.type) {
     case movieConstants.ADD_MOVIES:
@@ -137,6 +145,8 @@ const moviesReducer = (state: MovieState | undefined = initialState, action: Mov
       return changeMovieStatusSuccess(state, action);
     case movieConstants.CHANGE_MOVIE_STATUS_FAILURE:
       return changeMovieStatusFailure(state, action);
+    case movieConstants.FILTER_UNUSED_MOVIE_DATA:
+      return filterUnusedMovieData(state, action);
     default:
       return state;
   }

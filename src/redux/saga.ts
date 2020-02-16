@@ -9,6 +9,8 @@ import * as moviesConstants from './movies/constants';
 import * as moviesSagas from './movies/sagas';
 import * as networkConstants from './network/constants';
 import * as networkSagas from './network/sagas';
+import * as rehydrateConstants from './rehydrate/constants';
+import * as rehydrateSagas from './rehydrate/sagas';
 import * as searchConstants from './search/constants';
 import * as searchSagas from './search/sagas';
 import * as sectionsConstants from './sections/constants';
@@ -32,6 +34,8 @@ export function* rootSaga(): SagaIterator {
     takeLatest(networkConstants.INITIATE_NETWORK_MONITORING, networkSagas.initiateNetworkMonitoringSaga),
     takeLatest(networkConstants.STOP_NETWORK_MONITORING, networkSagas.stopNetworkMonitoringSaga),
     takeLatest(networkConstants.HANDLE_NETWORK_REDUX_ERROR, networkSagas.handleNetworkReduxErrorSaga),
+
+    takeLatest(rehydrateConstants.AFTER_REHYDRATE, rehydrateSagas.afterRehydrateSaga),
 
     takeLatest(searchConstants.SEARCH_TEXT_CHANGED, searchSagas.searchTextChangedSaga),
     takeLatest(searchConstants.CLEAR_SEARCH_RESULTS, searchSagas.clearSearchResultsSaga),
