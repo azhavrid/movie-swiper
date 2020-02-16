@@ -15,7 +15,6 @@ import { getW780ImageUrl, getW92ImageUrl } from '../../api/urls';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type OwnProps = {
   movieId: MovieId;
-  disabled?: boolean;
 };
 type Props = OwnProps & ReduxProps;
 
@@ -26,7 +25,7 @@ const initialState = {
 };
 
 /* ------------- Class ------------- */
-class MovieCard extends React.Component<Props, State> {
+class MovieCard extends React.PureComponent<Props, State> {
   state = initialState;
   isAnimating = false;
   detailsVisibilityAnimatedValue = new Animated.Value(0);
@@ -112,8 +111,8 @@ class MovieCard extends React.Component<Props, State> {
       <TouchableWithoutFeedback onPress={this.onCardPress}>
         <View style={styles.container}>
           {this.renderPosterImage()}
-          <InnerShadow position="top" style={styles.topCurved} startOpacity={0.5} size={80} />
-          <InnerShadow position="bottom" style={styles.bottomCurved} startOpacity={0.5} size={100} />
+          <InnerShadow position="top" startOpacity={0.5} size={80} />
+          <InnerShadow position="bottom" startOpacity={0.5} size={100} />
           {isExpanded && this.renderMovieDetails()}
         </View>
       </TouchableWithoutFeedback>
@@ -132,15 +131,6 @@ const styles = StyleSheet.create({
   card: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: theme.gray.dark,
-    // borderRadius: borderRadius,
-  },
-  topCurved: {
-    // borderTopLeftRadius: borderRadius,
-    // borderTopRightRadius: borderRadius,
-  },
-  bottomCurved: {
-    // borderBottomLeftRadius: borderRadius,
-    // borderBottomRightRadius: borderRadius,
   },
   detailsContainer: {
     ...StyleSheet.absoluteFillObject,

@@ -26,7 +26,7 @@ class MovieDeck extends React.PureComponent<Props> {
 
   renderMovieCard = (movieId: MovieId, { isTopCard, swipeThresholds }: RenderCardParams) => (
     <>
-      <MovieCard movieId={movieId} disabled={!isTopCard} />
+      <MovieCard movieId={movieId} />
       {isTopCard && swipeThresholds && <MovieCardSwipeLabels swipeThresholds={swipeThresholds} />}
     </>
   );
@@ -38,7 +38,6 @@ class MovieDeck extends React.PureComponent<Props> {
       <Deck
         data={movieIds}
         keyExtractor={movieIdsKeyExtractor}
-        style={styles.deck}
         renderCard={this.renderMovieCard}
         renderNoMoreCards={this.renderNoMoreCards}
         onSwipedLeft={onSwipedLeft}
@@ -48,12 +47,5 @@ class MovieDeck extends React.PureComponent<Props> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  deck: {
-    flex: 1,
-    margin: 14,
-  },
-});
 
 export default MovieDeck;

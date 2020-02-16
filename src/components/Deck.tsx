@@ -36,7 +36,6 @@ type Props<ItemT> = {
   data: ItemT[];
   keyExtractor: (item: ItemT) => string;
   renderCard: (item: ItemT, params: RenderCardParams) => React.ReactElement;
-  style?: ViewStyle;
   renderNoMoreCards?: () => React.ReactElement;
 
   onSwipeStart?: (item: ItemT) => void;
@@ -192,7 +191,7 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
         onGestureEvent={this.onPanGestureEvent}
         onHandlerStateChange={this.onPanGestureStateChange}
       >
-        <Animated.View key={keyExtractor(item)} style={[styles.topCardStyle, this.getTopCardAnimatedStyle()]}>
+        <Animated.View style={[styles.topCardStyle, this.getTopCardAnimatedStyle()]}>
           {renderCard(item, params)}
         </Animated.View>
       </PanGestureHandler>
@@ -225,17 +224,12 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
       .reverse();
   };
 
-  renderNoMoreCards = () => {
-    const { renderNoMoreCards } = this.props;
-    return renderNoMoreCards ? renderNoMoreCards() : null;
-  };
-
   render() {
-    const { data, style } = this.props;
+    const { data, renderNoMoreCards } = this.props;
 
     return (
-      <View style={[globalStyles.flexContainer, style]} onLayout={this.onDeckLayout}>
-        {data.length < 2 && this.renderNoMoreCards()}
+      <View style={styles.container} onLayout={this.onDeckLayout}>
+        {data.length < 2 && renderNoMoreCards?.()}
         {this.renderCards()}
       </View>
     );
@@ -243,6 +237,10 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    margin: 14,
+  },
   topCardStyle: {
     width: '100%',
     height: '100%',
