@@ -27,7 +27,7 @@ class Application extends React.PureComponent<Props> {
   render() {
     return (
       <View style={globalStyles.screenContainer}>
-        <RootStack ref={NavigationService.setNavigatorReference} />
+        <RootStack ref={NavigationService.setNavigatorReference} theme="dark" />
         <AppToast />
       </View>
     );
