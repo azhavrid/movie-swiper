@@ -10,10 +10,9 @@ type Props = {
 
 /* ------------- Class ------------- */
 const showTime = 7000;
-const scaleValue = 1.2;
+const scaleValue = 1.15;
 const transitionDuration = 1000;
 
-// TODO: Check why performance is low on emulator, check on prod build
 class ImageOpacityCycler extends React.PureComponent<Props> {
   scaleValues = this.props.images.map(() => new Animated.Value(1));
   opacityValues = this.props.images.map(() => new Animated.Value(1));
@@ -86,8 +85,6 @@ class ImageOpacityCycler extends React.PureComponent<Props> {
 
   render() {
     const { style } = this.props;
-    console.tron.log('render');
-
     return (
       <View style={style}>
         {this.renderImages()}
