@@ -72,6 +72,7 @@ const BottomTabs = createBottomTabNavigator(
         height: theme.specifications.bottomNavbarHeight,
         backgroundColor: theme.colors.bottomNavbar,
       },
+      keyboardHidesTabBar: false,
     },
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ tintColor }) => {
