@@ -9,7 +9,7 @@ class NavbarButtonWrapper extends React.PureComponent<ButtonComponentProps> {
   render() {
     const { children, style, onPress } = this.props;
     return (
-      <View style={style}>
+      <View style={[style, styles.container]}>
         <TouchableScale onPress={onPress} initialScale={0.9} scaleFactor={0.9} style={styles.touchable}>
           {children}
         </TouchableScale>
@@ -19,6 +19,9 @@ class NavbarButtonWrapper extends React.PureComponent<ButtonComponentProps> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'stretch',
+  },
   touchable: {
     flex: 1,
   },
