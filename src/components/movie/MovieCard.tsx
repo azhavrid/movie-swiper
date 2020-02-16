@@ -8,8 +8,7 @@ import { connect } from 'react-redux';
 import { RootState } from '../../redux/types';
 import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
-import ProgressiveImage from '../ProgressiveImage';
-import { getW780ImageUrl, getW92ImageUrl } from '../../api/urls';
+import MovieCardPosterImage from './MovieCardPosterImage';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
@@ -70,20 +69,6 @@ class MovieCard extends React.PureComponent<Props, State> {
     return { opacity };
   };
 
-  renderPosterImage = () => {
-    const { movie } = this.props;
-    const { poster_path } = movie;
-
-    return (
-      <ProgressiveImage
-        resizeMode="cover"
-        style={styles.card}
-        source={{ uri: getW780ImageUrl(poster_path) }}
-        thumbnailSource={{ uri: getW92ImageUrl(poster_path) }}
-      />
-    );
-  };
-
   renderMovieDetails = () => {
     const { movie } = this.props;
     const { title, overview } = movie;
@@ -105,12 +90,14 @@ class MovieCard extends React.PureComponent<Props, State> {
   };
 
   render() {
+    const { movie } = this.props;
     const { isExpanded } = this.state;
+    const { poster_path } = movie;
 
     return (
       <TouchableWithoutFeedback onPress={this.onCardPress}>
         <View style={styles.container}>
-          {this.renderPosterImage()}
+          <MovieCardPosterImage path={poster_path} style={styles.card} />
           <InnerShadow position="top" startOpacity={0.5} size={80} />
           <InnerShadow position="bottom" startOpacity={0.5} size={100} />
           {isExpanded && this.renderMovieDetails()}
