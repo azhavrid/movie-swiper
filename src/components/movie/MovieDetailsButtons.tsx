@@ -7,8 +7,6 @@ import { safeOpenURL } from '../../utils/network';
 import { getAddToWatchlistIcon, getAddToFavoritesIcon, getOpenImdbIcon } from '../../helpers/icons';
 import { theme } from '../../theme';
 import { MovieDetailed } from '../../api/types';
-import { userSelector } from '../../redux/auth/selectors';
-import { RootState } from '../../redux/types';
 import AuthenticatedLock from '../AuthenticatedLock';
 import { changeMovieStatusRequest } from '../../redux/movies/actions';
 import { Movie } from '../../redux/movies/types';
@@ -91,9 +89,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state: RootState) => ({
-  user: userSelector(state),
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   changeMovieStatusRequest,

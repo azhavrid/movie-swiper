@@ -3,27 +3,21 @@ import { View, StyleSheet, ViewStyle } from 'react-native';
 import MovieUserScore from './MovieUserScore';
 import { AppText } from '../common';
 import { theme } from '../../theme';
-import { Movie } from '../../redux/movies/types';
 
 /* ------------- Props and State ------------- */
 type Props = {
-  movie: Movie;
+  score: number;
+  year: string;
   style?: ViewStyle;
 };
 
 /* ------------- Class ------------- */
-class MovieScoreYear extends React.Component<Props> {
-  render() {
-    const { movie, style } = this.props;
-
-    return (
-      <View style={[styles.container, style]}>
-        <MovieUserScore style={styles.score} movie={movie} />
-        <AppText style={styles.year}>{movie.year}</AppText>
-      </View>
-    );
-  }
-}
+const MovieScoreYear: React.FC<Props> = ({ score, year, style }) => (
+  <View style={[styles.container, style]}>
+    <MovieUserScore style={styles.score} score={score} />
+    <AppText style={styles.year}>{year}</AppText>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

@@ -41,7 +41,7 @@ class MovieDetails extends React.PureComponent<Props> {
 
   render() {
     const { movie } = this.props;
-    const { title, movieDetailed, backdrop_path } = movie;
+    const { title, movieDetailed, backdrop_path, vote_average, year } = movie;
 
     return (
       <View>
@@ -52,7 +52,7 @@ class MovieDetails extends React.PureComponent<Props> {
         >
           <MovieBackdropWithTitle title={title} backdropPath={backdrop_path} />
           <View style={styles.marginHorizontal}>
-            <MovieScoreYear style={styles.marginBottom} movie={movie} />
+            <MovieScoreYear style={styles.marginBottom} score={vote_average} year={year} />
             {movieDetailed && <MovieGenres style={styles.marginBottom} detailedMovie={movieDetailed} />}
             <MovieDetailsButtons movie={movie} detailedMovie={movieDetailed} />
             <AppText style={styles.marginBottom} type="headline">

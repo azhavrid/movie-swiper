@@ -8,9 +8,11 @@ import {
 } from '../redux/movies/types';
 import { MovieApiResponse } from '../api/types';
 import { MovieListApiResponse } from '../api/movies';
+import { theme } from '../theme';
 
 /* ------------- Key Extractor ------------- */
 export const movieIdsKeyExtractor = (movieId: MovieId) => movieId.toString();
+const { success, danger, warning } = theme.colors;
 
 /* ------------- Normalization ------------- */
 export const requiredMovieProps: MovieRequiredPropsKey[] = [
@@ -25,6 +27,9 @@ export const requiredMovieProps: MovieRequiredPropsKey[] = [
 export const isGoodMovieRating = (rating: number) => rating >= 7;
 export const isNormalMovieRating = (rating: number) => rating >= 5;
 export const isBadMovieRating = (rating: number) => rating < 5;
+
+export const getMovieScoreColor = (score: number) =>
+  isGoodMovieRating(score) ? success : isNormalMovieRating(score) ? warning : danger;
 
 export const isLastMovieList = (data: MovieListApiResponse) => data.page >= data.total_pages;
 

@@ -71,7 +71,7 @@ class MovieCard extends React.PureComponent<Props, State> {
 
   renderMovieDetails = () => {
     const { movie } = this.props;
-    const { title, overview } = movie;
+    const { title, overview, vote_average, year } = movie;
 
     return (
       <Animated.View style={[styles.detailsContainer, { opacity: this.detailsVisibilityAnimatedValue }]}>
@@ -80,7 +80,7 @@ class MovieCard extends React.PureComponent<Props, State> {
           <AppText numberOfLines={2} type="largeTitle">
             {title}
           </AppText>
-          <MovieScoreYear movie={movie} style={styles.movieScore} />
+          <MovieScoreYear score={vote_average} year={year} style={styles.movieScore} />
           <AppText numberOfLines={12} type="body">
             {overview}
           </AppText>
