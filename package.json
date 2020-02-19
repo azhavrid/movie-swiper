@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator='iPhone 11 Pro Max'",
+    "ios": "react-native run-ios --simulator='iPhone 11'",
     "start": "react-native start",
     "lint": "eslint --ext .js,.jsx,.mjs,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
