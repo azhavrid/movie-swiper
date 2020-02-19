@@ -19,14 +19,14 @@ type Props = {
 /* ------------- Class ------------- */
 const MovieBackdropWithTitle: React.FC<Props> = props => {
   const { backdropPath, title } = props;
+  const [source, thumbnailSource] = React.useMemo(
+    () => [{ uri: getW1280ImageUrl(backdropPath) }, { uri: getW185ImageUrl(backdropPath) }],
+    [backdropPath],
+  );
+
   return (
     <View style={styles.container}>
-      <ProgressiveImage
-        resizeMode="cover"
-        style={styles.image}
-        source={{ uri: getW1280ImageUrl(backdropPath) }}
-        thumbnailSource={{ uri: getW185ImageUrl(backdropPath) }}
-      />
+      <ProgressiveImage resizeMode="cover" style={styles.image} source={source} thumbnailSource={thumbnailSource} />
       <InnerShadow position="bottom" hexColor={theme.colors.background} startOpacity={1} size={120} />
       <View style={styles.titleWrapper}>
         <AppText type="title2">{title}</AppText>
