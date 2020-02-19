@@ -21,6 +21,7 @@ import { getNavbarBrowseIcon, getNavbarExploreIcon, getNavbarLibraryIcon } from 
 import { getFontStyle } from '../utils/fonts';
 import { fromRightWithFade } from './transitions';
 import { theme } from '../theme';
+import { config } from '../configs/config';
 
 /* ------------- Helpers ------------- */
 const defaultHeaderObject: NavigationStackOptions = {
@@ -32,8 +33,7 @@ const createDefaultStackNavigator = (screensObject: any, customOptions?: any) =>
     defaultNavigationOptions: { ...defaultHeaderObject },
     cardStyle: { backgroundColor: theme.colors.background },
     headerMode: 'screen',
-    // TODO: Add transition config
-    // transitionConfig: fromRightWithFade,
+    transitionConfig: config.isAndroid ? fromRightWithFade : undefined,
     ...customOptions,
   });
 
