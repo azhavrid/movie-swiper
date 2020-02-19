@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import { PersistPartial } from 'redux-persist/es/persistReducer';
-import mapValues from 'lodash/mapValues';
+import { mapValues } from 'lodash';
 
 import authReducer from './auth/reducer';
 import sectionsReducer from './sections/reducer';

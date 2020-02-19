@@ -1,5 +1,5 @@
 import moment from 'moment';
-import uniq from 'lodash/uniq';
+import { uniq } from 'lodash';
 import * as searchConstants from './constants';
 import {
   SearchTextChanged,

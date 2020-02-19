@@ -1,4 +1,4 @@
-import uniq from 'lodash/uniq';
+import { uniq } from 'lodash';
 import * as exploreConstants from './constants';
 import { ExploreAction, ExploreMoviesLoadSuccess, ExploreMovieSwiped } from './actions';
 import { SocialAction } from './types';

@@ -1,5 +1,4 @@
-import pickBy from 'lodash/pickBy';
-import keyBy from 'lodash/keyBy';
+import { pickBy, keyBy } from 'lodash';
 import {
   MoviesAction,
   AddMovies,

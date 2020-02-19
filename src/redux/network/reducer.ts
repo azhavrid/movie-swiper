@@ -1,4 +1,4 @@
-import isArray from 'lodash/isArray';
+import { isArray } from 'lodash';
 import * as networkConstants from './constants';
 import {
   NetworkAction,

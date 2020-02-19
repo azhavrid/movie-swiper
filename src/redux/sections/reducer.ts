@@ -1,5 +1,4 @@
-import mapValues from 'lodash/mapValues';
-import uniq from 'lodash/uniq';
+import { mapValues, uniq } from 'lodash';
 import * as sectionConstants from './constants';
 import {
   SectionAction,

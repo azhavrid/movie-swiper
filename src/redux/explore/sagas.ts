@@ -1,4 +1,4 @@
-import random from 'lodash/random';
+import { random } from 'lodash';
 import { call, put, select } from 'redux-saga/effects';
 import {
   ExploreMoviesLoadRequest,

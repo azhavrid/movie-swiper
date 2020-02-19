@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
-import times from 'lodash/times';
+import { times } from 'lodash';
 
 import MoviePreview, { OwnProps as MoviePreviewProps } from './MoviePreview';
 import { theme } from '../../theme';
