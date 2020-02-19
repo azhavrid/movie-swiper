@@ -32,7 +32,11 @@ type PropsWithoutRedux = OwnProps & NavigationInjectedProps;
 type Props = PropsWithoutRedux & ReduxProps;
 
 /* ------------- Class ------------- */
-class MoviePreview extends React.PureComponent<Props> {
+class MoviePreview extends React.Component<Props> {
+  shouldComponentUpdate(nextProps: Props) {
+    return this.props.movieId !== nextProps.movieId;
+  }
+
   onPress = () => {
     const { navigation, movieId } = this.props;
     if (!movieId) return;
