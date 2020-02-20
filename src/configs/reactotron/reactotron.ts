@@ -1,10 +1,15 @@
 import Reactotron from 'reactotron-react-native';
 import sagaPlugin from 'reactotron-redux-saga';
 import { reactotronRedux } from 'reactotron-redux';
+import AsyncStorage from '@react-native-community/async-storage';
+import { config } from '../config';
 
-export const reactotron = Reactotron.configure({ name: 'Movie Swiper' })
+export const reactotron = Reactotron
+  // NOTE: For debugging with reactotron over wifi change reactotronHost to your machine's LOCAL ip address
+  .configure({ host: config.reactotronHost, name: 'Movie Swiper' })
   .use(sagaPlugin({}))
   .use(reactotronRedux({}))
+  .setAsyncStorageHandler(AsyncStorage)
   .useReactNative({
     // Ignore netinfo package ping url
     networking: { ignoreUrls: /generate_204/ },
