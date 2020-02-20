@@ -47,6 +47,7 @@ class MovieList extends React.PureComponent<Props> {
         renderItem={this.renderMovie}
         keyExtractor={movieIdsKeyExtractor}
         ListFooterComponent={this.renderListFooter}
+        onEndReachedThreshold={0.8}
         refreshControl={
           onRefresh && <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={theme.gray.lightest} />
         }
