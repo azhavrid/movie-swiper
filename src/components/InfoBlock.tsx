@@ -41,6 +41,7 @@ class InfoBlock extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'transparent', // Required for component to take touch event on whole area
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -50,15 +50,17 @@ export const getInitialSearchIcon = () => <IconEvilIcons name="search" color={li
 export const getGuestInfoIcon = () => <IconFeather name="user" color={lightest} size={hugeIconSize} />;
 
 // --- SearchInput ---
-export const getSearchInputBackIcon = () => (
-  <IconEntypo name="chevron-thin-left" size={smallIconSize} color={darkest} />
+export const getSearchInputBackIcon = (isShown: boolean) => (
+  <IconEntypo name="chevron-thin-left" size={smallIconSize} color={darkest} style={{ opacity: +isShown }} />
 );
 
 export const getSearchInputLabelIcon = () => (
   <IconFeather name="search" color={darkest} size={smallIconSize * 1.1} style={{ paddingHorizontal: tiny }} />
 );
 
-export const getSearchInputCloseIcon = () => <IconAntDesign name="close" color={darkest} size={smallIconSize * 1.2} />;
+export const getSearchInputCloseIcon = (isShown: boolean) => (
+  <IconAntDesign name="close" color={darkest} size={smallIconSize * 1.2} style={{ opacity: +isShown }} />
+);
 
 // --- MovieList ---
 export const getMovieListEmptyIcon = () => (

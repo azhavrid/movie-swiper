@@ -77,11 +77,9 @@ class SearchInput extends React.PureComponent<Props, State> {
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          {!showSearchLabel && (
-            <TouchableScale onPress={this.onBackPress} style={styles.touchableInputIcon}>
-              {getSearchInputBackIcon()}
-            </TouchableScale>
-          )}
+          <TouchableScale onPress={this.onBackPress} style={styles.touchableInputIcon}>
+            {getSearchInputBackIcon(!showSearchLabel)}
+          </TouchableScale>
           <TextInput
             ref={this.textInputRef}
             value={value}
@@ -92,11 +90,9 @@ class SearchInput extends React.PureComponent<Props, State> {
             style={styles.input}
             selectionColor={theme.colors.textInputSelection}
           />
-          {!isValueEmpty && (
-            <TouchableScale onPress={this.onClosePress} style={styles.touchableInputIcon}>
-              {getSearchInputCloseIcon()}
-            </TouchableScale>
-          )}
+          <TouchableScale onPress={this.onClosePress} style={styles.touchableInputIcon}>
+            {getSearchInputCloseIcon(!isValueEmpty)}
+          </TouchableScale>
         </View>
         {showSearchLabel && (
           <TouchableScale onPress={this.onSearchLabelPress} style={styles.labelTouchable} scaleFactor={0.98}>
