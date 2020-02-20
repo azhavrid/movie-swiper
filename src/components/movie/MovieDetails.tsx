@@ -17,6 +17,8 @@ type Props = {
 };
 
 /* ------------- Class ------------- */
+const previewAdditionalProps = { withRatingBadge: true };
+
 class MovieDetails extends React.PureComponent<Props> {
   renderEmptyRecommendations = () => (
     <View style={styles.emptyMoviesContainer}>
@@ -32,16 +34,13 @@ class MovieDetails extends React.PureComponent<Props> {
     return isRecommendationsEmpty ? (
       this.renderEmptyRecommendations()
     ) : (
-      <MoviesHorizontalFlatList
-        movieIds={recommendations || []}
-        moviePreviewAdditionalProps={{ withRatingBadge: true }}
-      />
+      <MoviesHorizontalFlatList movieIds={recommendations || []} moviePreviewAdditionalProps={previewAdditionalProps} />
     );
   };
 
   render() {
     const { movie } = this.props;
-    const { title, movieDetailed, backdrop_path, vote_average, year } = movie;
+    const { title, overview, movieDetailed, backdrop_path, vote_average, year } = movie;
 
     return (
       <View>
@@ -58,7 +57,7 @@ class MovieDetails extends React.PureComponent<Props> {
             <AppText style={styles.marginBottom} type="headline">
               Overview
             </AppText>
-            <AppText style={styles.overview}>{movie.overview}</AppText>
+            <AppText style={styles.overview}>{overview}</AppText>
             <AppText style={styles.recommendationsTitle} type="headline">
               You might like
             </AppText>
