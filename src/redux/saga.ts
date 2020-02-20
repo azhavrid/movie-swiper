@@ -28,6 +28,7 @@ export function* rootSaga(): SagaIterator {
 
     takeEvery(moviesConstants.FETCH_DETAILED_MOVIE_REQUEST, moviesSagas.fetchDetailedMovieSaga),
     takeEvery(moviesConstants.FETCH_MOVIE_RECOMMENDATIONS_REQUEST, moviesSagas.fetchMovieRecommendationsSaga),
+    takeEvery(moviesConstants.FETCH_MOVIE_ACCOUNT_STATE_REQUEST, moviesSagas.fetchMovieAccountStateSaga),
     takeEvery(moviesConstants.CHANGE_MOVIE_STATUS_REQUEST, moviesSagas.changeMovieStatusSaga),
 
     fork(networkSagas.resolveFailedRequestsSaga),
