@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
+import { persistReducer, PersistConfig, getStoredState } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
 import { PersistPartial } from 'redux-persist/es/persistReducer';
 import { mapValues } from 'lodash';
@@ -30,8 +30,16 @@ const combinedReducers = combineReducers(reducers);
 /* ------------- Persist Reducer ------------- */
 const rootConfig = {
   storage: AsyncStorage,
+  version: 2,
   key: 'root',
   whitelist: ['auth', 'explore', 'movies'],
+  getStoredState: async persistConfig => {
+    const storedState = await getStoredState(persistConfig);
+    // @ts-ignore
+    // Drop persisted store if persist version has changed
+    const isSamePersistVersion = storedState?._persist?.version === persistConfig?.version;
+    return isSamePersistVersion ? storedState : ({} as any);
+  },
 };
 
 export const persistedReducer = persistReducer(rootConfig, combinedReducers);
