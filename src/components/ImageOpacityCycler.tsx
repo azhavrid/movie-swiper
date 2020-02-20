@@ -1,6 +1,7 @@
 import React from 'react';
 import FastImage, { FastImageProperties } from 'react-native-fast-image';
 import { StyleSheet, View, Animated, ViewStyle, Image } from 'react-native';
+import { theme } from '../theme';
 
 /* ------------- Props and State ------------- */
 type Props = {
@@ -8,12 +9,19 @@ type Props = {
   style?: ViewStyle;
 };
 
+type State = typeof initialState;
+
+const initialState = {
+  loadedImagesCount: 0,
+};
+
 /* ------------- Class ------------- */
 const showTime = 7000;
 const scaleValue = 1.15;
 const transitionDuration = 1000;
 
-class ImageOpacityCycler extends React.PureComponent<Props> {
+class ImageOpacityCycler extends React.PureComponent<Props, State> {
+  state = initialState;
   scaleValues = this.props.images.map(() => new Animated.Value(1));
   opacityValues = this.props.images.map(() => new Animated.Value(1));
 
@@ -71,24 +79,31 @@ class ImageOpacityCycler extends React.PureComponent<Props> {
     return { transform: [{ scale: this.scaleValues[index] }], opacity: this.opacityValues[index] };
   };
 
+  onImageLoad = () => {
+    this.setState(state => ({ loadedImagesCount: state.loadedImagesCount + 1 }));
+  };
+
   renderImages = () => {
     const { images } = this.props;
 
     return images
       .map((image, index) => (
         <Animated.View key={`${image.toString()}_${index}`} style={[styles.slide, this.getAnimatedSlideStyle(index)]}>
-          <FastImage source={image} style={styles.image} resizeMode="cover" />
+          <FastImage source={image} style={styles.image} onLoad={this.onImageLoad} resizeMode="cover" />
         </Animated.View>
       ))
       .reverse();
   };
 
   render() {
-    const { style } = this.props;
+    const { style, images } = this.props;
+    const { loadedImagesCount } = this.state;
+    const areAllImagesLoaded = loadedImagesCount === images.length;
+
     return (
       <View style={style}>
         {this.renderImages()}
-        <View style={styles.dimmer} />
+        <View style={[styles.dimmer, !areAllImagesLoaded && styles.backgroundColor]} />
       </View>
     );
   }
@@ -105,6 +120,9 @@ const styles = StyleSheet.create({
   dimmer: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0,0,0,0.8)',
+  },
+  backgroundColor: {
+    backgroundColor: theme.colors.background,
   },
 });
 
