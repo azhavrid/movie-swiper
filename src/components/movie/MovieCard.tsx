@@ -11,7 +11,7 @@ import { MovieId } from '../../redux/movies/types';
 import MovieCardPosterImage from './MovieCardPosterImage';
 
 /* ------------- Props and State ------------- */
-type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+type ReduxProps = ReturnType<ReturnType<typeof makeMapStateToProps>> & typeof mapDispatchToProps;
 type OwnProps = {
   movieId: MovieId;
 };
@@ -136,10 +136,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state: RootState, ownProps: OwnProps) => ({
-  movie: getMovieSelectorById(ownProps.movieId)(state),
-});
+const makeMapStateToProps = (state: RootState, props: OwnProps) => {
+  const { movieId } = props;
+  const movieSelector = getMovieSelectorById(movieId);
+
+  return (state: RootState) => ({
+    movieId,
+    movie: movieSelector(state),
+  });
+};
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(MovieCard);
+export default connect(makeMapStateToProps, mapDispatchToProps)(MovieCard);
