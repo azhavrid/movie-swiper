@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import FastImage, { FastImageProperties, OnLoadEvent } from 'react-native-fast-image';
 import { StyleSheet, ViewStyle, ImageStyle } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
-import moment from 'moment';
 
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage) as FastImage;
 
@@ -23,25 +22,16 @@ type Props = OwnProps & FastImageProperties;
 const ProgressiveImage = (props: Props) => {
   const { style, source, imageStyle, thumbnailSource, onLoad, ...otherProps } = props;
   const [isImageShown, setIsImageShown] = useState(false);
-  const [imageOpacity] = useState(new Value(1 as number));
-
-  const startLoadTime = moment().valueOf();
+  const [imageOpacity] = useState(new Value(0));
 
   const onImageLoad = (event: OnLoadEvent) => {
-    const loadEndTime = moment().valueOf() - startLoadTime;
-    const isImageCached = loadEndTime < 100;
-    if (isImageCached) {
+    Animated.timing(imageOpacity, {
+      toValue: 1,
+      duration: 250,
+      easing: Easing.out(Easing.sin),
+    }).start(() => {
       setIsImageShown(true);
-    } else {
-      imageOpacity.setValue(0);
-      Animated.timing(imageOpacity, {
-        toValue: 1,
-        duration: 250,
-        easing: Easing.out(Easing.sin),
-      }).start(() => {
-        setIsImageShown(true);
-      });
-    }
+    });
 
     onLoad && onLoad(event);
   };
