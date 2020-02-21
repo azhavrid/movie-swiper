@@ -80,4 +80,6 @@ const mapStateToProps = (state: RootState, props: OwnProps) => ({
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNavigation(MovieInlinePreview));
+export default connect(mapStateToProps, mapDispatchToProps, undefined, { shouldHandleStateChanges: false })(
+  withNavigation(MovieInlinePreview),
+);

@@ -32,11 +32,7 @@ type PropsWithoutRedux = OwnProps & NavigationInjectedProps;
 type Props = PropsWithoutRedux & ReduxProps;
 
 /* ------------- Class ------------- */
-class MoviePreview extends React.Component<Props> {
-  shouldComponentUpdate(nextProps: Props) {
-    return this.props.movieId !== nextProps.movieId;
-  }
-
+class MoviePreview extends React.PureComponent<Props> {
   onPress = () => {
     const { navigation, movieId } = this.props;
     if (!movieId) return;
@@ -116,4 +112,6 @@ const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
 
 const mapDispatchToProps = {};
 
-export default withNavigation(connect(makeMapStateToProps, mapDispatchToProps)(MoviePreview));
+export default withNavigation(
+  connect(makeMapStateToProps, mapDispatchToProps, undefined, { shouldHandleStateChanges: false })(MoviePreview),
+);
