@@ -21,7 +21,7 @@ type Props = OwnProps & TouchableWithoutFeedbackProps;
 type State = ReturnType<typeof getInitialState>;
 
 const defaultProps = {
-  throttleTime: 400,
+  throttleTime: 800,
   activeOpacity: 0.7,
   initialScale: 1,
   animationTime: 1,
