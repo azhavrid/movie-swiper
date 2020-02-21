@@ -38,6 +38,7 @@ class MoviesHorizontalList extends React.PureComponent<Props> {
         data={movieIds}
         scrollEnabled={!isEmpty}
         initialNumToRender={5}
+        maxToRenderPerBatch={10}
         showsHorizontalScrollIndicator={false}
         ListEmptyComponent={this.renderEmptyContainer}
         keyExtractor={movieIdsKeyExtractor}
