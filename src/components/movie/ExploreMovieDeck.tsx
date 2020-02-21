@@ -4,6 +4,7 @@ import { RootState } from '../../redux/types';
 import { exploreMovieIdsSelector } from '../../redux/explore/selectors';
 import { exploreMovieSwiped, exploreMoviesLoadRequest } from '../../redux/explore/actions';
 import { connect } from 'react-redux';
+import { NavigationEvents } from 'react-navigation';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
@@ -15,6 +16,11 @@ class ExploreMovieDeck extends React.PureComponent<Props> {
     const { exploreMoviesLoadRequest } = this.props;
     exploreMoviesLoadRequest();
   }
+
+  onDidFocus = () => {
+    const { exploreMoviesLoadRequest } = this.props;
+    exploreMoviesLoadRequest();
+  };
 
   onSwipedLeft = () => {
     const { exploreMovieSwiped } = this.props;
@@ -35,12 +41,15 @@ class ExploreMovieDeck extends React.PureComponent<Props> {
     const { movieIds } = this.props;
 
     return (
-      <MovieDeck
-        movieIds={movieIds}
-        onSwipedTop={this.onSwipedTop}
-        onSwipedLeft={this.onSwipedLeft}
-        onSwipedRight={this.onSwipedRight}
-      />
+      <>
+        <MovieDeck
+          movieIds={movieIds}
+          onSwipedTop={this.onSwipedTop}
+          onSwipedLeft={this.onSwipedLeft}
+          onSwipedRight={this.onSwipedRight}
+        />
+        <NavigationEvents onDidFocus={this.onDidFocus} />
+      </>
     );
   }
 }
