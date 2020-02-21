@@ -1,6 +1,7 @@
+import uuid from 'uuid';
 import { uniq } from 'lodash';
 import * as exploreConstants from './constants';
-import { ExploreAction, ExploreMoviesLoadSuccess, ExploreMovieSwiped } from './actions';
+import { ExploreAction, ExploreMoviesLoadSuccess, ExploreMovieSwiped, ExploreActionResolved } from './actions';
 import { SocialAction } from './types';
 import { MovieId } from '../movies/types';
 import { socialActionMap } from './exploreData';
@@ -38,7 +39,7 @@ const exploreMoviesLoadSuccess = (state: ExploreState, action: ExploreMoviesLoad
 
 const exploreMovieSwiped = (state: ExploreState, action: ExploreMovieSwiped): ExploreState => {
   const [movieId, ...restMovieIds] = state.movieIds;
-  const socialAction: SocialAction = { movieId, action: socialActionMap[action.swipeDirection] };
+  const socialAction: SocialAction = { id: uuid.v4(), movieId, actionType: socialActionMap[action.swipeDirection] };
 
   return {
     ...state,
@@ -47,9 +48,9 @@ const exploreMovieSwiped = (state: ExploreState, action: ExploreMovieSwiped): Ex
   };
 };
 
-const removeTopAction = (state: ExploreState): ExploreState => ({
+const exploreActionResolved = (state: ExploreState, action: ExploreActionResolved): ExploreState => ({
   ...state,
-  actionQueue: state.actionQueue.slice(1),
+  actionQueue: state.actionQueue.filter(socialAction => socialAction.id !== action.id),
 });
 
 const afterRehydrate = (state: ExploreState): ExploreState => ({
@@ -69,8 +70,7 @@ const exploreReducer = (
     case exploreConstants.EXPLORE_MOVIE_SWIPED:
       return exploreMovieSwiped(state, action);
     case exploreConstants.EXPLORE_ACTION_RESOLVED:
-    case exploreConstants.EXPLORE_ACTION_SKIPPED:
-      return removeTopAction(state);
+      return exploreActionResolved(state, action);
     case AFTER_REHYDRATE:
       return afterRehydrate(state);
     default:

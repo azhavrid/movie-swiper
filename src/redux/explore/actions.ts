@@ -8,15 +8,13 @@ export interface ExploreMoviesLoad extends ReturnType<typeof exploreMoviesLoad> 
 export interface ExploreMoviesLoadSuccess extends ReturnType<typeof exploreMoviesLoadSuccess> {}
 export interface ExploreMovieSwiped extends ReturnType<typeof exploreMovieSwiped> {}
 export interface ExploreActionResolved extends ReturnType<typeof exploreActionResolved> {}
-export interface ExploreActionSkipped extends ReturnType<typeof exploreActionSkipped> {}
 
 export type ExploreAction =
   | ExploreMoviesLoadRequest
   | ExploreMoviesLoad
   | ExploreMoviesLoadSuccess
   | ExploreMovieSwiped
-  | ExploreActionResolved
-  | ExploreActionSkipped;
+  | ExploreActionResolved;
 
 /* ------------- Actions ------------- */
 export const exploreMoviesLoadRequest = () =>
@@ -41,12 +39,8 @@ export const exploreMovieSwiped = (swipeDirection: SwipeDirection) =>
     swipeDirection,
   };
 
-export const exploreActionResolved = () =>
+export const exploreActionResolved = (id: string) =>
   <const>{
     type: exploreActions.EXPLORE_ACTION_RESOLVED,
-  };
-
-export const exploreActionSkipped = () =>
-  <const>{
-    type: exploreActions.EXPLORE_ACTION_SKIPPED,
+    id,
   };

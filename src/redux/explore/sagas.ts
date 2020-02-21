@@ -1,5 +1,5 @@
 import { random } from 'lodash';
-import { call, put, select } from 'redux-saga/effects';
+import { call, put, select, take, delay } from 'redux-saga/effects';
 import {
   ExploreMoviesLoadRequest,
   exploreMoviesLoadSuccess,
@@ -7,15 +7,26 @@ import {
   exploreMoviesLoadRequest,
   exploreMoviesLoad,
   ExploreMoviesLoad,
+  exploreActionResolved,
 } from './actions';
 import { UserIdsParams } from '../../api/types';
 import { userIdParamsSelector } from '../auth/selectors';
 import { getPopularMoviesApi, MovieListApiResponse } from '../../api/movies';
 import { AxiosResponse } from 'axios';
-import { exploreMovieIdsSelector, isExploreLoadingSelector, exploredSeenIdsMapSelector } from './selectors';
+import {
+  exploreMovieIdsSelector,
+  isExploreLoadingSelector,
+  exploredSeenIdsMapSelector,
+  exploredActionQueueSelector,
+} from './selectors';
 import { MovieId } from '../movies/types';
 import { handleNetworkReduxError } from '../network/actions';
 import { normalizeAndAddMovies } from '../movies/helpers';
+import { EXPLORE_MOVIE_SWIPED } from './constants';
+import { isInternetReachableSelector } from '../network/selectors';
+import { changeMovieStatusRequest } from '../movies/actions';
+import { CHANGE_MOVIE_STATUS_SUCCESS, CHANGE_MOVIE_STATUS_FAILURE } from '../movies/constants';
+import { AFTER_REHYDRATE } from '../rehydrate/constants';
 
 const isEnoughMovies = (movieIds: MovieId[]) => movieIds.length > 10;
 
@@ -69,5 +80,39 @@ export function* movieSwiped({}: ExploreMovieSwiped) {
   const exploreMovieIds: MovieId[] = yield select(exploreMovieIdsSelector);
   if (!isEnoughMovies(exploreMovieIds)) {
     yield put(exploreMoviesLoadRequest());
+  }
+}
+
+export function* resolveActionQueueSaga() {
+  const delayAfterFailure = 2000;
+
+  while (true) {
+    const actionQueue: ReturnType<typeof exploredActionQueueSelector> = yield select(exploredActionQueueSelector);
+
+    if (actionQueue.length > 0) {
+      const socialAction = actionQueue[0];
+      const { id, actionType, movieId } = socialAction;
+
+      if (actionType === 'skip') {
+        yield put(exploreActionResolved(id));
+      } else {
+        const isInternetReachable: boolean = yield select(isInternetReachableSelector);
+
+        if (isInternetReachable) {
+          yield put(changeMovieStatusRequest({ movieId, status: true, statusType: actionType }));
+
+          const changeMovieStatusAction = yield take([CHANGE_MOVIE_STATUS_SUCCESS, CHANGE_MOVIE_STATUS_FAILURE]);
+          if (changeMovieStatusAction.type === CHANGE_MOVIE_STATUS_SUCCESS) {
+            yield put(exploreActionResolved(id));
+          } else {
+            yield delay(delayAfterFailure);
+          }
+        } else {
+          yield delay(delayAfterFailure);
+        }
+      }
+    } else {
+      yield take([EXPLORE_MOVIE_SWIPED, AFTER_REHYDRATE]);
+    }
   }
 }

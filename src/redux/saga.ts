@@ -22,6 +22,8 @@ export function* rootSaga(): SagaIterator {
     takeLatest(authConstants.CREATE_GUEST_SESSION_REQUEST, authSagas.createGuestSessionSaga),
     takeLatest(authConstants.LOG_OUT, authSagas.logOutSaga),
 
+    fork(exploreSagas.resolveActionQueueSaga),
+    takeLatest(exploreConstants.EXPLORE_MOVIE_SWIPED, exploreSagas.exploreMoviesLoadRequestSaga),
     takeLatest(exploreConstants.EXPLORE_MOVIES_LOAD_REQUEST, exploreSagas.exploreMoviesLoadRequestSaga),
     takeLatest(exploreConstants.EXPLORE_MOVIES_LOAD, exploreSagas.exploreMoviesLoadSaga),
     takeLatest(exploreConstants.EXPLORE_MOVIES_LOAD_SUCCESS, exploreSagas.movieSwiped),
