@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 });
 
 const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
-  const movieId = props.movieId;
+  const { movieId } = props;
   const movieSelector = getMovieSelectorById(movieId);
 
   return (state: RootState) => ({
