@@ -47,11 +47,9 @@ class MoviePreview extends React.PureComponent<Props> {
     const badgeColor = isGoodMovieRating(vote_average) ? theme.colors.success : theme.gray.light;
 
     return (
-      vote_average && (
-        <View style={[styles.ratingBadge, { backgroundColor: badgeColor }]}>
-          <AppText type="caption2">{vote_average.toFixed(1)}</AppText>
-        </View>
-      )
+      <View style={[styles.ratingBadge, { backgroundColor: badgeColor }]}>
+        <AppText type="caption2">{!!vote_average ? vote_average.toFixed(1) : '—'}</AppText>
+      </View>
     );
   };
 
