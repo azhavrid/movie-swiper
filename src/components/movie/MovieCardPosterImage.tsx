@@ -2,6 +2,7 @@ import React from 'react';
 import { ViewStyle } from 'react-native';
 import { getW780ImageUrl, getW92ImageUrl } from '../../api/urls';
 import ProgressiveImage from '../ProgressiveImage';
+import FastImage from 'react-native-fast-image';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {
@@ -13,11 +14,17 @@ type Props = OwnProps;
 
 /* ------------- Class ------------- */
 const MovieCardPosterImage = ({ path, style }: Props) => (
-  <ProgressiveImage
+  // <ProgressiveImage
+  //   resizeMode="cover"
+  //   style={style}
+  //   source={{ uri: getW780ImageUrl(path) }}
+  //   thumbnailSource={{ uri: getW92ImageUrl(path) }}
+  // />
+  <FastImage
     resizeMode="cover"
     style={style}
     source={{ uri: getW780ImageUrl(path) }}
-    thumbnailSource={{ uri: getW92ImageUrl(path) }}
+    // thumbnailSource={{ uri: getW92ImageUrl(path) }}
   />
 );
 
