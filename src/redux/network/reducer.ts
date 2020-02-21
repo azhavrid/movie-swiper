@@ -20,7 +20,6 @@ export const initialState = {
   isConnected: true,
   isInternetReachable: true,
   ipAddress: undefined as string | undefined,
-  previousState: {} as NetInfoState,
   failedRequestsQueue: [] as FailedRequest[],
 };
 
@@ -38,7 +37,6 @@ const networkStateChanged = (state: NetworkState, action: NetworkStateChanged): 
     isConnected,
     isInternetReachable: isInternetReachableUpdated,
     ipAddress,
-    previousState: networkState,
   };
 };
 

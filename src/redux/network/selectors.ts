@@ -9,6 +9,4 @@ export const isInternetReachableSelector = createSelector(networkStateSelector, 
 
 export const networkIpAddressSelector = createSelector(networkStateSelector, network => network.ipAddress);
 
-export const previousNetworkStateSelector = createSelector(networkStateSelector, network => network.previousState);
-
 export const failedRequestsQueueSelector = createSelector(networkStateSelector, network => network.failedRequestsQueue);
