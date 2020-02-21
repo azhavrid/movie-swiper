@@ -13,10 +13,10 @@ export interface GetMovieAccountStateApiResponse {
 export interface GetMovieListApiParams extends PageParam, UserIdsParams {}
 
 export interface MovieListApiResponse {
-  page?: number;
-  results?: MovieApiResponse[];
-  total_pages?: number;
-  total_results?: number;
+  page: number;
+  results: MovieApiResponse[];
+  total_pages: number;
+  total_results: number;
 }
 
 export interface ChangeMovieStatusApiParams extends MovieIdParam, UserIdsParams {
@@ -25,8 +25,8 @@ export interface ChangeMovieStatusApiParams extends MovieIdParam, UserIdsParams 
 }
 
 export interface ChangeMovieStatusStatusApiResponse {
-  status_code?: number;
-  status_message?: string;
+  status_code: number;
+  status_message: string;
 }
 
 /* ------------- Api ------------- */
