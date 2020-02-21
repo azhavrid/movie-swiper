@@ -39,12 +39,14 @@ export function* resolveFailedRequestsSaga() {
     const isInternetReachable: boolean = yield select(isInternetReachableSelector);
     if (isInternetReachable) {
       const failedRequestsQueue: FailedRequest[] = yield select(failedRequestsQueueSelector);
-      for (let i = 0; i < failedRequestsQueue.length; i++) {
-        const failedRequest = failedRequestsQueue[i];
-        yield put(failedRequest.action);
-      }
+      if (failedRequestsQueue.length > 0) {
+        for (let i = 0; i < failedRequestsQueue.length; i++) {
+          const failedRequest = failedRequestsQueue[i];
+          yield put(failedRequest.action);
+        }
 
-      yield put(networkReduxErrorsResolved());
+        yield put(networkReduxErrorsResolved());
+      }
     }
   }
 }
