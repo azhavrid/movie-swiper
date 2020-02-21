@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import Deck, { RenderCardParams } from '../Deck';
 import InfoBlock from '../InfoBlock';
 import CircleLoadingIndicator from '../CircleLoadingIndicator';
@@ -26,7 +25,7 @@ class MovieDeck extends React.PureComponent<Props> {
 
   renderMovieCard = (movieId: MovieId, { isTopCard, swipeThresholds }: RenderCardParams) => (
     <>
-      <MovieCard movieId={movieId} />
+      <MovieCard movieId={movieId} swipeThresholds={swipeThresholds} />
       {isTopCard && swipeThresholds && <MovieCardSwipeLabels swipeThresholds={swipeThresholds} />}
     </>
   );

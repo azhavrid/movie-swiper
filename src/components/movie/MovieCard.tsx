@@ -9,11 +9,13 @@ import { RootState } from '../../redux/types';
 import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
 import MovieCardPosterImage from './MovieCardPosterImage';
+import { SwipeThresholds } from '../Deck';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<ReturnType<typeof makeMapStateToProps>> & typeof mapDispatchToProps;
 type OwnProps = {
   movieId: MovieId;
+  swipeThresholds?: SwipeThresholds;
 };
 type Props = OwnProps & ReduxProps;
 
@@ -89,8 +91,18 @@ class MovieCard extends React.PureComponent<Props, State> {
     );
   };
 
+  renderSwipeDimmer = () => {
+    const { swipeThresholds } = this.props;
+    const maxThreshold = Animated.add(
+      Animated.add(swipeThresholds.toLeft, swipeThresholds.toRight),
+      swipeThresholds.toTop,
+    );
+    const opacity = Animated.diffClamp(Animated.divide(maxThreshold, 3), 0, 0.4);
+    return <Animated.View style={[styles.swipeDimmer, { opacity }]} />;
+  };
+
   render() {
-    const { movie } = this.props;
+    const { movie, swipeThresholds } = this.props;
     const { isExpanded } = this.state;
     const { poster_path } = movie;
 
@@ -101,6 +113,7 @@ class MovieCard extends React.PureComponent<Props, State> {
           <InnerShadow position="top" startOpacity={0.5} size={80} />
           <InnerShadow position="bottom" startOpacity={0.5} size={100} />
           {isExpanded && this.renderMovieDetails()}
+          {swipeThresholds && this.renderSwipeDimmer()}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -118,6 +131,10 @@ const styles = StyleSheet.create({
   card: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: theme.gray.dark,
+  },
+  swipeDimmer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: theme.gray.darker,
   },
   detailsContainer: {
     ...StyleSheet.absoluteFillObject,
