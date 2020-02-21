@@ -17,6 +17,7 @@
     "fsevents": "^2.1.2",
     "hoist-non-react-statics": "^3.3.2",
     "lodash": "^4.17.15",
+    "memoize-one": "^5.1.1",
     "moment": "^2.24.0",
     "react": "16.9.0",
     "react-native": "0.61.4",
