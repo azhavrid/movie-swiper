@@ -1,6 +1,5 @@
 import React from 'react';
 import { InteractionManager } from 'react-native';
-import Animated from 'react-native-reanimated';
 import MovieDetails from '../../components/movie/MovieDetails';
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
 
@@ -17,9 +16,6 @@ import {
 import { connect } from 'react-redux';
 import ScreenWrapper from '../../components/ScreenWrapper';
 
-/* ------------- Local ------------- */
-const { Value } = Animated;
-
 /* ------------- Props and State ------------- */
 export interface MovieDetailsScreenNavigationParams {
   movieId: MovieId;
@@ -33,7 +29,7 @@ type Props = ReduxProps & PropsWithoutRedux;
 
 /* ------------- Class ------------- */
 class MovieDetailsScreen extends React.PureComponent<Props> {
-  static navigationOptions = ({ navigation }: NavigationProps): NavigationStackOptions => ({
+  static navigationOptions = (): NavigationStackOptions => ({
     title: '',
   });
 
