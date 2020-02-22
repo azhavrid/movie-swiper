@@ -61,7 +61,6 @@ const BottomTabs = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      safeAreaInset: undefined,
       activeBackgroundColor: theme.colors.bottomNavbar,
       inactiveBackgroundColor: theme.colors.bottomNavbar,
       activeTintColor: theme.gray.lightest,

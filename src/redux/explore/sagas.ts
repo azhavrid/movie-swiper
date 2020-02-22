@@ -46,9 +46,9 @@ export function* exploreMoviesLoadRequestSaga({}: ExploreMoviesLoadRequest) {
 
 /*
   There is no "explore" endpoint in TMDB api, so I was forced to create some mechanism to fetch movies,
-  preferably unique. App fetches movies from "popular movies" endpoint ands stores already explored 
+  preferably unique. App fetches movies from "popular movies" endpoint and stores already explored 
   movies in the local storage (since there is no backend to do it there). 
-  Movies on "popular movies" list are updated daily: some of movies are reordered, some of them are added, etc.
+  Movies on "popular" list are updated daily: some of movies are reordered, some of them are added, etc.
   To make process of retrieving movies faster there is a tweak that page number is randomly increased.
 */
 export function* exploreMoviesLoadSaga(action: ExploreMoviesLoad) {
