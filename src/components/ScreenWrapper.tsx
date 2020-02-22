@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView } from 'react-navigation';
+import { View } from 'react-native';
 import { globalStyles } from '../globalStyles';
 
 /* ------------- Props and State ------------- */
@@ -8,7 +8,7 @@ type Props = {};
 /* ------------- Class ------------- */
 const ScreenWrapper: React.FC<Props> = props => {
   const { children } = props;
-  return <SafeAreaView style={globalStyles.screenContainer}>{children}</SafeAreaView>;
+  return <View style={globalStyles.screenContainer}>{children}</View>;
 };
 
 export default ScreenWrapper;
