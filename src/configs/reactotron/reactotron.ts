@@ -13,6 +13,8 @@ export const reactotron = Reactotron
   .useReactNative({
     // Ignore netinfo package ping url
     networking: { ignoreUrls: /generate_204/ },
+    // Ignore AsyncStorage persist events
+    asyncStorage: { ignore: ['persist:root'] },
   })
   .connect();
 
