@@ -1,4 +1,4 @@
-package com.azhavrid.movieswiper;
+package com.azhavrid.movieswiperr;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
