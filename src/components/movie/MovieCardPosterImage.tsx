@@ -1,31 +1,22 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
-import { getW780ImageUrl, getW92ImageUrl } from '../../api/urls';
-import ProgressiveImage from '../ProgressiveImage';
-import FastImage from 'react-native-fast-image';
+import { Image, ImageStyle } from 'react-native';
+import { getW780ImageUrl } from '../../api/urls';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {
   path: string;
-  style?: ViewStyle;
+  style?: ImageStyle;
 };
 
 type Props = OwnProps;
 
+export const getMovieCardPosterUrl = (path: string) => getW780ImageUrl(path);
+
 /* ------------- Class ------------- */
 const MovieCardPosterImage = ({ path, style }: Props) => (
-  // <ProgressiveImage
-  //   resizeMode="cover"
-  //   style={style}
-  //   source={{ uri: getW780ImageUrl(path) }}
-  //   thumbnailSource={{ uri: getW92ImageUrl(path) }}
-  // />
-  <FastImage
-    resizeMode="cover"
-    style={style}
-    source={{ uri: getW780ImageUrl(path) }}
-    // thumbnailSource={{ uri: getW92ImageUrl(path) }}
-  />
+  // Image is used instead of FastImage due to the fact that there is no way to determine when FastImage is preloaded
+  // https://github.com/DylanVann/react-native-fast-image/issues/438
+  <Image resizeMode="cover" style={style} source={{ uri: getMovieCardPosterUrl(path) }} />
 );
 
 export default React.memo(MovieCardPosterImage);
