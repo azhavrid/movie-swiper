@@ -8,6 +8,7 @@ import {
   exploreMoviesLoad,
   ExploreMoviesLoad,
   exploreActionResolved,
+  exploreMoviesPostersLoaded,
 } from './actions';
 import { UserIdsParams } from '../../api/types';
 import { userIdParamsSelector } from '../auth/selectors';
@@ -18,15 +19,19 @@ import {
   isExploreLoadingSelector,
   exploredSeenIdsMapSelector,
   exploredActionQueueSelector,
+  loadedPosterMovieIdsSelector,
 } from './selectors';
-import { MovieId } from '../movies/types';
+import { MovieId, Movie } from '../movies/types';
 import { handleNetworkReduxError } from '../network/actions';
 import { normalizeAndAddMovies } from '../movies/helpers';
-import { EXPLORE_MOVIE_SWIPED } from './constants';
+import { EXPLORE_MOVIE_SWIPED, EXPLORE_MOVIES_LOAD_SUCCESS } from './constants';
 import { isInternetReachableSelector } from '../network/selectors';
 import { changeMovieStatusRequest } from '../movies/actions';
 import { CHANGE_MOVIE_STATUS_SUCCESS, CHANGE_MOVIE_STATUS_FAILURE } from '../movies/constants';
 import { AFTER_REHYDRATE } from '../rehydrate/constants';
+import { prefetchImages } from '../../utils/network';
+import { getMoviesSelectorByIds } from '../movies/selectors';
+import { getMovieCardPosterUrl } from '../../components/movie/MovieCardPosterImage';
 
 const isEnoughMovies = (movieIds: MovieId[]) => movieIds.length > 10;
 
@@ -80,6 +85,38 @@ export function* movieSwiped({}: ExploreMovieSwiped) {
   const exploreMovieIds: MovieId[] = yield select(exploreMovieIdsSelector);
   if (!isEnoughMovies(exploreMovieIds)) {
     yield put(exploreMoviesLoadRequest());
+  }
+}
+
+export function* preloadExploreImagesSaga() {
+  yield take(AFTER_REHYDRATE);
+  const preloadImagesCount = 10;
+  const onLoadErrorDelay = 500;
+
+  while (true) {
+    const exploreMovieIds: MovieId[] = yield select(exploreMovieIdsSelector);
+    const loadedPosterMovieIds: MovieId[] = yield select(loadedPosterMovieIdsSelector);
+    const movieIdsToLoad = exploreMovieIds
+      .filter(movieId => !loadedPosterMovieIds.includes(movieId))
+      .slice(0, preloadImagesCount);
+    const moviesToLoad: Movie[] = yield select(getMoviesSelectorByIds(movieIdsToLoad));
+    const moviesImagePathsToLoad = moviesToLoad.map(movie => getMovieCardPosterUrl(movie.poster_path));
+
+    if (movieIdsToLoad.length > 0) {
+      const isInternetReachable: boolean = yield select(isInternetReachableSelector);
+      if (isInternetReachable) {
+        try {
+          yield call(prefetchImages, moviesImagePathsToLoad);
+          yield put(exploreMoviesPostersLoaded(movieIdsToLoad));
+        } catch (e) {
+          yield delay(onLoadErrorDelay);
+        }
+      } else {
+        yield delay(onLoadErrorDelay);
+      }
+    } else {
+      yield take(EXPLORE_MOVIES_LOAD_SUCCESS);
+    }
   }
 }
 
