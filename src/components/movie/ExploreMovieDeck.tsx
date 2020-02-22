@@ -1,7 +1,7 @@
 import React from 'react';
 import MovieDeck from './MovieDeck';
 import { RootState } from '../../redux/types';
-import { exploreMovieIdsSelector } from '../../redux/explore/selectors';
+import { exploreMovieIdsWithLoadedPosterSelector } from '../../redux/explore/selectors';
 import { exploreMovieSwiped, exploreMoviesLoadRequest } from '../../redux/explore/actions';
 import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
@@ -55,7 +55,7 @@ class ExploreMovieDeck extends React.PureComponent<Props> {
 }
 
 const mapStateToProps = (state: RootState) => ({
-  movieIds: exploreMovieIdsSelector(state),
+  movieIds: exploreMovieIdsWithLoadedPosterSelector(state),
 });
 
 const mapDispatchToProps = {

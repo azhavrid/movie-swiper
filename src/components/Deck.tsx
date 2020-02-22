@@ -5,7 +5,6 @@ import {
   PanGestureHandlerStateChangeEvent,
   State as GestureState,
 } from 'react-native-gesture-handler';
-import { globalStyles } from '../globalStyles';
 
 /* ------------- Local ------------- */
 const { add, multiply } = Animated;
