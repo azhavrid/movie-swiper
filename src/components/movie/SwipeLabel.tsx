@@ -18,7 +18,7 @@ const SwipeLabel = (props: Props) => {
 
   return (
     <Animated.View style={[styles.container, style, { opacity }]}>
-      <FastImage resizeMode="contain" style={[styles.label]} source={labelSource} />
+      <FastImage resizeMode="contain" style={styles.label} source={labelSource} />
     </Animated.View>
   );
 };
