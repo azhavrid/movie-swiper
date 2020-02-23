@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Animated, StyleSheet, Easing, ViewStyle } from 'react-native';
+import { Animated, Easing, StyleSheet, View, ViewStyle } from 'react-native';
+
 import { theme } from '../theme';
 
 /* ------------- Local ------------- */

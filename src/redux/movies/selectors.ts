@@ -1,5 +1,6 @@
 import memoizeOne from 'memoize-one';
 import { createSelector } from 'reselect';
+
 import { RootState } from '../types';
 import { MovieId } from './types';
 

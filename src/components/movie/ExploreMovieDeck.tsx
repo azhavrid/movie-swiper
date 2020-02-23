@@ -1,10 +1,11 @@
 import React from 'react';
-import MovieDeck from './MovieDeck';
-import { RootState } from '../../redux/types';
-import { exploreMovieIdsWithLoadedPosterSelector } from '../../redux/explore/selectors';
-import { exploreMovieSwiped, exploreMoviesLoadRequest } from '../../redux/explore/actions';
-import { connect } from 'react-redux';
 import { NavigationEvents } from 'react-navigation';
+import { connect } from 'react-redux';
+
+import { exploreMoviesLoadRequest, exploreMovieSwiped } from '../../redux/explore/actions';
+import { exploreMovieIdsWithLoadedPosterSelector } from '../../redux/explore/selectors';
+import { RootState } from '../../redux/types';
+import MovieDeck from './MovieDeck';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

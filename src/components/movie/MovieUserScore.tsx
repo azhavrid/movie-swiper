@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, ViewStyle } from 'react-native';
-import { AppText } from '../common';
+
 import { getFontStyle } from '../../utils/fonts';
 import { getMovieScoreColor } from '../../utils/movies';
+import { AppText } from '../common';
 
 /* ------------- Props and State ------------- */
 type Props = {

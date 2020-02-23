@@ -1,12 +1,13 @@
 import React from 'react';
-import { FlatList, StyleSheet, FlatListProps, View, ActivityIndicator, RefreshControl } from 'react-native';
+import { ActivityIndicator, FlatList, FlatListProps, RefreshControl, StyleSheet, View } from 'react-native';
+
+import { getMovieListEmptyIcon } from '../../helpers/icons';
+import { MovieId } from '../../redux/movies/types';
+import { theme } from '../../theme';
+import { movieIdsKeyExtractor } from '../../utils/movies';
+import FooterLoading from '../FooterLoading';
 import InfoBlock from '../InfoBlock';
 import MovieInlinePreview from './MovieInlinePreview';
-import { getMovieListEmptyIcon } from '../../helpers/icons';
-import { movieIdsKeyExtractor } from '../../utils/movies';
-import { MovieId } from '../../redux/movies/types';
-import FooterLoading from '../FooterLoading';
-import { theme } from '../../theme';
 
 /* ------------- Props and State ------------- */
 export type MovieListProps = Props;

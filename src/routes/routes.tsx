@@ -3,25 +3,24 @@ import { createAppContainer, createSwitchNavigator, StackActions } from 'react-n
 import { createStackNavigator, NavigationStackOptions } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import { routeNames, tabNames } from './routeNames';
-
-import SplashScreen from '../screens/SplashScreen';
-import AuthWelcome from '../screens/auth/AuthWelcome';
+import Header from '../components/Header';
+import NavbarButtonWrapper from '../components/NavbarButtonWrapper';
+import NavbarWrapper from '../components/NavbarWrapper';
+import { config } from '../configs/config';
+import { getNavbarBrowseIcon, getNavbarExploreIcon, getNavbarLibraryIcon } from '../helpers/icons';
 import AuthLogin from '../screens/auth/AuthLogin';
+import AuthWelcome from '../screens/auth/AuthWelcome';
 import BrowseScreen from '../screens/BrowseScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import LibraryScreen from '../screens/LibraryScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import SectionListScreen from '../screens/movie/SectionListScreen';
 import MovieDetailsScreen from '../screens/movie/MovieDetailsScreen';
-import NavbarWrapper from '../components/NavbarWrapper';
-import NavbarButtonWrapper from '../components/NavbarButtonWrapper';
-import Header from '../components/Header';
-import { getNavbarBrowseIcon, getNavbarExploreIcon, getNavbarLibraryIcon } from '../helpers/icons';
-import { getFontStyle } from '../utils/fonts';
-import { fromRightWithFade } from './transitions';
+import SectionListScreen from '../screens/movie/SectionListScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import SplashScreen from '../screens/SplashScreen';
 import { theme } from '../theme';
-import { config } from '../configs/config';
+import { getFontStyle } from '../utils/fonts';
+import { routeNames, tabNames } from './routeNames';
+import { fromRightWithFade } from './transitions';
 
 /* ------------- Helpers ------------- */
 const defaultHeaderObject: NavigationStackOptions = {

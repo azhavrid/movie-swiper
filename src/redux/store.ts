@@ -1,10 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { persistStore } from 'redux-persist';
+import createSagaMiddleware from 'redux-saga';
 
-import { afterRehydrate } from './rehydrate/actions';
 import { reactotron } from '../configs/reactotron/reactotron';
 import { rootReducer } from './reducer';
+import { afterRehydrate } from './rehydrate/actions';
 import { rootSaga } from './saga';
 import StoreService from './StoreService';
 

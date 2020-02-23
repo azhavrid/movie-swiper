@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions, Animated, LayoutChangeEvent, ViewStyle } from 'react-native';
+import { Animated, Dimensions, LayoutChangeEvent, StyleSheet, View, ViewStyle } from 'react-native';
 import {
   PanGestureHandler,
   PanGestureHandlerStateChangeEvent,

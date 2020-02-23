@@ -1,15 +1,15 @@
 import React from 'react';
-import MovieList from '../../components/movie/MovieList';
-import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
-
-import { sectionData } from '../../redux/sections/sectionData';
+import { NavigationStackOptions, NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
-import { RootState } from '../../redux/types';
-import { refreshSectionRequest, fetchSectionNextPageRequest } from '../../redux/sections/actions';
-import { SectionId } from '../../redux/sections/types';
-import { getSectionSelectorByKey } from '../../redux/sections/selectors';
-import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
+
+import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
+import MovieList from '../../components/movie/MovieList';
 import ScreenWrapper from '../../components/ScreenWrapper';
+import { fetchSectionNextPageRequest, refreshSectionRequest } from '../../redux/sections/actions';
+import { sectionData } from '../../redux/sections/sectionData';
+import { getSectionSelectorByKey } from '../../redux/sections/selectors';
+import { SectionId } from '../../redux/sections/types';
+import { RootState } from '../../redux/types';
 
 /* ------------- Props and State ------------- */
 export interface SectionListScreenNavigationParams {

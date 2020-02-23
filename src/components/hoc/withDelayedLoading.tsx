@@ -1,5 +1,5 @@
-import React from 'react';
 import hoistNonReactStatic from 'hoist-non-react-statics';
+import React from 'react';
 
 /* ------------- Props and State ------------- */
 type State = typeof initialState;

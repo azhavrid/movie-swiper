@@ -1,4 +1,4 @@
-import { MovieDetailed, MovieApiResponse } from '../../api/types';
+import { MovieApiResponse, MovieDetailed } from '../../api/types';
 
 /* ------------- Movie ------------- */
 export type MovieId = number;

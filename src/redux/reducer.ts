@@ -1,16 +1,16 @@
-import { combineReducers } from 'redux';
-import { persistReducer, PersistConfig, getStoredState } from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
-import { PersistPartial } from 'redux-persist/es/persistReducer';
 import { mapValues } from 'lodash';
+import { combineReducers } from 'redux';
+import { getStoredState, PersistConfig, persistReducer } from 'redux-persist';
+import { PersistPartial } from 'redux-persist/es/persistReducer';
 
 import authReducer from './auth/reducer';
-import sectionsReducer from './sections/reducer';
+import exploreReducer from './explore/reducer';
 import moviesReducer from './movies/reducer';
 import networkReducer from './network/reducer';
-import exploreReducer from './explore/reducer';
 import searchReducer from './search/reducer';
-import { RootState, RootAction } from './types';
+import sectionsReducer from './sections/reducer';
+import { RootAction, RootState } from './types';
 
 /* ------------- Type ------------- */
 type ReducersKey = keyof typeof reducers | keyof PersistPartial;

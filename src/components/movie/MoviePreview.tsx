@@ -1,18 +1,19 @@
 import React from 'react';
-import { withNavigation, NavigationInjectedProps } from 'react-navigation';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import uuid from 'uuid';
-import { TouchableScale, AppText } from '../common';
-import { routeNames } from '../../routes/routeNames';
-import { theme } from '../../theme';
-import { getW185ImageUrl } from '../../api/urls';
-import { MovieDetailsScreenNavigationParams } from '../../screens/movie/MovieDetailsScreen';
-import { RootState } from '../../redux/types';
-import { getMovieSelectorById } from '../../redux/movies/selectors';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
+import uuid from 'uuid';
+
+import { getW185ImageUrl } from '../../api/urls';
+import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
+import { RootState } from '../../redux/types';
+import { routeNames } from '../../routes/routeNames';
+import { MovieDetailsScreenNavigationParams } from '../../screens/movie/MovieDetailsScreen';
+import { theme } from '../../theme';
 import { isGoodMovieRating } from '../../utils/movies';
+import { AppText, TouchableScale } from '../common';
 
 /* ------------- Local ------------- */
 const { width } = Dimensions.get('window');

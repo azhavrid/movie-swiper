@@ -1,24 +1,25 @@
-import { call, put, select } from 'redux-saga/effects';
-import {
-  RefreshSectionRequest,
-  refreshSectionSuccess,
-  FetchSectionNextPageRequest,
-  fetchSectionNextPageSuccess,
-  fetchSectionNextPage,
-  FetchSectionNextPage,
-} from './actions';
-import { getSectionSelectorByKey } from './selectors';
-import { Section } from './types';
 import { AxiosResponse } from 'axios';
+import { call, put, select } from 'redux-saga/effects';
+
 import { MovieListApiResponse } from '../../api/movies';
-import { sectionData } from './sectionData';
-import { userIdParamsSelector } from '../auth/selectors';
 import { UserIdsParams } from '../../api/types';
 import { isLastMovieList } from '../../utils/movies';
-import { handleNetworkReduxError } from '../network/actions';
-import { isSameSectionRequest } from './utils';
-import { FETCH_SECTION_NEXT_PAGE } from './constants';
+import { userIdParamsSelector } from '../auth/selectors';
 import { normalizeAndAddMovies } from '../movies/helpers';
+import { handleNetworkReduxError } from '../network/actions';
+import {
+  FetchSectionNextPage,
+  fetchSectionNextPage,
+  FetchSectionNextPageRequest,
+  fetchSectionNextPageSuccess,
+  RefreshSectionRequest,
+  refreshSectionSuccess,
+} from './actions';
+import { FETCH_SECTION_NEXT_PAGE } from './constants';
+import { sectionData } from './sectionData';
+import { getSectionSelectorByKey } from './selectors';
+import { Section } from './types';
+import { isSameSectionRequest } from './utils';
 
 export function* refreshSectionRequestSaga(action: RefreshSectionRequest) {
   try {

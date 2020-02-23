@@ -1,12 +1,12 @@
-import React from 'react';
 import { isNil } from 'lodash';
-import { View, StyleSheet, Animated, ViewStyle } from 'react-native';
-import { withNavigation, NavigationInjectedProps } from 'react-navigation';
+import React from 'react';
+import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { Scene } from 'react-navigation-stack/lib/typescript/types';
 
-import { AppText, TouchableScale } from './common';
 import { getHeaderBackIcon } from '../helpers/icons';
 import { theme } from '../theme';
+import { AppText, TouchableScale } from './common';
 
 /* ------------- Props and State ------------- */
 export type HeaderProps = OwnProps;

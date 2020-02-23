@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+
 import { theme } from '../../theme';
 
 const StatusBarSpacer = () => <View style={styles.container} />;

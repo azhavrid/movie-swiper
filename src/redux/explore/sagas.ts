@@ -1,37 +1,38 @@
-import { random } from 'lodash';
-import { call, put, select, take, delay } from 'redux-saga/effects';
-import {
-  ExploreMoviesLoadRequest,
-  exploreMoviesLoadSuccess,
-  ExploreMovieSwiped,
-  exploreMoviesLoadRequest,
-  exploreMoviesLoad,
-  ExploreMoviesLoad,
-  exploreActionResolved,
-  exploreMoviesPostersLoaded,
-} from './actions';
-import { UserIdsParams } from '../../api/types';
-import { userIdParamsSelector } from '../auth/selectors';
-import { getPopularMoviesApi, MovieListApiResponse } from '../../api/movies';
 import { AxiosResponse } from 'axios';
+import { random } from 'lodash';
+import { call, delay, put, select, take } from 'redux-saga/effects';
+
+import { getPopularMoviesApi, MovieListApiResponse } from '../../api/movies';
+import { UserIdsParams } from '../../api/types';
+import { getMovieCardPosterUrl } from '../../components/movie/MovieCardPosterImage';
+import { prefetchImages } from '../../utils/network';
+import { userIdParamsSelector } from '../auth/selectors';
+import { changeMovieStatusRequest } from '../movies/actions';
+import { CHANGE_MOVIE_STATUS_FAILURE, CHANGE_MOVIE_STATUS_SUCCESS } from '../movies/constants';
+import { normalizeAndAddMovies } from '../movies/helpers';
+import { getMoviesSelectorByIds } from '../movies/selectors';
+import { Movie, MovieId } from '../movies/types';
+import { handleNetworkReduxError } from '../network/actions';
+import { isInternetReachableSelector } from '../network/selectors';
+import { AFTER_REHYDRATE } from '../rehydrate/constants';
 import {
+  exploreActionResolved,
+  ExploreMoviesLoad,
+  exploreMoviesLoad,
+  ExploreMoviesLoadRequest,
+  exploreMoviesLoadRequest,
+  exploreMoviesLoadSuccess,
+  exploreMoviesPostersLoaded,
+  ExploreMovieSwiped,
+} from './actions';
+import { EXPLORE_MOVIE_SWIPED, EXPLORE_MOVIES_LOAD_SUCCESS } from './constants';
+import {
+  exploredActionQueueSelector,
+  exploredSeenIdsMapSelector,
   exploreMovieIdsSelector,
   isExploreLoadingSelector,
-  exploredSeenIdsMapSelector,
-  exploredActionQueueSelector,
   loadedPosterMovieIdsSelector,
 } from './selectors';
-import { MovieId, Movie } from '../movies/types';
-import { handleNetworkReduxError } from '../network/actions';
-import { normalizeAndAddMovies } from '../movies/helpers';
-import { EXPLORE_MOVIE_SWIPED, EXPLORE_MOVIES_LOAD_SUCCESS } from './constants';
-import { isInternetReachableSelector } from '../network/selectors';
-import { changeMovieStatusRequest } from '../movies/actions';
-import { CHANGE_MOVIE_STATUS_SUCCESS, CHANGE_MOVIE_STATUS_FAILURE } from '../movies/constants';
-import { AFTER_REHYDRATE } from '../rehydrate/constants';
-import { prefetchImages } from '../../utils/network';
-import { getMoviesSelectorByIds } from '../movies/selectors';
-import { getMovieCardPosterUrl } from '../../components/movie/MovieCardPosterImage';
 
 const isEnoughMovies = (movieIds: MovieId[]) => movieIds.length > 10;
 

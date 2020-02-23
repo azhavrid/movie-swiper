@@ -1,17 +1,18 @@
-import moment from 'moment';
 import { uniq } from 'lodash';
-import * as searchConstants from './constants';
-import {
-  SearchTextChanged,
-  SearchMoviesSuccess,
-  SearchAction,
-  SearchMoviesRequest,
-  SearchMoviesPaginationSuccess,
-  ClearSearchResults,
-  SearchMoviesPaginationFetch,
-  SearchMoviesRequestSlow,
-} from './actions';
+import moment from 'moment';
+
 import { MovieId } from '../movies/types';
+import {
+  ClearSearchResults,
+  SearchAction,
+  SearchMoviesPaginationFetch,
+  SearchMoviesPaginationSuccess,
+  SearchMoviesRequest,
+  SearchMoviesRequestSlow,
+  SearchMoviesSuccess,
+  SearchTextChanged,
+} from './actions';
+import * as searchConstants from './constants';
 
 /* ------------- State ------------- */
 type SearchStateType = typeof initialState;

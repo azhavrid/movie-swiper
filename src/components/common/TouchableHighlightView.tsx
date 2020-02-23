@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, GestureResponderEvent } from 'react-native';
-import TouchableScale, { TouchableScaleProps } from './TouchableScale';
+import { GestureResponderEvent, StyleSheet, View, ViewStyle } from 'react-native';
+
 import { WithDefaultProps } from '../../types';
+import TouchableScale, { TouchableScaleProps } from './TouchableScale';
 
 /* ------------- Props and State ------------- */
 export type TouchableHighlightViewProps = WithDefaultProps<Props, typeof defaultProps>;

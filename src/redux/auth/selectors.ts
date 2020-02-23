@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
-import { RootState } from '../types';
+
 import { UserIdsParams } from '../../api/types';
+import { RootState } from '../types';
 import { AuthenticatedUser, GuestUser } from './types';
 
 export const authStateSelector = (state: RootState) => state.auth;

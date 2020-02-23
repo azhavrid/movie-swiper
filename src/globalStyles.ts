@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { theme } from './theme';
+
 import { config } from './configs/config';
+import { theme } from './theme';
 
 export const globalStyles = StyleSheet.create({
   empty: {},

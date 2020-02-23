@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import SwipeLabel from './SwipeLabel';
-import { SwipeThresholds } from '../Deck';
 import { socialActionMap } from '../../redux/explore/exploreData';
+import { SwipeThresholds } from '../Deck';
+import SwipeLabel from './SwipeLabel';
 
 /* ------------- Props and State ------------- */
 type Props = {

@@ -1,22 +1,22 @@
 import React from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
+import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView } from 'react-native';
 
+import { RESET_PASSWORD_URL } from '../../api/urls';
 import { PageSpinner, PrimaryButton, TextButton } from '../../components/common';
 import LoginInput from '../../components/LoginInput';
+import ScreenWrapper from '../../components/ScreenWrapper';
 import { createAuthenticatedSessionRequest } from '../../redux/auth/actions';
-import { RootState } from '../../redux/types';
-import { RESET_PASSWORD_URL } from '../../api/urls';
-import { safeOpenURL } from '../../utils/network';
-import { theme } from '../../theme';
-import { validateUsername, validatePassword } from '../../utils/validators';
 import {
-  createAuthenticatedSessionPendingSelector,
   createAuthenticatedSessionErrorSelector,
+  createAuthenticatedSessionPendingSelector,
   userSelector,
 } from '../../redux/auth/selectors';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
-import ScreenWrapper from '../../components/ScreenWrapper';
+import { RootState } from '../../redux/types';
+import { theme } from '../../theme';
+import { safeOpenURL } from '../../utils/network';
+import { validatePassword, validateUsername } from '../../utils/validators';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

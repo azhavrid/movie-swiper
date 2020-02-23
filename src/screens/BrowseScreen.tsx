@@ -1,9 +1,9 @@
 import React from 'react';
-
 import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+
 import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
-import MovieSearchWrapper from '../components/movie/MovieSearchWrapper';
 import BrowseSections from '../components/movie/BrowseSections';
+import MovieSearchWrapper from '../components/movie/MovieSearchWrapper';
 import ScreenWrapper from '../components/ScreenWrapper';
 
 /* ------------- Props and State ------------- */

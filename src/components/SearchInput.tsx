@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  View,
-  TextInput,
-  StyleSheet,
   NativeSyntheticEvent,
+  StyleSheet,
+  TextInput,
   TextInputFocusEventData,
   TextInputProps,
+  View,
 } from 'react-native';
 
-import { AppText, TouchableScale } from './common';
-import { getFontStyle } from '../utils/fonts';
+import { globalStyles } from '../globalStyles';
 import { getSearchInputBackIcon, getSearchInputCloseIcon, getSearchInputLabelIcon } from '../helpers/icons';
 import { theme } from '../theme';
-import { globalStyles } from '../globalStyles';
+import { getFontStyle } from '../utils/fonts';
+import { AppText, TouchableScale } from './common';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

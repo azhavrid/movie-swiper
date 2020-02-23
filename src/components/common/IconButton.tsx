@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
+import { theme } from '../../theme';
 import AppText from './AppText';
 import TouchableHighlightView, { TouchableHighlightViewProps } from './TouchableHighlightView';
-import { theme } from '../../theme';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

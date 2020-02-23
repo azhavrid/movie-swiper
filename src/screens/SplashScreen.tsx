@@ -1,11 +1,11 @@
 import React from 'react';
+import { NavigationSwitchScreenProps } from 'react-navigation';
 import { connect } from 'react-redux';
 
-import { RootState } from '../redux/types';
-import { userSelector } from '../redux/auth/selectors';
-import { routeNames } from '../routes/routeNames';
-import { NavigationSwitchScreenProps } from 'react-navigation';
 import ScreenWrapper from '../components/ScreenWrapper';
+import { userSelector } from '../redux/auth/selectors';
+import { RootState } from '../redux/types';
+import { routeNames } from '../routes/routeNames';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

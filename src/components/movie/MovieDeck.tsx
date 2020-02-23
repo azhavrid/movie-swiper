@@ -1,10 +1,11 @@
 import React from 'react';
+
+import { MovieId } from '../../redux/movies/types';
+import { movieIdsKeyExtractor } from '../../utils/movies';
+import CircleLoadingIndicator from '../CircleLoadingIndicator';
 import Deck, { RenderCardParams } from '../Deck';
 import InfoBlock from '../InfoBlock';
-import CircleLoadingIndicator from '../CircleLoadingIndicator';
 import MovieCard from './MovieCard';
-import { movieIdsKeyExtractor } from '../../utils/movies';
-import { MovieId } from '../../redux/movies/types';
 import MovieCardSwipeLabels from './MovieCardSwipeLabels';
 
 /* ------------- Props and State ------------- */

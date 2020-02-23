@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { ImageStyle, StyleSheet, ViewStyle } from 'react-native';
 import FastImage, { FastImageProperties, OnLoadEvent } from 'react-native-fast-image';
-import { StyleSheet, ViewStyle, ImageStyle } from 'react-native';
 import Animated, { Easing } from 'react-native-reanimated';
 
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage) as FastImage;

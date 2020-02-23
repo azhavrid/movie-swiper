@@ -1,18 +1,19 @@
-import uuid from 'uuid';
 import { uniq } from 'lodash';
-import * as exploreConstants from './constants';
-import {
-  ExploreAction,
-  ExploreMoviesLoadSuccess,
-  ExploreMovieSwiped,
-  ExploreActionResolved,
-  ExploreMoviesPostersLoaded,
-} from './actions';
-import { SocialAction } from './types';
+import uuid from 'uuid';
+
 import { MovieId } from '../movies/types';
-import { socialActionMap } from './exploreData';
 import { AfterRehydrate } from '../rehydrate/actions';
 import { AFTER_REHYDRATE } from '../rehydrate/constants';
+import {
+  ExploreAction,
+  ExploreActionResolved,
+  ExploreMoviesLoadSuccess,
+  ExploreMoviesPostersLoaded,
+  ExploreMovieSwiped,
+} from './actions';
+import * as exploreConstants from './constants';
+import { socialActionMap } from './exploreData';
+import { SocialAction } from './types';
 
 /* ------------- State ------------- */
 type ExploreStateType = typeof initialState;

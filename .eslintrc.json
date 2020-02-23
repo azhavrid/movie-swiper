@@ -1,7 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "react-hooks", "react-native", "prettier"],
+  "plugins": ["react", "react-hooks", "react-native", "prettier", "simple-import-sort"],
   "extends": [
     "plugin:react/recommended",
     "plugin:prettier/recommended", // Prettier configs should be z last extended configs
@@ -34,6 +34,8 @@
     // React Native
     "react-native/no-unused-styles": "error",
     // "react-native/no-color-literals": "error",
-    "react-native/no-single-element-style-arrays": "error"
+    "react-native/no-single-element-style-arrays": "error",
+    //  Other
+    "simple-import-sort/sort": "warn"
   }
 }

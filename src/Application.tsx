@@ -1,12 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { View } from 'react-native';
-import { RootStack } from './routes/routes';
-import NavigationService from './routes/NavigationService';
+import { connect } from 'react-redux';
+
 import AppToast from './components/AppToast';
 import { globalStyles } from './globalStyles';
+import { initiateNetworkMonitoring, stopNetworkMonitoring } from './redux/network/actions';
 import { RootState } from './redux/types';
-import { stopNetworkMonitoring, initiateNetworkMonitoring } from './redux/network/actions';
+import NavigationService from './routes/NavigationService';
+import { RootStack } from './routes/routes';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

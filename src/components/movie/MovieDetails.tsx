@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Animated from 'react-native-reanimated';
+
+import { Movie } from '../../redux/movies/types';
+import { theme } from '../../theme';
 import { AppText } from '../common';
 import MovieBackdropWithTitle from './MovieBackdropWithTitle';
 import MovieDetailsButtons from './MovieDetailsButtons';
 import MovieGenres from './MovieGenres';
+import { getMoviePreviewHeight } from './MoviePreview';
 import MovieScoreYear from './MovieScoreYear';
 import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
-import { theme } from '../../theme';
-import { getMoviePreviewHeight } from './MoviePreview';
-import { Movie } from '../../redux/movies/types';
-import Animated from 'react-native-reanimated';
 
 /* ------------- Props and State ------------- */
 type Props = {

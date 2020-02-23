@@ -1,8 +1,9 @@
 import React from 'react';
-import { AppText } from '../common';
-import { theme } from '../../theme';
 import { ViewStyle } from 'react-native';
+
 import { MovieDetailed } from '../../api/types';
+import { theme } from '../../theme';
+import { AppText } from '../common';
 
 /* ------------- Props and State ------------- */
 type Props = {

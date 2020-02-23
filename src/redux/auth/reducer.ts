@@ -1,15 +1,15 @@
-import * as authConstants from './constants';
+import { ResponseError } from '../../utils/errors';
+import { AfterRehydrate } from '../rehydrate/actions';
+import { AFTER_REHYDRATE } from '../rehydrate/constants';
 import {
   AuthAction,
-  CreateGuestSessionFailure,
   CreateAuthenticatedSessionFailure,
-  CreateGuestSessionSuccess,
   CreateAuthenticatedSessionSuccess,
+  CreateGuestSessionFailure,
+  CreateGuestSessionSuccess,
 } from './actions';
+import * as authConstants from './constants';
 import { User } from './types';
-import { AFTER_REHYDRATE } from '../rehydrate/constants';
-import { AfterRehydrate } from '../rehydrate/actions';
-import { ResponseError } from '../../utils/errors';
 
 /* ------------- State ------------- */
 type AuthStateType = typeof initialState;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet, TextStyle, TextProps } from 'react-native';
+import { StyleSheet, Text, TextProps, TextStyle } from 'react-native';
 
+import { AppTypographyKeys, theme } from '../../theme';
 import { getFontStyle } from '../../utils/fonts';
-import { theme, AppTypographyKeys } from '../../theme';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

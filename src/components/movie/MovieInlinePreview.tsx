@@ -1,17 +1,18 @@
 import React from 'react';
-import { withNavigation, NavigationInjectedProps } from 'react-navigation';
+import { StyleSheet, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { View, StyleSheet } from 'react-native';
-import MovieScoreYear from './MovieScoreYear';
-import { AppText, TouchableHighlightView } from '../common';
-import { getW185ImageUrl } from '../../api/urls';
-import { routeNames } from '../../routes/routeNames';
-import { theme } from '../../theme';
-import { MovieDetailsScreenNavigationParams } from '../../screens/movie/MovieDetailsScreen';
-import { getMovieSelectorById } from '../../redux/movies/selectors';
-import { RootState } from '../../redux/types';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
+
+import { getW185ImageUrl } from '../../api/urls';
+import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
+import { RootState } from '../../redux/types';
+import { routeNames } from '../../routes/routeNames';
+import { MovieDetailsScreenNavigationParams } from '../../screens/movie/MovieDetailsScreen';
+import { theme } from '../../theme';
+import { AppText, TouchableHighlightView } from '../common';
+import MovieScoreYear from './MovieScoreYear';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

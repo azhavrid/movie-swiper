@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { AppText, TouchableHighlightView } from './common';
+import { StyleSheet, View } from 'react-native';
+
 import { theme } from '../theme';
+import { AppText, TouchableHighlightView } from './common';
 import { TouchableHighlightViewProps } from './common/TouchableHighlightView';
 
 /* ------------- Props and State ------------- */

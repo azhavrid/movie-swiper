@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, ImageStyle } from 'react-native';
+
 import { getW780ImageUrl } from '../../api/urls';
 
 /* ------------- Props and State ------------- */

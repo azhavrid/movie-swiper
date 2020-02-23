@@ -1,7 +1,8 @@
 import moment from 'moment';
+
+import { MovieId } from '../movies/types';
 import * as sectionConstants from './constants';
 import { SectionId } from './types';
-import { MovieId } from '../movies/types';
 
 /* ------------- Types ------------- */
 export interface RefreshSectionRequest extends ReturnType<typeof refreshSectionRequest> {}

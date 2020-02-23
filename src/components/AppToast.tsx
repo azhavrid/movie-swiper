@@ -1,9 +1,9 @@
 import React, { RefObject } from 'react';
-import { StyleSheet, View, Animated } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
 
-import { AppText } from './common';
-import { theme } from '../theme';
 import { globalStyles } from '../globalStyles';
+import { theme } from '../theme';
+import { AppText } from './common';
 
 /* ------------- Container Class ------------- */
 class AppToast extends React.Component {

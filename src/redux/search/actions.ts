@@ -1,6 +1,7 @@
 import moment from 'moment';
-import * as searchConstants from './constants';
+
 import { MovieId } from '../movies/types';
+import * as searchConstants from './constants';
 
 /* ------------- Types ------------- */
 export type SearchTextChanged = ReturnType<typeof searchTextChanged>;

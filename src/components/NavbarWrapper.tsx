@@ -1,13 +1,12 @@
 import React from 'react';
+import { Animated, StyleSheet, View } from 'react-native';
 import { BottomTabBar } from 'react-navigation-tabs';
-import { View, StyleSheet, Animated } from 'react-native';
-
-import { AppText } from './common';
-import { theme } from '../theme';
+import { connect } from 'react-redux';
 
 import { isInternetReachableSelector } from '../redux/network/selectors';
 import { RootState } from '../redux/types';
-import { connect } from 'react-redux';
+import { theme } from '../theme';
+import { AppText } from './common';
 
 const INFO_BAR_HEIGHT = 22;
 

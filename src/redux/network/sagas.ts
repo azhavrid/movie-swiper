@@ -1,17 +1,17 @@
 import NetInfo, { NetInfoSubscription } from '@react-native-community/netinfo';
-import { put, select, delay } from 'redux-saga/effects';
+import { delay, put, select } from 'redux-saga/effects';
 
-import {
-  networkStateChanged,
-  InitiateNetworkMonitoring,
-  StopNetworkMonitoring,
-  networkReduxErrorsResolved,
-  HandleNetworkReduxError,
-  clearReduxActionsFromQueue,
-} from './actions';
-import { isInternetReachableSelector, failedRequestsQueueSelector } from './selectors';
-import { FailedRequest } from './types';
 import StoreService from '../StoreService';
+import {
+  clearReduxActionsFromQueue,
+  HandleNetworkReduxError,
+  InitiateNetworkMonitoring,
+  networkReduxErrorsResolved,
+  networkStateChanged,
+  StopNetworkMonitoring,
+} from './actions';
+import { failedRequestsQueueSelector, isInternetReachableSelector } from './selectors';
+import { FailedRequest } from './types';
 
 let unsubscribe: NetInfoSubscription;
 

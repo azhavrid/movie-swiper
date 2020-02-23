@@ -1,13 +1,13 @@
+import { MovieListApiResponse } from '../api/movies';
+import { MovieApiResponse } from '../api/types';
 import {
+  Movie,
   MovieId,
   MovieRequiredPropsKey,
-  Movie,
-  NormalizedMovieProps,
   MovieStoreProps,
+  NormalizedMovieProps,
   ParsedMovie,
 } from '../redux/movies/types';
-import { MovieApiResponse } from '../api/types';
-import { MovieListApiResponse } from '../api/movies';
 import { theme } from '../theme';
 
 /* ------------- Key Extractor ------------- */

@@ -1,23 +1,22 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-
+import { StyleSheet, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
 
-import PageSpinner from '../../components/common/PageSpinner';
-import ImageOpacityCycler from '../../components/ImageOpacityCycler';
-import { AppText, TextButton, PrimaryButton, SecondaryButton } from '../../components/common';
-import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
-import { createGuestSessionRequest } from '../../redux/auth/actions';
-import { RootState } from '../../redux/types';
-import { safeOpenURL } from '../../utils/network';
 import { REGISTRATION_URL } from '../../api/urls';
+import { AppText, PrimaryButton, SecondaryButton, TextButton } from '../../components/common';
+import PageSpinner from '../../components/common/PageSpinner';
+import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
+import ImageOpacityCycler from '../../components/ImageOpacityCycler';
+import ScreenWrapper from '../../components/ScreenWrapper';
+import images from '../../images';
+import { createGuestSessionRequest } from '../../redux/auth/actions';
+import { createGuestSessionPendingSelector } from '../../redux/auth/selectors';
+import { RootState } from '../../redux/types';
 import { routeNames } from '../../routes/routeNames';
 import { theme } from '../../theme';
-import images from '../../images';
-import { createGuestSessionPendingSelector } from '../../redux/auth/selectors';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
-import ScreenWrapper from '../../components/ScreenWrapper';
+import { safeOpenURL } from '../../utils/network';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

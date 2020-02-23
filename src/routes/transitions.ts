@@ -1,5 +1,6 @@
-import { TransitionConfig, HeaderTransitionConfig, TransitionProps } from 'react-navigation-stack/lib/typescript/types';
 import { Animated } from 'react-native';
+import { HeaderTransitionConfig, TransitionConfig, TransitionProps } from 'react-navigation-stack/lib/typescript/types';
+
 import { theme } from '../theme';
 
 export const fromRightWithFade = (transitionProps: TransitionProps): TransitionConfig & HeaderTransitionConfig => ({

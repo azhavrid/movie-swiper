@@ -1,15 +1,16 @@
-import { isArray } from 'lodash';
-import * as networkConstants from './constants';
-import {
-  NetworkAction,
-  NetworkStateChanged,
-  HandleNetworkReduxError,
-  NetworkReduxErrorsResolved,
-  ClearReduxActionsFromQueue,
-} from './actions';
 import { NetInfoState } from '@react-native-community/netinfo';
-import { FailedRequest } from './types';
+import { isArray } from 'lodash';
+
 import { isNetworkError, isServerError } from '../../utils/network';
+import {
+  ClearReduxActionsFromQueue,
+  HandleNetworkReduxError,
+  NetworkAction,
+  NetworkReduxErrorsResolved,
+  NetworkStateChanged,
+} from './actions';
+import * as networkConstants from './constants';
+import { FailedRequest } from './types';
 import { isSameActionsByType } from './utils';
 
 /* ------------- State ------------- */

@@ -1,5 +1,6 @@
 import { Store } from 'redux';
-import { RootState, RootAction } from './types';
+
+import { RootAction, RootState } from './types';
 
 // StoreService is used to avoid cyclic dependencies when dispatching actions
 // outside of React Component and redux sagas

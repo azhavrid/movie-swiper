@@ -1,5 +1,5 @@
-import { withKey } from './urls';
 import api from './api';
+import { withKey } from './urls';
 
 /* ------------- Types ------------- */
 export interface CreateGuestSessionApiResponse {

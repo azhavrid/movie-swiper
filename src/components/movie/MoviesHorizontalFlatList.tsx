@@ -1,11 +1,11 @@
-import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
 import { times } from 'lodash';
+import React from 'react';
+import { FlatList, StyleSheet, View } from 'react-native';
 
-import MoviePreview, { OwnProps as MoviePreviewProps } from './MoviePreview';
+import { MovieId } from '../../redux/movies/types';
 import { theme } from '../../theme';
 import { movieIdsKeyExtractor } from '../../utils/movies';
-import { MovieId } from '../../redux/movies/types';
+import MoviePreview, { OwnProps as MoviePreviewProps } from './MoviePreview';
 
 /* ------------- Props and State ------------- */
 type Props = {

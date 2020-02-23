@@ -1,6 +1,7 @@
-import * as networkConstants from './constants';
 import { NetInfoState } from '@react-native-community/netinfo';
 import { AnyAction } from 'redux';
+
+import * as networkConstants from './constants';
 import { ReDispatchConfig } from './types';
 
 /* ------------- Types ------------- */

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Modal, View, ActivityIndicator, StyleSheet, ModalProps } from 'react-native';
+import { ActivityIndicator, Modal, ModalProps, StyleSheet, View } from 'react-native';
+
 import { theme } from '../../theme';
 
 /* ------------- Props and State ------------- */

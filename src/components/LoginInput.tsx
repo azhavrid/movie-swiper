@@ -1,17 +1,18 @@
 import React from 'react';
 import {
+  NativeSyntheticEvent,
   StyleSheet,
   TextInput,
-  View,
-  NativeSyntheticEvent,
   TextInputFocusEventData,
   TextInputProps,
+  View,
   ViewStyle,
 } from 'react-native';
-import AppText from './common/AppText';
-import { getFontStyle } from '../utils/fonts';
-import { theme } from '../theme';
+
 import { globalStyles } from '../globalStyles';
+import { theme } from '../theme';
+import { getFontStyle } from '../utils/fonts';
+import AppText from './common/AppText';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

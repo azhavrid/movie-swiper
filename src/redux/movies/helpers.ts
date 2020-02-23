@@ -1,7 +1,7 @@
+import { MovieApiResponse } from '../../api/types';
+import { normalizeMovies } from '../../utils/movies';
 import StoreService from '../StoreService';
 import { addMovies } from './actions';
-import { normalizeMovies } from '../../utils/movies';
-import { MovieApiResponse } from '../../api/types';
 
 export const normalizeAndAddMovies = (moviesResponse: MovieApiResponse[]) => {
   const movies = normalizeMovies(moviesResponse);

@@ -1,8 +1,8 @@
-import { TextStyle, StyleSheet } from 'react-native';
+import { StyleSheet, TextStyle } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
-import { getFontStyle } from './utils/fonts';
 import { config } from './configs/config';
+import { getFontStyle } from './utils/fonts';
 
 /* ------------- Types ------------- */
 interface AppTypography {

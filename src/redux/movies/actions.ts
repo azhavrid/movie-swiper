@@ -1,7 +1,7 @@
-import * as movieConstants from './constants';
 import { MovieDetailed } from '../../api/types';
-import { MovieStatusType, MovieId, Movie, MovieIdParam } from './types';
 import { WithCallbacks } from '../types';
+import * as movieConstants from './constants';
+import { Movie, MovieId, MovieIdParam, MovieStatusType } from './types';
 
 /* ------------- Types ------------- */
 export interface AddMovies extends ReturnType<typeof addMovies> {}

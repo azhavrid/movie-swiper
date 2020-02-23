@@ -1,7 +1,8 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+
 import { config } from '../configs/config';
-import StoreService from '../redux/StoreService';
 import { logOut } from '../redux/auth/actions';
+import StoreService from '../redux/StoreService';
 
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',

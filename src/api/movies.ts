@@ -1,7 +1,7 @@
-import api from './api';
-import { withKey } from './urls';
-import { MovieDetailed, UserIdsParams, PageParam, MovieApiResponse, RatedValue } from './types';
 import { MovieIdParam, MovieStatusType } from '../redux/movies/types';
+import api from './api';
+import { MovieApiResponse, MovieDetailed, PageParam, RatedValue, UserIdsParams } from './types';
+import { withKey } from './urls';
 
 /* ------------- Types ------------- */
 export interface GetMovieAccountStateApiResponse {

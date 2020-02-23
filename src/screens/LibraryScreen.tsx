@@ -1,18 +1,18 @@
 import React from 'react';
-import { TouchableScale } from '../components/common';
-import BlockButton from '../components/BlockButton';
-import GuestInfo from '../components/GuestInfo';
-import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
-import { routeNames } from '../routes/routeNames';
-import { getLibrarySettingsIcon, getLibraryWatchlistIcon, getLibraryFavoriteIcon } from '../helpers/icons';
+import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 
 import AuthenticatedLock from '../components/AuthenticatedLock';
-import { sectionData, librarySectionsKeys } from '../redux/sections/sectionData';
-import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
-import { LibrarySectionId } from '../redux/sections/types';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
-import NavigationService from '../routes/NavigationService';
+import BlockButton from '../components/BlockButton';
+import { TouchableScale } from '../components/common';
+import GuestInfo from '../components/GuestInfo';
+import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
 import ScreenWrapper from '../components/ScreenWrapper';
+import { getLibraryFavoriteIcon, getLibrarySettingsIcon, getLibraryWatchlistIcon } from '../helpers/icons';
+import { librarySectionsKeys, sectionData } from '../redux/sections/sectionData';
+import { LibrarySectionId } from '../redux/sections/types';
+import NavigationService from '../routes/NavigationService';
+import { routeNames } from '../routes/routeNames';
+import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
 
 /* ------------- Props and State ------------- */
 type NavigationProps = NavigationStackScreenProps<{}>;

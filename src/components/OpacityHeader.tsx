@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Animated } from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
 
+import { theme } from '../theme';
+import { StatusBarSpacer } from './common';
 import Header, { HeaderProps } from './Header';
 import InnerShadow from './InnerShadow';
-import { StatusBarSpacer } from './common';
-import { theme } from '../theme';
 
 /* ------------- Props and State ------------- */
 type Props = HeaderProps & typeof defaultProps;

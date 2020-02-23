@@ -1,22 +1,23 @@
 import React from 'react';
-import { BackHandler, PanResponder, View, KeyboardAvoidingView, StyleSheet } from 'react-native';
-import SearchInput from '../SearchInput';
-import MovieList from './MovieList';
+import { BackHandler, KeyboardAvoidingView, PanResponder, StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { searchTextChanged, searchMoviesRequest, searchMoviesPaginationRequest } from '../../redux/search/actions';
+
+import { globalStyles } from '../../globalStyles';
+import { getEmptySearchIcon, getInitialSearchIcon } from '../../helpers/icons';
+import { searchMoviesPaginationRequest, searchMoviesRequest, searchTextChanged } from '../../redux/search/actions';
 import {
-  searchTextSelector,
-  searchMovieIdsSelector,
-  isSearchRequestPendingSelector,
-  isSearchPaginationPendingSelector,
-  isSearchTextEmptySelector,
   isSearchLoadingSelector,
+  isSearchPaginationPendingSelector,
+  isSearchRequestPendingSelector,
   isSearchRequestSlowSelector,
+  isSearchTextEmptySelector,
+  searchMovieIdsSelector,
+  searchTextSelector,
 } from '../../redux/search/selectors';
 import { RootState } from '../../redux/types';
 import InfoBlock from '../InfoBlock';
-import { getEmptySearchIcon, getInitialSearchIcon } from '../../helpers/icons';
-import { globalStyles } from '../../globalStyles';
+import SearchInput from '../SearchInput';
+import MovieList from './MovieList';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

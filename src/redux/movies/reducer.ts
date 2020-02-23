@@ -1,20 +1,21 @@
-import { pickBy, keyBy } from 'lodash';
+import { keyBy, pickBy } from 'lodash';
+
 import {
-  MoviesAction,
   AddMovies,
-  FetchMovieRecommendationsRequest,
-  FetchMovieRecommendationsSuccess,
-  FetchDetailedMovieRequest,
-  FetchDetailedMovieSuccess,
+  ChangeMovieStatusFailure,
   ChangeMovieStatusRequest,
   ChangeMovieStatusSuccess,
-  ChangeMovieStatusFailure,
+  FetchDetailedMovieRequest,
+  FetchDetailedMovieSuccess,
   FetchMovieAccountStateRequest,
   FetchMovieAccountStateSuccess,
+  FetchMovieRecommendationsRequest,
+  FetchMovieRecommendationsSuccess,
   FilterUnusedMovieData,
+  MoviesAction,
 } from './actions';
 import * as movieConstants from './constants';
-import { MovieId, Movie } from './types';
+import { Movie, MovieId } from './types';
 
 /* ------------- State ------------- */
 type MovieStateType = typeof initialState;

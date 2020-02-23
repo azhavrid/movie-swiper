@@ -1,8 +1,7 @@
-import * as authConstants from './constants';
-
 import { ResponseError } from '../../utils/errors';
-import { GuestUser, AuthenticatedUser } from './types';
 import { WithCallbacks } from '../types';
+import * as authConstants from './constants';
+import { AuthenticatedUser, GuestUser } from './types';
 
 /* ------------- Types ------------- */
 export interface CreateAuthenticatedSessionRequest extends ReturnType<typeof createAuthenticatedSessionRequest> {}

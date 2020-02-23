@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import Application from './Application';
-import { store, persistor } from './redux/store';
+import { persistor, store } from './redux/store';
 
 class AppContainer extends React.Component {
   render() {

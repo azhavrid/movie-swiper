@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { AppText } from '../common';
-import ProgressiveImage from '../ProgressiveImage';
-import InnerShadow from '../InnerShadow';
+import { Dimensions, StyleSheet, View } from 'react-native';
+
 import { getW185ImageUrl, getW1280ImageUrl } from '../../api/urls';
 import { theme } from '../../theme';
+import { AppText } from '../common';
+import InnerShadow from '../InnerShadow';
+import ProgressiveImage from '../ProgressiveImage';
 
 /* ------------- Local ------------- */
 const { width } = Dimensions.get('window');

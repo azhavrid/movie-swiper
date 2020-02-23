@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+
 import { RootState } from '../types';
 
 export const exploreStateSelector = (state: RootState) => state.explore;

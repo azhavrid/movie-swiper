@@ -1,9 +1,9 @@
 import {
   NavigationActions,
   NavigationContainerComponent,
-  StackActions,
-  NavigationReplaceActionPayload,
   NavigationNavigateActionPayload,
+  NavigationReplaceActionPayload,
+  StackActions,
 } from 'react-navigation';
 
 let _navigator: NavigationContainerComponent;

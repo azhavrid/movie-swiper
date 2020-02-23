@@ -1,8 +1,8 @@
-import { persistedReducer } from './reducer';
 import { AuthAction } from './auth/actions';
 import { ExploreAction } from './explore/actions';
 import { MoviesAction } from './movies/actions';
 import { NetworkAction } from './network/actions';
+import { persistedReducer } from './reducer';
 import { RehydrateAction } from './rehydrate/actions';
 import { SearchAction } from './search/actions';
 import { SectionAction } from './sections/actions';

@@ -1,16 +1,17 @@
 import { mapValues, uniq } from 'lodash';
-import * as sectionConstants from './constants';
+import moment from 'moment';
+
+import { MovieId } from '../movies/types';
 import {
-  SectionAction,
+  FetchSectionNextPage,
+  FetchSectionNextPageSuccess,
   RefreshSectionRequest,
   RefreshSectionSuccess,
-  FetchSectionNextPageSuccess,
-  FetchSectionNextPage,
+  SectionAction,
 } from './actions';
-import { Section, SectionId } from './types';
+import * as sectionConstants from './constants';
 import { sectionData } from './sectionData';
-import { MovieId } from '../movies/types';
-import moment from 'moment';
+import { Section, SectionId } from './types';
 
 /* ------------- State ------------- */
 type SectionStateType = typeof initialState;

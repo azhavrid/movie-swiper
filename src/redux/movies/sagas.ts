@@ -1,27 +1,28 @@
 import { AxiosResponse } from 'axios';
 import { call, put, select } from 'redux-saga/effects';
+
 import {
-  fetchMovieRecommendationsSuccess,
-  FetchMovieRecommendationsRequest,
-  FetchDetailedMovieRequest,
-  fetchDetailedMovieSuccess,
-  ChangeMovieStatusRequest,
-  changeMovieStatusSuccess,
-  changeMovieStatusFailure,
-  FetchMovieAccountStateRequest,
-  fetchMovieAccountStateSuccess,
-} from './actions';
-import {
-  getMovieDetailsApi,
-  getMovieRecommendationsApi,
-  MovieListApiResponse,
   changeMovieStatusApi,
   getMovieAccountStateApi,
   GetMovieAccountStateApiResponse,
+  getMovieDetailsApi,
+  getMovieRecommendationsApi,
+  MovieListApiResponse,
 } from '../../api/movies';
-import { UserIdsParams, MovieDetailed } from '../../api/types';
+import { MovieDetailed, UserIdsParams } from '../../api/types';
 import { userIdParamsSelector } from '../auth/selectors';
 import { handleNetworkReduxError } from '../network/actions';
+import {
+  changeMovieStatusFailure,
+  ChangeMovieStatusRequest,
+  changeMovieStatusSuccess,
+  FetchDetailedMovieRequest,
+  fetchDetailedMovieSuccess,
+  FetchMovieAccountStateRequest,
+  fetchMovieAccountStateSuccess,
+  FetchMovieRecommendationsRequest,
+  fetchMovieRecommendationsSuccess,
+} from './actions';
 import { normalizeAndAddMovies } from './helpers';
 
 export function* fetchDetailedMovieSaga(action: FetchDetailedMovieRequest) {

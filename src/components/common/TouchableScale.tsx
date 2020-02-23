@@ -1,12 +1,13 @@
 import React from 'react';
 import {
   Animated,
-  ViewStyle,
   GestureResponderEvent,
   TouchableWithoutFeedback,
   TouchableWithoutFeedbackProps,
+  ViewStyle,
 } from 'react-native';
 import { throttle } from 'throttle-debounce';
+
 import { WithDefaultProps } from '../../types';
 
 /* ------------- Props and State ------------- */

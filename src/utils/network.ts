@@ -1,5 +1,5 @@
-import { Linking, Image } from 'react-native';
 import { AxiosError } from 'axios';
+import { Image, Linking } from 'react-native';
 
 export const isNetworkError = (error: any) => !error.response;
 

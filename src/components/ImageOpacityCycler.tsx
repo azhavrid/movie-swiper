@@ -1,6 +1,7 @@
 import React from 'react';
+import { Animated, Image, StyleSheet, View, ViewStyle } from 'react-native';
 import FastImage, { FastImageProperties } from 'react-native-fast-image';
-import { StyleSheet, View, Animated, ViewStyle, Image } from 'react-native';
+
 import { theme } from '../theme';
 
 /* ------------- Props and State ------------- */

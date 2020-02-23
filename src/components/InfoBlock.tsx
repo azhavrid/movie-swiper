@@ -1,9 +1,9 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import FastImage, { FastImageProperties } from 'react-native-fast-image';
-import { View, StyleSheet } from 'react-native';
 
-import AppText from './common/AppText';
 import { theme } from '../theme';
+import AppText from './common/AppText';
 
 /* ------------- Props and State ------------- */
 type Props = {

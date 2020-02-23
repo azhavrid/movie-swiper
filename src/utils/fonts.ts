@@ -1,4 +1,5 @@
 import { TextStyle } from 'react-native';
+
 import { ValuesOf } from '../types';
 
 /* ------------- Types ------------- */

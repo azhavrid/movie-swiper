@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import InfoBlock from './InfoBlock';
+import { StyleSheet, View } from 'react-native';
+
 import { getGuestInfoIcon } from '../helpers/icons';
+import InfoBlock from './InfoBlock';
 
 /* ------------- Props and State ------------- */
 

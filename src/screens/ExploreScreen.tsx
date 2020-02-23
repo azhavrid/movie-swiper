@@ -1,15 +1,15 @@
 import React from 'react';
+import { NavigationStackOptions, NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
+
+import AuthenticatedLock from '../components/AuthenticatedLock';
 import { StatusBarSpacer } from '../components/common';
-import ExploreMovieDeck from '../components/movie/ExploreMovieDeck';
 import GuestInfo from '../components/GuestInfo';
 import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
-
-import { RootState } from '../redux/types';
-import AuthenticatedLock from '../components/AuthenticatedLock';
-import { isAuthenticatedUserSelector } from '../redux/auth/selectors';
-import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
+import ExploreMovieDeck from '../components/movie/ExploreMovieDeck';
 import ScreenWrapper from '../components/ScreenWrapper';
+import { isAuthenticatedUserSelector } from '../redux/auth/selectors';
+import { RootState } from '../redux/types';
 
 /* ------------- Props and State ------------- */
 type OwnNavigationProps = { isAuthenticatedUser?: boolean };

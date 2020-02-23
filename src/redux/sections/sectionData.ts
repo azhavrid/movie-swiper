@@ -1,15 +1,16 @@
 import { AxiosPromise } from 'axios';
+
 import {
-  MovieListApiResponse,
-  getTrendingDailyMoviesApi,
-  getTrendingWeeklyMoviesApi,
+  getFavoriteMoviesApi,
+  GetMovieListApiParams,
   getPopularMoviesApi,
   getTopRatedMoviesApi,
-  getFavoriteMoviesApi,
+  getTrendingDailyMoviesApi,
+  getTrendingWeeklyMoviesApi,
   getWatchlistMoviesApi,
-  GetMovieListApiParams,
+  MovieListApiResponse,
 } from '../../api/movies';
-import { SectionId, BrowseSectionId, LibrarySectionId } from './types';
+import { BrowseSectionId, LibrarySectionId, SectionId } from './types';
 
 /* ------------- Types ------------- */
 interface SectionData {

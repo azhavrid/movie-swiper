@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
+import { theme } from '../../theme';
 import AppText from './AppText';
 import TouchableScale, { TouchableScaleProps } from './TouchableScale';
-import { theme } from '../../theme';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

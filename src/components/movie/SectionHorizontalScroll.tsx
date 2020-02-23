@@ -1,17 +1,18 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { withNavigation, NavigationInjectedProps } from 'react-navigation';
-import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
-import { AppText, TextButton } from '../common';
-import { routeNames } from '../../routes/routeNames';
-import { getFontStyle } from '../../utils/fonts';
-import { theme } from '../../theme';
-import { Section, SectionId } from '../../redux/sections/types';
-import { SectionListScreenNavigationParams } from '../../screens/movie/SectionListScreen';
-import { sectionData } from '../../redux/sections/sectionData';
+import { StyleSheet, View } from 'react-native';
+import { NavigationInjectedProps, withNavigation } from 'react-navigation';
 import { connect } from 'react-redux';
-import { RootState } from '../../redux/types';
+
+import { sectionData } from '../../redux/sections/sectionData';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
+import { Section, SectionId } from '../../redux/sections/types';
+import { RootState } from '../../redux/types';
+import { routeNames } from '../../routes/routeNames';
+import { SectionListScreenNavigationParams } from '../../screens/movie/SectionListScreen';
+import { theme } from '../../theme';
+import { getFontStyle } from '../../utils/fonts';
+import { AppText, TextButton } from '../common';
+import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

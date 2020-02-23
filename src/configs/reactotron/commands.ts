@@ -1,7 +1,8 @@
 import Reactotron from 'reactotron-react-native';
+
 import { persistor } from '../../redux/store';
-import { routeNames } from '../../routes/routeNames';
 import NavigationService from '../../routes/NavigationService';
+import { routeNames } from '../../routes/routeNames';
 
 // Custom reactotron commands
 Reactotron.onCustomCommand({

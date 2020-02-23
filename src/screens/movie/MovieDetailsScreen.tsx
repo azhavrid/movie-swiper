@@ -1,20 +1,20 @@
 import React from 'react';
 import { InteractionManager } from 'react-native';
-import MovieDetails from '../../components/movie/MovieDetails';
-import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
+import { NavigationStackOptions, NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import { connect } from 'react-redux';
 
-import { MovieId } from '../../redux/movies/types';
-import { NavigationStackScreenProps, NavigationStackOptions } from 'react-navigation-stack/lib/typescript/types';
-import { RootState } from '../../redux/types';
-import { getMovieSelectorById } from '../../redux/movies/selectors';
+import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
+import MovieDetails from '../../components/movie/MovieDetails';
+import ScreenWrapper from '../../components/ScreenWrapper';
 import { isGuestUserSelector } from '../../redux/auth/selectors';
 import {
   fetchDetailedMovieRequest,
-  fetchMovieRecommendationsRequest,
   fetchMovieAccountStateRequest,
+  fetchMovieRecommendationsRequest,
 } from '../../redux/movies/actions';
-import { connect } from 'react-redux';
-import ScreenWrapper from '../../components/ScreenWrapper';
+import { getMovieSelectorById } from '../../redux/movies/selectors';
+import { MovieId } from '../../redux/movies/types';
+import { RootState } from '../../redux/types';
 
 /* ------------- Props and State ------------- */
 export interface MovieDetailsScreenNavigationParams {

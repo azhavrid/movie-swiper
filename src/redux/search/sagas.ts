@@ -1,34 +1,35 @@
-import { call, put, select, delay, fork, take, race } from 'redux-saga/effects';
+import { AxiosResponse } from 'axios';
+import { call, delay, fork, put, race, select, take } from 'redux-saga/effects';
+
+import { getMoviesBySearchQueryApi, MovieListApiResponse } from '../../api/movies';
+import { isLastMovieList } from '../../utils/movies';
+import { normalizeAndAddMovies } from '../movies/helpers';
+import { clearReduxActionsFromQueue, handleNetworkReduxError } from '../network/actions';
 import {
-  SearchMoviesRequest,
-  searchMoviesSuccess,
-  searchMoviesRequest,
-  SearchMoviesPaginationRequest,
-  searchMoviesPaginationSuccess,
-  SearchTextChanged,
+  ClearSearchResults,
   clearSearchResults,
   SearchMoviesPaginationFetch,
   searchMoviesPaginationFetch,
-  ClearSearchResults,
+  SearchMoviesPaginationRequest,
+  searchMoviesPaginationSuccess,
+  SearchMoviesRequest,
+  searchMoviesRequest,
   searchMoviesRequestSlow,
+  searchMoviesSuccess,
+  SearchTextChanged,
 } from './actions';
-import { MovieListApiResponse, getMoviesBySearchQueryApi } from '../../api/movies';
-import { AxiosResponse } from 'axios';
-import {
-  searchTextSelector,
-  searchCurrentPageSelector,
-  searchLastUpdatedSelector,
-  isSearchPaginationPendingSelector,
-} from './selectors';
-import { isLastMovieList } from '../../utils/movies';
-import { handleNetworkReduxError, clearReduxActionsFromQueue } from '../network/actions';
 import {
   SEARCH_MOVIES_PAGINATION_FETCH,
   SEARCH_MOVIES_REQUEST,
-  SEARCH_TEXT_CHANGED,
   SEARCH_MOVIES_SUCCESS,
+  SEARCH_TEXT_CHANGED,
 } from './constants';
-import { normalizeAndAddMovies } from '../movies/helpers';
+import {
+  isSearchPaginationPendingSelector,
+  searchCurrentPageSelector,
+  searchLastUpdatedSelector,
+  searchTextSelector,
+} from './selectors';
 
 export function* searchTextChangedSaga({ query }: SearchTextChanged) {
   if (query.length === 0) {

@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import PrimaryButton, { Props as PrimaryButtonProps } from './PrimaryButton';
+
 import { theme } from '../../theme';
+import PrimaryButton, { Props as PrimaryButtonProps } from './PrimaryButton';
 
 /* ------------- Props and State ------------- */
 type Props = PrimaryButtonProps;

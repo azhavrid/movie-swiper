@@ -1,32 +1,31 @@
 import { AxiosResponse } from 'axios';
 import { call, put } from 'redux-saga/effects';
 
-import { routeNames } from '../../routes/routeNames';
 import {
-  CreateGuestSessionApiResponse,
-  createGuestSessionApi,
-  CreateRequestTokenApiResponse,
-  createRequestTokenApi,
-  validateUserCredentialsApi,
-  CreateAuthenticatedSessionApiResponse,
   createAuthenticatedSessionApi,
-  GetAccountDetailsApiResponse,
+  CreateAuthenticatedSessionApiResponse,
+  createGuestSessionApi,
+  CreateGuestSessionApiResponse,
+  createRequestTokenApi,
+  CreateRequestTokenApiResponse,
   getAccountDetailsApi,
+  GetAccountDetailsApiResponse,
+  validateUserCredentialsApi,
 } from '../../api/auth';
-import AppToast from '../../components/AppToast';
-import { createAuthenticatedUserFromAccountData } from '../../utils/user';
-import { emoticons } from '../../helpers/emoticons';
 import { getTmdbErrorMessage } from '../../api/errors';
-import { createResponseError } from '../../utils/errors';
+import AppToast from '../../components/AppToast';
+import { emoticons } from '../../helpers/emoticons';
 import NavigationService from '../../routes/NavigationService';
-
+import { routeNames } from '../../routes/routeNames';
+import { createResponseError } from '../../utils/errors';
+import { createAuthenticatedUserFromAccountData } from '../../utils/user';
 import {
-  createGuestSessionSuccess,
-  createGuestSessionFailure,
   createAuthenticatedSessionFailure,
-  createAuthenticatedSessionSuccess,
   CreateAuthenticatedSessionRequest,
+  createAuthenticatedSessionSuccess,
+  createGuestSessionFailure,
   CreateGuestSessionRequest,
+  createGuestSessionSuccess,
 } from './actions';
 
 export function* createGuestSessionSaga({ onError, onSuccess }: CreateGuestSessionRequest) {

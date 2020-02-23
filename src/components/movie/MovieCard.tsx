@@ -1,15 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Animated, TouchableWithoutFeedback } from 'react-native';
-import { AppText } from '../common';
-import InnerShadow from '../InnerShadow';
-import MovieScoreYear from './MovieScoreYear';
-import { theme } from '../../theme';
+import { Animated, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
-import { RootState } from '../../redux/types';
+
 import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
-import MovieCardPosterImage from './MovieCardPosterImage';
+import { RootState } from '../../redux/types';
+import { theme } from '../../theme';
+import { AppText } from '../common';
 import { SwipeThresholds } from '../Deck';
+import InnerShadow from '../InnerShadow';
+import MovieCardPosterImage from './MovieCardPosterImage';
+import MovieScoreYear from './MovieScoreYear';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<ReturnType<typeof makeMapStateToProps>> & typeof mapDispatchToProps;

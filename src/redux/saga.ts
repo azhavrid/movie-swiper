@@ -1,5 +1,5 @@
-import { all, takeLatest, takeEvery, fork } from 'redux-saga/effects';
 import { SagaIterator } from 'redux-saga';
+import { all, fork, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import * as authConstants from './auth/constants';
 import * as authSagas from './auth/sagas';

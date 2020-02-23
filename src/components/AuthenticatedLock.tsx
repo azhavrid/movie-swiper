@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import { isGuestUserSelector, userSelector } from '../redux/auth/selectors';
 import { RootState } from '../redux/types';
-import { userSelector, isGuestUserSelector } from '../redux/auth/selectors';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

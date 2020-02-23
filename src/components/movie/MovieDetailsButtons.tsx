@@ -1,15 +1,16 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
-import { View, StyleSheet } from 'react-native';
-import { IconButton } from '../common';
-import { getImdbLink } from '../../api/urls';
-import { safeOpenURL } from '../../utils/network';
-import { getAddToWatchlistIcon, getAddToFavoritesIcon, getOpenImdbIcon } from '../../helpers/icons';
-import { theme } from '../../theme';
+
 import { MovieDetailed } from '../../api/types';
-import AuthenticatedLock from '../AuthenticatedLock';
+import { getImdbLink } from '../../api/urls';
+import { getAddToFavoritesIcon, getAddToWatchlistIcon, getOpenImdbIcon } from '../../helpers/icons';
 import { changeMovieStatusRequest } from '../../redux/movies/actions';
 import { Movie } from '../../redux/movies/types';
+import { theme } from '../../theme';
+import { safeOpenURL } from '../../utils/network';
+import AuthenticatedLock from '../AuthenticatedLock';
+import { IconButton } from '../common';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

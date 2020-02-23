@@ -1,13 +1,12 @@
 import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 
-import { FlatList, StyleSheet } from 'react-native';
-
-import SectionHorizontalScroll from './SectionHorizontalScroll';
-import { RootState } from '../../redux/types';
-import { SectionId } from '../../redux/sections/types';
 import { refreshSectionRequest } from '../../redux/sections/actions';
 import { browseSectionsKeys } from '../../redux/sections/sectionData';
+import { SectionId } from '../../redux/sections/types';
+import { RootState } from '../../redux/types';
+import SectionHorizontalScroll from './SectionHorizontalScroll';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

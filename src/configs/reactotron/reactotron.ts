@@ -1,7 +1,8 @@
-import Reactotron from 'reactotron-react-native';
-import sagaPlugin from 'reactotron-redux-saga';
-import { reactotronRedux } from 'reactotron-redux';
 import AsyncStorage from '@react-native-community/async-storage';
+import Reactotron from 'reactotron-react-native';
+import { reactotronRedux } from 'reactotron-redux';
+import sagaPlugin from 'reactotron-redux-saga';
+
 import { config } from '../config';
 
 export const reactotron = Reactotron

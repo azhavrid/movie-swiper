@@ -1,6 +1,6 @@
-import * as exploreActions from './constants';
 import { SwipeDirection } from '../../components/Deck';
 import { MovieId } from '../movies/types';
+import * as exploreActions from './constants';
 
 /* ------------- Types ------------- */
 export interface ExploreMoviesLoadRequest extends ReturnType<typeof exploreMoviesLoadRequest> {}

@@ -1,16 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { ScrollView, StyleSheet } from 'react-native';
-import { AppText } from '../components/common';
-import BlockButton from '../components/BlockButton';
-import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
-import { theme } from '../theme';
+import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import { connect } from 'react-redux';
 
-import { RootState } from '../redux/types';
+import BlockButton from '../components/BlockButton';
+import { AppText } from '../components/common';
+import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
+import ScreenWrapper from '../components/ScreenWrapper';
 import { logOut } from '../redux/auth/actions';
 import { usernameSelector } from '../redux/auth/selectors';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
-import ScreenWrapper from '../components/ScreenWrapper';
+import { RootState } from '../redux/types';
+import { theme } from '../theme';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

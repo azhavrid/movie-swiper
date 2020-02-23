@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { ButtonComponentProps } from 'react-navigation-tabs/lib/typescript/src/types';
 
 import TouchableScale from './common/TouchableScale';
-import { ButtonComponentProps } from 'react-navigation-tabs/lib/typescript/src/types';
 
 /* ------------- Class ------------- */
 class NavbarButtonWrapper extends React.PureComponent<ButtonComponentProps> {
