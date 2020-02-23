@@ -19,7 +19,7 @@ export interface SearchState extends SearchStateType {}
 
 export const initialState = {
   searchText: '',
-  searchMovieIds: [] as MovieId[],
+  movieIds: [] as MovieId[],
   currentPage: 1,
   debouncePending: false,
   searchRequestPending: false,
@@ -55,7 +55,7 @@ const searchMoviesRequestSlow = (state: SearchState, {}: SearchMoviesRequestSlow
 
 const searchMoviesSuccess = (state: SearchState, action: SearchMoviesSuccess): SearchState => ({
   ...state,
-  searchMovieIds: action.movieIds,
+  movieIds: action.movieIds,
   searchRequestPending: false,
   isSearchRequestSlow: false,
   searchPaginationPending: false,
@@ -79,7 +79,7 @@ const searchMoviesPaginationSuccess = (state: SearchState, action: SearchMoviesP
   ...state,
   searchPaginationPending: false,
   currentPage: state.currentPage + 1,
-  searchMovieIds: uniq([...state.searchMovieIds, ...action.movieIds]),
+  movieIds: uniq([...state.movieIds, ...action.movieIds]),
   isLastPage: action.isLastPage,
   lastUpdated: moment().format(),
 });

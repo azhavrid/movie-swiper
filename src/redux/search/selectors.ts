@@ -8,7 +8,7 @@ export const searchTextSelector = createSelector(searchStateSelector, search => 
 
 export const isSearchTextEmptySelector = createSelector(searchTextSelector, searchText => searchText.length === 0);
 
-export const searchMovieIdsSelector = createSelector(searchStateSelector, search => search.searchMovieIds);
+export const searchMovieIdsSelector = createSelector(searchStateSelector, search => search.movieIds);
 
 export const searchCurrentPageSelector = createSelector(searchStateSelector, search => search.currentPage);
 
