@@ -11,7 +11,7 @@ type Props = {
   style: ViewStyle;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieGenres extends React.PureComponent<Props> {
   generateGenresText = (genres: MovieDetailed['genres']) =>
     genres

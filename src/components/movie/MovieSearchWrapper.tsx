@@ -22,14 +22,13 @@ import MovieList from './MovieList';
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps;
-
 type State = typeof initialState;
 
 const initialState = {
   isSearchFocused: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieSearchWrapper extends React.PureComponent<Props, State> {
   state = initialState;
   searchInputRef = React.createRef<SearchInput>();

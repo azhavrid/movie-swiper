@@ -4,19 +4,14 @@ import { ButtonComponentProps } from 'react-navigation-tabs/lib/typescript/src/t
 
 import TouchableScale from './common/TouchableScale';
 
-/* ------------- Class ------------- */
-class NavbarButtonWrapper extends React.PureComponent<ButtonComponentProps> {
-  render() {
-    const { children, style, onPress } = this.props;
-    return (
-      <View style={[style, styles.container]}>
-        <TouchableScale onPress={onPress} initialScale={0.9} scaleFactor={0.9} style={styles.touchable}>
-          {children}
-        </TouchableScale>
-      </View>
-    );
-  }
-}
+/* ------------- Component ------------- */
+const NavbarButtonWrapper: React.FC<ButtonComponentProps> = ({ children, style, onPress }) => (
+  <View style={[style, styles.container]}>
+    <TouchableScale onPress={onPress} initialScale={0.9} scaleFactor={0.9} style={styles.touchable}>
+      {children}
+    </TouchableScale>
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {

@@ -22,7 +22,7 @@ type OwnProps = {
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps & OwnProps & NavigationInjectedProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class SectionHorizontalScroll extends React.PureComponent<Props> {
   onMorePress = () => {
     const { navigation, sectionKey } = this.props;

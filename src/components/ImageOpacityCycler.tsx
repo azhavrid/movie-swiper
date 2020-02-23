@@ -16,7 +16,7 @@ const initialState = {
   loadedImagesCount: 0,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const showTime = 7000;
 const scaleValue = 1.15;
 const transitionDuration = 1000;

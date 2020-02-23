@@ -11,7 +11,7 @@ type Props = {
   style: ImageStyle;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const SwipeLabel = (props: Props) => {
   const { type, style, opacity } = props;
   const labelSource = images.swipeLabels[type];

@@ -21,7 +21,7 @@ type OwnProps = {
 };
 type Props = OwnProps & ReduxProps & NavigationInjectedProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieInlinePreview extends React.Component<Props> {
   shouldComponentUpdate() {
     // Never update for performance optimization

@@ -52,7 +52,7 @@ const initialState = {
   hasTouchStartedOnTop: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
   state = initialState;
   drag = new Animated.ValueXY({ x: 0, y: 0 });

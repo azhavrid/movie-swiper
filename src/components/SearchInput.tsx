@@ -28,7 +28,7 @@ const initialState = {
   isFocused: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class SearchInput extends React.PureComponent<Props, State> {
   state = initialState;
   textInputRef = React.createRef<TextInput>();

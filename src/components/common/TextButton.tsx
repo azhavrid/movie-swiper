@@ -12,10 +12,10 @@ type OwnProps = {
   textStyle?: TextStyle;
   color?: string;
 };
+type Props = OwnProps & TouchableScaleProps;
+export type TextButtonProps = Props;
 
-export type Props = OwnProps & TouchableScaleProps;
-
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const TextButton: React.FC<Props> = props => {
   const { text, style, textStyle, color = theme.colors.primary, ...otherProps } = props;
   return (

@@ -11,7 +11,7 @@ type Props = {
   style?: ViewStyle;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const MovieUserScore: React.FC<Props> = ({ score, style, ...props }) => {
   if (!score || score === 0) return null;
 

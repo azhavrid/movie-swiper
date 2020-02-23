@@ -16,7 +16,7 @@ type Props = {
   onSwipedRight: (id: MovieId) => void;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieDeck extends React.PureComponent<Props> {
   renderCircleLoadingIndicator = () => <CircleLoadingIndicator />;
 

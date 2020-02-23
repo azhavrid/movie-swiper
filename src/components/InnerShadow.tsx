@@ -31,7 +31,7 @@ const defaultProps = {
   endOpacity: 0,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class InnerShadow extends React.PureComponent<Props> {
   static defaultProps = defaultProps;
 

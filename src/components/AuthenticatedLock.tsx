@@ -12,7 +12,7 @@ type OwnProps = {
 };
 type Props = OwnProps & ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class AuthenticatedLock extends React.PureComponent<Props> {
   render() {
     const { user, isGuestUser, placeholder = null, children = null } = this.props;

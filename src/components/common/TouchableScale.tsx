@@ -16,7 +16,6 @@ export type TouchableScaleProps = WithDefaultProps<Props, typeof defaultProps>;
 type OwnProps = {
   style?: ViewStyle;
 } & typeof defaultProps;
-
 type Props = OwnProps & TouchableWithoutFeedbackProps;
 type State = typeof initialState;
 
@@ -31,7 +30,7 @@ const initialState = {
   isHovered: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 
 class TouchableScale extends React.PureComponent<Props, State> {
   static defaultProps = defaultProps;

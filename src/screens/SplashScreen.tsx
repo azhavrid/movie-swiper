@@ -11,7 +11,7 @@ import { routeNames } from '../routes/routeNames';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = NavigationSwitchScreenProps<{}> & ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Splash extends React.Component<Props> {
   componentDidMount() {
     const { user, navigation } = this.props;

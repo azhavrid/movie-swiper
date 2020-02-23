@@ -12,7 +12,7 @@ type Props = {
   style?: ViewStyle;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const MovieScoreYear: React.FC<Props> = ({ score, year, style }) => (
   <View style={[styles.container, style]}>
     <MovieUserScore style={styles.score} score={score} />

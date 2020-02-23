@@ -20,7 +20,7 @@ type OwnProps = {
 };
 type Props = ReduxProps & OwnProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieDetailsButtons extends React.PureComponent<Props> {
   onWatchlistPress = () => {
     const { movie, changeMovieStatusRequest } = this.props;

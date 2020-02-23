@@ -9,7 +9,7 @@ import ScreenWrapper from '../components/ScreenWrapper';
 /* ------------- Props and State ------------- */
 type Props = NavigationStackScreenProps<{}>;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Browse extends React.Component<Props> {
   render() {
     return (

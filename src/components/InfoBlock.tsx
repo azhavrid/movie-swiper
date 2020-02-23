@@ -13,7 +13,7 @@ type Props = {
   subtext?: string;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class InfoBlock extends React.PureComponent<Props> {
   render() {
     const { renderIcon, imageSource, text, subtext } = this.props;

@@ -22,7 +22,7 @@ import { safeOpenURL } from '../../utils/network';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = NavigationStackScreenProps<{}> & ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class AuthWelcome extends React.Component<Props> {
   static navigationOptions = {
     header: null,

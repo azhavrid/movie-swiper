@@ -31,7 +31,7 @@ const initialState = {
   isClosing: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const displayTime = 2000;
 class AppToastView extends React.Component<{}, State> {
   state = initialState;

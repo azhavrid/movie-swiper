@@ -21,14 +21,13 @@ type OwnProps = {
   errorText?: string;
 };
 type Props = OwnProps & TextInputProps;
-
 type State = typeof initialState;
 
 const initialState = {
   focused: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class LoginInput extends React.PureComponent<Props, State> {
   state = initialState;
 

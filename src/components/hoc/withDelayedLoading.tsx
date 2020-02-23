@@ -8,7 +8,7 @@ const initialState = {
   toShowComponent: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 export const withDelayedLoading = <OriginalProps extends object>(
   WrappedComponent: React.ComponentType<OriginalProps>,
 ) => {

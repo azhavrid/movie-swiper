@@ -11,7 +11,7 @@ import SectionHorizontalScroll from './SectionHorizontalScroll';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class BrowseSections extends React.PureComponent<Props> {
   componentDidMount() {
     this.fetchSectionsData();

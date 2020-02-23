@@ -22,7 +22,7 @@ type ReduxProps = ReturnType<MapStateToProps> & typeof mapDispatchToProps;
 type PropsWithoutRedux = NavigationProps;
 type Props = ReduxProps & PropsWithoutRedux;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class SectionListScreen extends React.Component<Props> {
   static navigationOptions = ({ navigation }: NavigationProps): NavigationStackOptions => ({
     title: sectionData[navigation.getParam('sectionKey')].title,

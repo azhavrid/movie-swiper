@@ -17,7 +17,7 @@ type NavigationProps = NavigationStackScreenProps<OwnNavigationProps>;
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = NavigationProps & ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Explore extends React.Component<Props> {
   static navigationOptions = ({ navigation }: NavigationProps): NavigationStackOptions => {
     const isAuthenticatedUser = navigation.getParam('isAuthenticatedUser');

@@ -12,23 +12,17 @@ type OwnProps = {
 };
 type Props = OwnProps & TouchableHighlightViewProps;
 
-/* ------------- Class ------------- */
-class IconButton extends React.PureComponent<Props> {
-  render() {
-    const { text, Icon, ...props } = this.props;
-
-    return (
-      <TouchableHighlightView {...props} contentStyle={styles.touchable}>
-        {Icon}
-        {text && (
-          <AppText style={styles.text} type="caption2">
-            {text}
-          </AppText>
-        )}
-      </TouchableHighlightView>
-    );
-  }
-}
+/* ------------- Component ------------- */
+const IconButton: React.FC<Props> = ({ text, Icon, ...props }) => (
+  <TouchableHighlightView {...props} contentStyle={styles.touchable}>
+    {Icon}
+    {text && (
+      <AppText style={styles.text} type="caption2">
+        {text}
+      </AppText>
+    )}
+  </TouchableHighlightView>
+);
 
 const styles = StyleSheet.create({
   touchable: {
@@ -42,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default IconButton;
+export default React.memo(IconButton);

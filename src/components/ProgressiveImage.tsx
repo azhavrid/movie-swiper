@@ -18,7 +18,7 @@ type OwnProps = {
 
 type Props = OwnProps & FastImageProperties;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const ProgressiveImage = (props: Props) => {
   const { style, source, imageStyle, thumbnailSource, onLoad, ...otherProps } = props;
   const [isImageShown, setIsImageShown] = useState(false);

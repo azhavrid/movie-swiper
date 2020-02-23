@@ -21,18 +21,18 @@ const previewWidth = width * 0.27;
 export const getMoviePreviewHeight = () => previewWidth / theme.specifications.posterAspectRation;
 
 /* ------------- Props and State ------------- */
-export type OwnProps = {
+type OwnProps = {
   movieId?: MovieId;
   highPriority?: boolean;
   withRatingBadge?: boolean;
 };
-
 type MapStateToProps = ReturnType<typeof makeMapStateToProps>;
 type ReduxProps = ReturnType<MapStateToProps> & typeof mapDispatchToProps;
 type PropsWithoutRedux = OwnProps & NavigationInjectedProps;
 type Props = PropsWithoutRedux & ReduxProps;
+export type MoviePreviewProps = OwnProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MoviePreview extends React.PureComponent<Props> {
   onPress = () => {
     const { navigation, movieId } = this.props;

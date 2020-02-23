@@ -17,7 +17,7 @@ const defaultProps = {
   size: 50,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class CircleLoadingIndicator extends React.PureComponent<Props> {
   static defaultProps = defaultProps;
   scaleValues = [new Animated.Value(1), new Animated.Value(0)];

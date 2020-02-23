@@ -9,16 +9,14 @@ import { theme } from '../theme';
 import { AppText, TouchableScale } from './common';
 
 /* ------------- Props and State ------------- */
-export type HeaderProps = OwnProps;
-
 type OwnProps = {
   scene: Scene;
   backgroundStyle?: ViewStyle;
 };
-
 type Props = OwnProps & NavigationInjectedProps;
+export type HeaderProps = OwnProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 export class Header extends React.PureComponent<Props> {
   onBackPress = () => this.props.navigation.goBack();
 

@@ -13,10 +13,10 @@ type OwnProps = {
   text?: string;
   stretch?: boolean;
 };
+type Props = OwnProps & TouchableScaleProps;
+export type PrimaryButtonProps = Props;
 
-export type Props = OwnProps & TouchableScaleProps;
-
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const PrimaryButton: React.FC<Props> = props => {
   const { children, text, style, textStyle, stretch, color = theme.colors.primary, ...otherProps } = props;
   return (

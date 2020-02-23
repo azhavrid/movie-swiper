@@ -2,12 +2,12 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 
 import { theme } from '../../theme';
-import PrimaryButton, { Props as PrimaryButtonProps } from './PrimaryButton';
+import PrimaryButton, { PrimaryButtonProps } from './PrimaryButton';
 
 /* ------------- Props and State ------------- */
 type Props = PrimaryButtonProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const SecondaryButton: React.FC<Props> = props => {
   const { children, style, textStyle, color = theme.colors.primaryVariant, ...otherProps } = props;
   return (

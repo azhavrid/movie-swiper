@@ -10,8 +10,6 @@ import InfoBlock from '../InfoBlock';
 import MovieInlinePreview from './MovieInlinePreview';
 
 /* ------------- Props and State ------------- */
-export type MovieListProps = Props;
-
 type OwnProps = {
   movieIds: MovieId[];
   showFullscreenLoading?: boolean;
@@ -20,10 +18,10 @@ type OwnProps = {
   emptySubtext?: string;
   renderEmptyIcon?: InfoBlock['props']['renderIcon'];
 };
-
 type Props = OwnProps & Partial<Omit<FlatListProps<MovieId>, 'data'>>;
+export type MovieListProps = Props;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieList extends React.PureComponent<Props> {
   renderEmptyComponent = () => {
     const { emptyText = 'No Movies', emptySubtext, renderEmptyIcon = getMovieListEmptyIcon } = this.props;

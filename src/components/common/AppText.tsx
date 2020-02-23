@@ -12,7 +12,7 @@ type OwnProps = {
 };
 type Props = OwnProps & TextProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const AppText = (props: Props) => {
   const { children, style, type = 'body', ...otherProps } = props;
   const textStyles = StyleSheet.flatten([styles.text, theme.typography[type], style]);

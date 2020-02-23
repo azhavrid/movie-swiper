@@ -21,7 +21,6 @@ import { validatePassword, validateUsername } from '../../utils/validators';
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = NavigationStackScreenProps & ReduxProps;
-
 type State = typeof initialState;
 
 const initialState = {
@@ -31,7 +30,7 @@ const initialState = {
   passwordValidationError: '',
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class AuthLogin extends React.Component<Props, State> {
   static navigationOptions = {
     title: 'Log In',

@@ -11,20 +11,18 @@ type OwnProps = {
   style?: ViewStyle;
   contentStyle?: ViewStyle;
 } & typeof defaultProps;
-
 type Props = OwnProps & TouchableScaleProps;
+type State = typeof initialState;
 
 const defaultProps = {
   highlightColor: 'rgba(0,0,0,0.2)',
 };
 
-type State = typeof initialState;
-
 const initialState = {
   backgroundColor: undefined as undefined | string,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class TouchableHighlightView extends React.PureComponent<Props, State> {
   static defaultProps = defaultProps;
   state = initialState;

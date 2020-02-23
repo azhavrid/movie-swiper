@@ -10,7 +10,6 @@ type OwnProps = {
   Icon?: React.ReactNode;
   subtext?: string;
 } & typeof defaultProps;
-
 type Props = OwnProps & TouchableHighlightViewProps;
 
 const defaultProps = {
@@ -18,7 +17,7 @@ const defaultProps = {
   color: theme.gray.lightest,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class BlockButton extends React.PureComponent<Props> {
   static defaultProps = defaultProps;
 

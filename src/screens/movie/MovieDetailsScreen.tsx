@@ -27,7 +27,7 @@ type ReduxProps = ReturnType<MapStateToProps> & typeof mapDispatchToProps;
 type PropsWithoutRedux = NavigationProps;
 type Props = ReduxProps & PropsWithoutRedux;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieDetailsScreen extends React.PureComponent<Props> {
   static navigationOptions = (): NavigationStackOptions => ({
     title: '',

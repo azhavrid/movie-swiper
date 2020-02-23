@@ -16,7 +16,7 @@ type BottomTabBarProps = any;
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps & BottomTabBarProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const NavbarWrapper = (props: Props) => {
   const { isInternetReachable, ...tabBarProps } = props;
 

@@ -12,14 +12,15 @@ import { getMoviePreviewHeight } from './MoviePreview';
 import MovieScoreYear from './MovieScoreYear';
 import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
 
+/* ------------- Local ------------- */
+const previewAdditionalProps = { withRatingBadge: true };
+
 /* ------------- Props and State ------------- */
 type Props = {
   movie: Movie;
 };
 
-/* ------------- Class ------------- */
-const previewAdditionalProps = { withRatingBadge: true };
-
+/* ------------- Component ------------- */
 class MovieDetails extends React.PureComponent<Props> {
   renderEmptyRecommendations = () => (
     <View style={styles.emptyMoviesContainer}>

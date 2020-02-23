@@ -13,7 +13,7 @@ const defaultProps = {
   opacity: 0 as number,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class OpacityHeader extends React.PureComponent<Props> {
   static defaultProps = defaultProps;
 

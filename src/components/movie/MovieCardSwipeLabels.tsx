@@ -10,7 +10,7 @@ type Props = {
   swipeThresholds: SwipeThresholds;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieCardSwipeLabels extends React.PureComponent<Props> {
   render() {
     const { swipeThresholds } = this.props;

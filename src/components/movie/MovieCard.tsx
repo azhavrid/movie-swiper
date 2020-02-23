@@ -19,14 +19,13 @@ type OwnProps = {
   swipeThresholds?: SwipeThresholds;
 };
 type Props = OwnProps & ReduxProps;
-
 type State = typeof initialState;
 
 const initialState = {
   isExpanded: false,
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class MovieCard extends React.PureComponent<Props, State> {
   state = initialState;
   isAnimating = false;

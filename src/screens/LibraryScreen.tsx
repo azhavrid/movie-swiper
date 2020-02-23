@@ -27,7 +27,7 @@ const navigateToSettings = () => {
   NavigationService.navigate(routeNames.Settings);
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Library extends React.PureComponent<Props> {
   static navigationOptions = {
     headerRight: <TouchableScale onPress={navigateToSettings}>{getLibrarySettingsIcon()}</TouchableScale>,

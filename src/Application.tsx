@@ -12,7 +12,7 @@ import { RootStack } from './routes/routes';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Application extends React.PureComponent<Props> {
   componentDidMount() {
     const { initiateNetworkMonitoring } = this.props;

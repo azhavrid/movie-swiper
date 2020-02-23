@@ -2,6 +2,7 @@ import React from 'react';
 import { ActivityIndicator, Modal, ModalProps, StyleSheet, View } from 'react-native';
 
 import { theme } from '../../theme';
+import { FixDefaults } from '../../types';
 
 /* ------------- Props and State ------------- */
 type Props = {
@@ -12,21 +13,16 @@ const defaultProps = {
   onRequestClose: (() => {}) as ModalProps['onRequestClose'],
 };
 
-/* ------------- Class ------------- */
-class PageSpinner extends React.Component<Props> {
-  static defaultProps = defaultProps;
+/* ------------- Component ------------- */
+const PageSpinner: FixDefaults<React.FC<Props>, typeof defaultProps> = ({ onRequestClose, visible }) => (
+  <Modal transparent={true} onRequestClose={onRequestClose} visible={visible}>
+    <View style={styles.container}>
+      <ActivityIndicator size={theme.specifications.activityIndicatorSize} color={theme.gray.lightest} />
+    </View>
+  </Modal>
+);
 
-  render() {
-    const { onRequestClose, visible } = this.props;
-    return (
-      <Modal transparent={true} onRequestClose={onRequestClose} visible={visible}>
-        <View style={styles.container}>
-          <ActivityIndicator size={theme.specifications.activityIndicatorSize} color={theme.gray.lightest} />
-        </View>
-      </Modal>
-    );
-  }
-}
+PageSpinner.defaultProps = defaultProps;
 
 const styles = StyleSheet.create({
   container: {

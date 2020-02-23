@@ -16,7 +16,7 @@ import { theme } from '../theme';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = NavigationStackScreenProps & ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class Settings extends React.PureComponent<Props> {
   onSignOutPress = () => {
     const { logOut } = this.props;

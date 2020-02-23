@@ -11,7 +11,7 @@ import MovieDeck from './MovieDeck';
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 type Props = ReduxProps;
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 class ExploreMovieDeck extends React.PureComponent<Props> {
   componentDidMount() {
     const { exploreMoviesLoadRequest } = this.props;

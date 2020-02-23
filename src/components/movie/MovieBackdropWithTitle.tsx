@@ -17,7 +17,7 @@ type Props = {
   backdropPath: string;
 };
 
-/* ------------- Class ------------- */
+/* ------------- Component ------------- */
 const MovieBackdropWithTitle: React.FC<Props> = props => {
   const { backdropPath, title } = props;
   const [source, thumbnailSource] = React.useMemo(
