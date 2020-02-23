@@ -11,7 +11,7 @@ import {
 } from './actions';
 import * as sectionConstants from './constants';
 import { sectionData } from './sectionData';
-import { Section, SectionId } from './types';
+import { Section, SectionKey } from './types';
 
 /* ------------- State ------------- */
 type SectionStateType = typeof initialState;
@@ -27,7 +27,7 @@ export const commonSectionParams = {
   lastUpdated: undefined as string | undefined,
 };
 
-const sectionsById = mapValues(sectionData, (_, id) => ({ id, ...commonSectionParams })) as Record<SectionId, Section>;
+const sectionsById = mapValues(sectionData, (_, id) => ({ id, ...commonSectionParams })) as Record<SectionKey, Section>;
 
 export const initialState = sectionsById;
 

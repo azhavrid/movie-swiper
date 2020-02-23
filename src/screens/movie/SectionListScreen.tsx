@@ -8,12 +8,12 @@ import ScreenWrapper from '../../components/ScreenWrapper';
 import { fetchSectionNextPageRequest, refreshSectionRequest } from '../../redux/sections/actions';
 import { sectionData } from '../../redux/sections/sectionData';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
-import { SectionId } from '../../redux/sections/types';
+import { SectionKey } from '../../redux/sections/types';
 import { RootState } from '../../redux/types';
 
 /* ------------- Props and State ------------- */
 export interface SectionListScreenNavigationParams {
-  sectionKey: SectionId;
+  sectionKey: SectionKey;
 }
 
 type NavigationProps = NavigationStackScreenProps<SectionListScreenNavigationParams>;

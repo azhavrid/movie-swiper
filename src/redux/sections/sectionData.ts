@@ -10,7 +10,7 @@ import {
   getWatchlistMoviesApi,
   MovieListApiResponse,
 } from '../../api/movies';
-import { BrowseSectionId, LibrarySectionId, SectionId } from './types';
+import { BrowseSectionKey, LibrarySectionKey, SectionKey } from './types';
 
 /* ------------- Types ------------- */
 interface SectionData {
@@ -19,11 +19,11 @@ interface SectionData {
 }
 
 /* ------------- Data ------------- */
-export const browseSectionsKeys: BrowseSectionId[] = ['trendingDaily', 'trendingWeekly', 'popular', 'topRated'];
+export const browseSectionsKeys: BrowseSectionKey[] = ['trendingDaily', 'trendingWeekly', 'popular', 'topRated'];
 
-export const librarySectionsKeys: LibrarySectionId[] = ['myWatchlist', 'myFavorite'];
+export const librarySectionsKeys: LibrarySectionKey[] = ['myWatchlist', 'myFavorite'];
 
-export const sectionData: Record<SectionId, SectionData> = {
+export const sectionData: Record<SectionKey, SectionData> = {
   trendingDaily: { title: 'Trending Daily', fetchFunction: getTrendingDailyMoviesApi },
   trendingWeekly: { title: 'Trending Weekly', fetchFunction: getTrendingWeeklyMoviesApi },
   popular: { title: 'Popular', fetchFunction: getPopularMoviesApi },

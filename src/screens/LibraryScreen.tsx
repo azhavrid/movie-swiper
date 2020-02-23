@@ -9,7 +9,7 @@ import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
 import ScreenWrapper from '../components/ScreenWrapper';
 import { getLibraryFavoriteIcon, getLibrarySettingsIcon, getLibraryWatchlistIcon } from '../helpers/icons';
 import { librarySectionsKeys, sectionData } from '../redux/sections/sectionData';
-import { LibrarySectionId } from '../redux/sections/types';
+import { LibrarySectionKey } from '../redux/sections/types';
 import NavigationService from '../routes/NavigationService';
 import { routeNames } from '../routes/routeNames';
 import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
@@ -18,7 +18,7 @@ import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
 type NavigationProps = NavigationStackScreenProps<{}>;
 type Props = NavigationProps;
 
-const librarySectionIcons: Record<LibrarySectionId, JSX.Element> = {
+const librarySectionIcons: Record<LibrarySectionKey, JSX.Element> = {
   myWatchlist: getLibraryWatchlistIcon(),
   myFavorite: getLibraryFavoriteIcon(),
 };

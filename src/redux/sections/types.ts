@@ -1,12 +1,12 @@
 import { commonSectionParams } from './reducer';
 
 /* ------------- Section ------------- */
-export type BrowseSectionId = 'trendingDaily' | 'trendingWeekly' | 'popular' | 'topRated';
-export type LibrarySectionId = 'myFavorite' | 'myWatchlist';
-export type SectionId = BrowseSectionId | LibrarySectionId;
+export type BrowseSectionKey = 'trendingDaily' | 'trendingWeekly' | 'popular' | 'topRated';
+export type LibrarySectionKey = 'myFavorite' | 'myWatchlist';
+export type SectionKey = BrowseSectionKey | LibrarySectionKey;
 
 export interface SectionBase {
-  id: SectionId;
+  id: SectionKey;
 }
 
 type CommonSectionParams = typeof commonSectionParams;

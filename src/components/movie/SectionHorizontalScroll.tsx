@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { sectionData } from '../../redux/sections/sectionData';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
-import { SectionId } from '../../redux/sections/types';
+import { SectionKey } from '../../redux/sections/types';
 import { RootState } from '../../redux/types';
 import { routeNames } from '../../routes/routeNames';
 import { SectionListScreenNavigationParams } from '../../screens/movie/SectionListScreen';
@@ -16,7 +16,7 @@ import MoviesHorizontalFlatList from './MoviesHorizontalFlatList';
 
 /* ------------- Props and State ------------- */
 type OwnProps = {
-  sectionKey: SectionId;
+  sectionKey: SectionKey;
 };
 
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;

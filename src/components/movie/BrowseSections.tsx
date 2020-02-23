@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { refreshSectionRequest } from '../../redux/sections/actions';
 import { browseSectionsKeys } from '../../redux/sections/sectionData';
-import { SectionId } from '../../redux/sections/types';
+import { SectionKey } from '../../redux/sections/types';
 import SectionHorizontalScroll from './SectionHorizontalScroll';
 
 /* ------------- Props and State ------------- */
@@ -24,7 +24,7 @@ class BrowseSections extends React.PureComponent<Props> {
     });
   };
 
-  renderSectionHorizontalScroll = ({ item }: { item: SectionId }) => <SectionHorizontalScroll sectionKey={item} />;
+  renderSectionHorizontalScroll = ({ item }: { item: SectionKey }) => <SectionHorizontalScroll sectionKey={item} />;
 
   render() {
     return (

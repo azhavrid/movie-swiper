@@ -2,7 +2,7 @@ import moment from 'moment';
 
 import { MovieId } from '../movies/types';
 import * as sectionConstants from './constants';
-import { SectionId } from './types';
+import { SectionKey } from './types';
 
 /* ------------- Types ------------- */
 export interface RefreshSectionRequest extends ReturnType<typeof refreshSectionRequest> {}
@@ -19,13 +19,13 @@ export type SectionAction =
   | FetchSectionNextPageSuccess;
 
 interface SuccessSectionFetchParams {
-  sectionKey: SectionId;
+  sectionKey: SectionKey;
   movieIds: MovieId[];
   isLastPage: boolean;
 }
 
 /* ------------- Actions ------------- */
-export const refreshSectionRequest = (sectionKey: SectionId) =>
+export const refreshSectionRequest = (sectionKey: SectionKey) =>
   <const>{
     type: sectionConstants.REFRESH_SECTION_REQUEST,
     sectionKey,
@@ -37,13 +37,13 @@ export const refreshSectionSuccess = (params: SuccessSectionFetchParams) =>
     ...params,
   };
 
-export const fetchSectionNextPageRequest = (sectionKey: SectionId) =>
+export const fetchSectionNextPageRequest = (sectionKey: SectionKey) =>
   <const>{
     type: sectionConstants.FETCH_SECTION_NEXT_PAGE_REQUEST,
     sectionKey,
   };
 
-export const fetchSectionNextPage = (sectionKey: SectionId) =>
+export const fetchSectionNextPage = (sectionKey: SectionKey) =>
   <const>{
     type: sectionConstants.FETCH_SECTION_NEXT_PAGE,
     sectionKey,
