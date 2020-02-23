@@ -58,7 +58,7 @@ export function* exploreMoviesLoadSaga(action: ExploreMoviesLoad) {
 
     let page = 1;
     let increaseDispersion = 1;
-    let accumulateMovieIds = [];
+    const accumulateMovieIds = [];
 
     while (accumulateMovieIds.length < 20) {
       page = page + random(1, increaseDispersion);

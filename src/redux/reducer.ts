@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { mapValues } from 'lodash';
 import { combineReducers } from 'redux';
-import { getStoredState, PersistConfig, persistReducer } from 'redux-persist';
+import { getStoredState, persistReducer } from 'redux-persist';
 import { PersistPartial } from 'redux-persist/es/persistReducer';
 
 import authReducer from './auth/reducer';

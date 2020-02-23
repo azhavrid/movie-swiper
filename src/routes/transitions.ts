@@ -1,9 +1,7 @@
 import { Animated } from 'react-native';
-import { HeaderTransitionConfig, TransitionConfig, TransitionProps } from 'react-navigation-stack/lib/typescript/types';
+import { HeaderTransitionConfig, TransitionConfig } from 'react-navigation-stack/lib/typescript/types';
 
-import { theme } from '../theme';
-
-export const fromRightWithFade = (transitionProps: TransitionProps): TransitionConfig & HeaderTransitionConfig => ({
+export const fromRightWithFade = (): TransitionConfig & HeaderTransitionConfig => ({
   transitionSpec: {
     timing: Animated.timing,
   },

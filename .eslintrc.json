@@ -1,8 +1,9 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react", "react-hooks", "react-native", "prettier", "simple-import-sort"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "react-native", "prettier", "simple-import-sort"],
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended", // Prettier configs should be z last extended configs
     "prettier/react"
@@ -23,6 +24,15 @@
     "react-native/react-native": true
   },
   "rules": {
+    // TS lint
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/camelcase": "off",
+    // "@typescript-eslint/no-unused-vars": [2, { "vars": "all", "args": "after-used" }],
     // Prettier
     "prettier/prettier": "error",
     // React

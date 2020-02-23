@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackHandler, KeyboardAvoidingView, PanResponder, StyleSheet, View } from 'react-native';
+import { BackHandler, PanResponder, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import { globalStyles } from '../../globalStyles';
@@ -53,14 +53,14 @@ class MovieSearchWrapper extends React.PureComponent<Props, State> {
 
   onHardwareBackPress = () => {
     if (this.state.isSearchFocused) {
-      this.searchInputRef.current!.onBackPress();
+      this.searchInputRef?.current?.onBackPress();
       return true;
     }
   };
 
   getKeyboardDismissResponder() {
     const onResponder = () => {
-      this.searchInputRef.current!.blur();
+      this.searchInputRef?.current?.blur();
       return false;
     };
 

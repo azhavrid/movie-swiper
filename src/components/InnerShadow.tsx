@@ -76,7 +76,7 @@ class InnerShadow extends React.PureComponent<Props> {
   };
 
   render() {
-    const { position, size, style, ...props } = this.props;
+    const { position, style, ...props } = this.props;
 
     const colors = this.getShadowColors();
     const shadowData = this.shadowDataMap[position];

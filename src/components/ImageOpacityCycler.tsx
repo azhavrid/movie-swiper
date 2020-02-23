@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Image, StyleSheet, View, ViewStyle } from 'react-native';
+import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
 import FastImage, { FastImageProperties } from 'react-native-fast-image';
 
 import { theme } from '../theme';

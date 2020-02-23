@@ -1,4 +1,3 @@
-import { NetInfoState } from '@react-native-community/netinfo';
 import { isArray } from 'lodash';
 
 import { isNetworkError, isServerError } from '../../utils/network';
@@ -59,7 +58,7 @@ const handleNetworkReduxError = (state: NetworkState, action: HandleNetworkRedux
   };
 };
 
-const networkReduxErrorsResolved = (state: NetworkState, action: NetworkReduxErrorsResolved): NetworkState => ({
+const networkReduxErrorsResolved = (state: NetworkState, {}: NetworkReduxErrorsResolved): NetworkState => ({
   ...state,
   failedRequestsQueue: [],
 });

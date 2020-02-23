@@ -36,7 +36,7 @@ const addMovies = (state: MovieState, action: AddMovies): MovieState => {
   };
 };
 
-const fetchDetailedMovieRequest = (state: MovieState, action: FetchDetailedMovieRequest): MovieState => ({
+const fetchDetailedMovieRequest = (state: MovieState, {}: FetchDetailedMovieRequest): MovieState => ({
   ...state,
 });
 
@@ -50,7 +50,7 @@ const fetchDetailedMoviesSuccess = (state: MovieState, action: FetchDetailedMovi
   };
 };
 
-const fetchMovieAccountStateRequest = (state: MovieState, action: FetchMovieAccountStateRequest): MovieState => ({
+const fetchMovieAccountStateRequest = (state: MovieState, {}: FetchMovieAccountStateRequest): MovieState => ({
   ...state,
 });
 
@@ -64,7 +64,7 @@ const fetchMovieAccountStatesSuccess = (state: MovieState, action: FetchMovieAcc
   };
 };
 
-const fetchMovieRecommendationsRequest = (state: MovieState, action: FetchMovieRecommendationsRequest): MovieState => ({
+const fetchMovieRecommendationsRequest = (state: MovieState, {}: FetchMovieRecommendationsRequest): MovieState => ({
   ...state,
 });
 

@@ -33,9 +33,9 @@ class SearchInput extends React.PureComponent<Props, State> {
   state = initialState;
   textInputRef = React.createRef<TextInput>();
 
-  blur = () => this.textInputRef.current!.blur();
+  blur = () => this.textInputRef?.current?.blur();
 
-  focus = () => this.textInputRef.current!.focus();
+  focus = () => this.textInputRef?.current?.focus();
 
   onFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
     const { onFocus } = this.props;

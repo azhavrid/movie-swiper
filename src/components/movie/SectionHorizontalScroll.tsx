@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { sectionData } from '../../redux/sections/sectionData';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
-import { Section, SectionId } from '../../redux/sections/types';
+import { SectionId } from '../../redux/sections/types';
 import { RootState } from '../../redux/types';
 import { routeNames } from '../../routes/routeNames';
 import { SectionListScreenNavigationParams } from '../../screens/movie/SectionListScreen';

@@ -6,7 +6,7 @@ import Animated, { Easing } from 'react-native-reanimated';
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage) as FastImage;
 
 /* ------------- Local ------------- */
-const { Value, timing, Clock, startClock, stopClock } = Animated;
+const { Value } = Animated;
 
 /* ------------- Props and State ------------- */
 type OwnProps = {

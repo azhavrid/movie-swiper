@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { refreshSectionRequest } from '../../redux/sections/actions';
 import { browseSectionsKeys } from '../../redux/sections/sectionData';
 import { SectionId } from '../../redux/sections/types';
-import { RootState } from '../../redux/types';
 import SectionHorizontalScroll from './SectionHorizontalScroll';
 
 /* ------------- Props and State ------------- */
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state: RootState) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   refreshSectionRequest,

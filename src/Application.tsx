@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import AppToast from './components/AppToast';
 import { globalStyles } from './globalStyles';
 import { initiateNetworkMonitoring, stopNetworkMonitoring } from './redux/network/actions';
-import { RootState } from './redux/types';
 import NavigationService from './routes/NavigationService';
 import { RootStack } from './routes/routes';
 
@@ -35,7 +34,7 @@ class Application extends React.PureComponent<Props> {
   }
 }
 
-const mapStateToProps = (state: RootState) => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   initiateNetworkMonitoring,

@@ -3,7 +3,6 @@ import moment from 'moment';
 
 import { MovieId } from '../movies/types';
 import {
-  ClearSearchResults,
   SearchAction,
   SearchMoviesPaginationFetch,
   SearchMoviesPaginationSuccess,
@@ -37,19 +36,19 @@ const searchTextChanged = (state: SearchState, action: SearchTextChanged): Searc
   searchText: action.query,
 });
 
-const clearSearchResults = (state: SearchState, action: ClearSearchResults): SearchState => ({
+const clearSearchResults = (): SearchState => ({
   ...initialState,
   lastUpdated: moment().format(),
 });
 
-const searchMoviesRequest = (state: SearchState, action: SearchMoviesRequest): SearchState => ({
+const searchMoviesRequest = (state: SearchState, {}: SearchMoviesRequest): SearchState => ({
   ...state,
   debouncePending: false,
   searchRequestPending: true,
   isSearchRequestSlow: false,
 });
 
-const searchMoviesRequestSlow = (state: SearchState, action: SearchMoviesRequestSlow): SearchState => ({
+const searchMoviesRequestSlow = (state: SearchState, {}: SearchMoviesRequestSlow): SearchState => ({
   ...state,
   isSearchRequestSlow: true,
 });
@@ -65,7 +64,7 @@ const searchMoviesSuccess = (state: SearchState, action: SearchMoviesSuccess): S
   lastUpdated: moment().format(),
 });
 
-const searchMoviesPaginationFetch = (state: SearchState, action: SearchMoviesPaginationFetch): SearchState => {
+const searchMoviesPaginationFetch = (state: SearchState, {}: SearchMoviesPaginationFetch): SearchState => {
   const { isLastPage, searchPaginationPending } = state;
 
   if (isLastPage || searchPaginationPending) return state;
@@ -90,7 +89,7 @@ const searchReducer = (state: SearchState | undefined = initialState, action: Se
     case searchConstants.SEARCH_TEXT_CHANGED:
       return searchTextChanged(state, action);
     case searchConstants.CLEAR_SEARCH_RESULTS:
-      return clearSearchResults(state, action);
+      return clearSearchResults();
     case searchConstants.SEARCH_MOVIES_REQUEST:
       return searchMoviesRequest(state, action);
     case searchConstants.SEARCH_MOVIES_REQUEST_SLOW:

@@ -10,11 +10,11 @@ class AppToast extends React.Component {
   static ref: RefObject<AppToastView> = React.createRef();
 
   static show = (message: string) => {
-    AppToast.ref.current!.show(message);
+    AppToast.ref?.current?.show(message);
   };
 
   static close = () => {
-    AppToast.ref.current!.close();
+    AppToast.ref?.current?.close();
   };
 
   render() {
