@@ -25,8 +25,8 @@
     "react-native-fast-image": "^7.0.2",
     "react-native-gesture-handler": "^1.4.0",
     "react-native-linear-gradient": "^2.5.6",
-    "react-native-reanimated": "^1.7.0",
-    "react-native-redash": "^9.6.0",
+    "react-native-reanimated": "^1.7.1",
+    "react-native-redash": "^14.1.1",
     "react-native-status-bar-height": "^2.4.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.10",
@@ -72,6 +72,7 @@
     "reactotron-react-native": "^4.0.3",
     "reactotron-redux": "^3.1.2",
     "reactotron-redux-saga": "^4.2.3",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^3.7.5"
   },
   "husky": {
