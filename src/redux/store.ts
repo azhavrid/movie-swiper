@@ -1,4 +1,5 @@
-import { applyMiddleware, compose, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
@@ -24,7 +25,7 @@ const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 middleware.push(applyMiddleware(sagaMiddleware));
 
 // Redux
-export const store = createStore(rootReducer, {}, compose(...middleware));
+export const store = createStore(rootReducer, {}, composeWithDevTools(...middleware));
 export const persistor = persistStore(store, {}, () => store.dispatch(afterRehydrate()));
 
 StoreService.setStoreReference(store);
