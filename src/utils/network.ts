@@ -11,6 +11,8 @@ export const safeOpenURL = (url: string) => {
   });
 };
 
+// NOTE: Due to the bug prefetching does not work on IOS:
+// https://github.com/facebook/react-native/issues/28557
 export const prefetchImage = (url: string) => Image.prefetch(url);
 
 export const prefetchImages = (urls: string[]) => Promise.all(urls.map(url => prefetchImage(url)));
