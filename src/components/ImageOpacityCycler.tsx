@@ -1,6 +1,7 @@
 import React from 'react';
-import { Animated, StyleSheet, View, ViewStyle } from 'react-native';
+import { StyleSheet, View, ViewStyle } from 'react-native';
 import FastImage, { FastImageProperties } from 'react-native-fast-image';
+import Animated, { Easing, Extrapolate, interpolate } from 'react-native-reanimated';
 
 import { theme } from '../theme';
 
@@ -10,78 +11,81 @@ type Props = {
   style?: ViewStyle;
 };
 
-type State = typeof initialState;
-
-const initialState = {
-  loadedImagesCount: 0,
-};
-
 /* ------------- Component ------------- */
-const showTime = 7000;
-const scaleValue = 1.15;
-const transitionDuration = 1000;
+const showTime = 3500;
+const fadeOutTime = 700;
+const imageAnimationDuration = showTime + fadeOutTime;
 
-class ImageOpacityCycler extends React.PureComponent<Props, State> {
-  state = initialState;
-  scaleValues = this.props.images.map(() => new Animated.Value(1));
-  opacityValues = this.props.images.map(() => new Animated.Value(1));
+const scaleTo = 1.2;
+const firstScaleMiddlePoint = (scaleTo - 1) * (fadeOutTime / imageAnimationDuration) + 1;
 
-  componentDidMount() {
-    this.initiateAnimation();
-  }
+class ImageOpacityCycler extends React.PureComponent<Props> {
+  imagesLoadedCount = 0;
+  fullCycleTime = imageAnimationDuration * this.props.images.length - fadeOutTime;
+  cycleAnimationValue = new Animated.Value<number>(0);
+  contentDimmerAnimationValue = new Animated.Value<number>(1);
 
-  initiateAnimation = async () => {
-    const { images } = this.props;
-
-    if (images.length > 1) {
-      this.animateImageByIndex(0);
-    }
-  };
-
-  animateImageByIndex = (index: number) => {
-    const { images } = this.props;
-    const isLastImage = index === images.length - 1;
-    const nextIndex = isLastImage ? 0 : index + 1;
-
-    if (index === 0) {
-      Animated.timing(this.opacityValues[index], {
-        toValue: 1,
-        duration: transitionDuration,
-        useNativeDriver: true,
-      }).start();
-    }
-
-    Animated.timing(this.scaleValues[index], {
-      toValue: scaleValue,
-      duration: showTime + transitionDuration,
-      useNativeDriver: true,
-    }).start();
-
-    Animated.delay(showTime).start(() => {
-      this.resetAnimationValues(nextIndex, isLastImage);
-      this.animateImageByIndex(nextIndex);
-
-      if (!isLastImage) {
-        Animated.timing(this.opacityValues[index], {
-          toValue: 0,
-          duration: transitionDuration,
-          useNativeDriver: true,
-        }).start();
+  initiateAnimation = () => {
+    this.cycleAnimationValue.setValue(0);
+    Animated.timing(this.cycleAnimationValue, {
+      toValue: 1,
+      duration: this.fullCycleTime,
+      easing: Easing.linear,
+    }).start(({ finished }) => {
+      if (finished) {
+        requestAnimationFrame(() => this.initiateAnimation());
       }
     });
   };
 
-  resetAnimationValues = (index: number, onlyResetScale: boolean) => {
-    this.scaleValues[index].setValue(1);
-    onlyResetScale || this.opacityValues[index].setValue(1);
-  };
+  getFractionByIndex = (index: number) => index / this.props.images.length;
+
+  getFractionByTime = (time: number) => time / this.fullCycleTime;
 
   getAnimatedSlideStyle = (index: number) => {
-    return { transform: [{ scale: this.scaleValues[index] }], opacity: this.opacityValues[index] };
+    const isFirstImage = index === 0;
+    const start = this.getFractionByIndex(index);
+    const finish = this.getFractionByIndex(index + 1);
+    const fadeOutFraction = this.getFractionByTime(fadeOutTime);
+
+    const scale = isFirstImage
+      ? interpolate(this.cycleAnimationValue, {
+          inputRange: [0, finish, 1 - fadeOutFraction, 1],
+          outputRange: [firstScaleMiddlePoint, scaleTo, 1, firstScaleMiddlePoint],
+          extrapolate: Extrapolate.CLAMP,
+        })
+      : interpolate(this.cycleAnimationValue, {
+          inputRange: [start - fadeOutFraction, finish, finish + 0.001],
+          outputRange: [1, scaleTo, 1],
+          extrapolate: Extrapolate.CLAMP,
+        });
+
+    const opacity = isFirstImage
+      ? interpolate(this.cycleAnimationValue, {
+          inputRange: [0, finish - fadeOutFraction, finish, 1 - fadeOutFraction, 1],
+          outputRange: [1, 1, 0, 0, 1],
+          extrapolate: Extrapolate.CLAMP,
+        })
+      : interpolate(this.cycleAnimationValue, {
+          inputRange: [start - fadeOutFraction, finish - fadeOutFraction, finish],
+          outputRange: [1, 1, 0],
+          extrapolate: Extrapolate.CLAMP,
+        });
+
+    return { transform: [{ scale }], opacity };
   };
 
   onImageLoad = () => {
-    this.setState(state => ({ loadedImagesCount: state.loadedImagesCount + 1 }));
+    this.imagesLoadedCount++;
+    if (this.imagesLoadedCount === this.props.images.length) {
+      this.initiateAnimation();
+
+      Animated.timing(this.contentDimmerAnimationValue, {
+        toValue: 0,
+        duration: 300,
+        easing: Easing.linear,
+      }).start();
+    }
   };
 
   renderImages = () => {
@@ -89,7 +93,7 @@ class ImageOpacityCycler extends React.PureComponent<Props, State> {
 
     return images
       .map((image, index) => (
-        <Animated.View key={`${image.toString()}_${index}`} style={[styles.slide, this.getAnimatedSlideStyle(index)]}>
+        <Animated.View key={`${image.toString()}${index}`} style={[styles.slide, this.getAnimatedSlideStyle(index)]}>
           <FastImage source={image} style={styles.image} onLoad={this.onImageLoad} resizeMode="cover" />
         </Animated.View>
       ))
@@ -97,14 +101,13 @@ class ImageOpacityCycler extends React.PureComponent<Props, State> {
   };
 
   render() {
-    const { style, images } = this.props;
-    const { loadedImagesCount } = this.state;
-    const areAllImagesLoaded = loadedImagesCount === images.length;
+    const { style } = this.props;
 
     return (
       <View style={style}>
         {this.renderImages()}
-        <View style={[styles.dimmer, !areAllImagesLoaded && styles.backgroundColor]} />
+        <View style={styles.dimmer} />
+        <Animated.View style={[styles.backgroundColor, { opacity: this.contentDimmerAnimationValue }]} />
       </View>
     );
   }
@@ -123,6 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.8)',
   },
   backgroundColor: {
+    ...StyleSheet.absoluteFillObject,
     backgroundColor: theme.colors.background,
   },
 });
