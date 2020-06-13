@@ -228,7 +228,7 @@ class Deck<ItemT> extends React.PureComponent<Props<ItemT>, State> {
 
     return (
       <View style={styles.container} onLayout={this.onDeckLayout}>
-        {data.length < 2 && renderNoMoreCards?.()}
+        <View style={StyleSheet.absoluteFill}>{data.length < 2 && renderNoMoreCards?.()}</View>
         {this.renderCards()}
       </View>
     );
