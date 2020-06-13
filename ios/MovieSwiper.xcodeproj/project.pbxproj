@@ -12,6 +12,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		16ACCDC017684A7E9D4C1AF7 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 422B3F1CA57C46D7AA150F14 /* Inter-Bold.otf */; };
+		5613A62E249530F900C0E40B /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5613A62D249530F900C0E40B /* BootSplash.storyboard */; };
 		5716B975E9844BF9A6727F7A /* Inter-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1DBD284362BB4B8786BE4D4C /* Inter-Light.otf */; };
 		7F21C119643C41DE99B293A4 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02AD70333AC54B868A98FF83 /* Inter-Medium.otf */; };
 		884E7F1624D74C97BB552BC6 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6BAA8DF0ADCF4677B446593C /* Inter-Regular.otf */; };
@@ -46,6 +47,7 @@
 		4FC93F5BFD146E8D23AF1883 /* Pods-MovieSwiperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSwiperTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieSwiperTests/Pods-MovieSwiperTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4FD6D3496321423780BE6E5F /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		52A46BEFC1C8F23AF658AA21 /* Pods-MovieSwiper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSwiper.release.xcconfig"; path = "Target Support Files/Pods-MovieSwiper/Pods-MovieSwiper.release.xcconfig"; sourceTree = "<group>"; };
+		5613A62D249530F900C0E40B /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = MovieSwiper/BootSplash.storyboard; sourceTree = "<group>"; };
 		565BC0F2244D4D9F0BE02193 /* Pods-MovieSwiperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSwiperTests.release.xcconfig"; path = "Target Support Files/Pods-MovieSwiperTests/Pods-MovieSwiperTests.release.xcconfig"; sourceTree = "<group>"; };
 		5F66DCA5C7FDD093CF5B13AC /* libPods-MovieSwiper-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MovieSwiper-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F092E5EC854FFE85CE9F8D /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				5613A62D249530F900C0E40B /* BootSplash.storyboard */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -262,6 +265,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				16ACCDC017684A7E9D4C1AF7 /* Inter-Bold.otf in Resources */,
+				5613A62E249530F900C0E40B /* BootSplash.storyboard in Resources */,
 				5716B975E9844BF9A6727F7A /* Inter-Light.otf in Resources */,
 				7F21C119643C41DE99B293A4 /* Inter-Medium.otf in Resources */,
 				884E7F1624D74C97BB552BC6 /* Inter-Regular.otf in Resources */,
