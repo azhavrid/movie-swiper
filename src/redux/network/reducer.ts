@@ -44,7 +44,7 @@ const handleNetworkReduxError = (state: NetworkState, action: HandleNetworkRedux
   const { error, reDispatchAction, reDispatchConfig } = action;
   const { isSameAction: isSameActionFromConfig } = reDispatchConfig;
 
-  if (!isNetworkError(error) || !isServerError(error)) return state;
+  if (!isNetworkError(error) && !isServerError(error)) return state;
 
   const isSameAction = isSameActionFromConfig || isSameActionsByType;
 
