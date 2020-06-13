@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 import { connect } from 'react-redux';
 
 import AppToast from './components/AppToast';
@@ -17,6 +18,7 @@ class Application extends React.PureComponent<Props> {
   componentDidMount() {
     const { initiateNetworkMonitoring } = this.props;
     initiateNetworkMonitoring();
+    RNBootSplash.hide({ duration: 400 });
   }
 
   componentWillUnmount() {
