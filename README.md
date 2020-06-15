@@ -20,9 +20,10 @@
 
 ## 🚀 Version 2.0
 
-- Typescript support
 - React native 0.60+
 - All business logic in redux
+- Typescript support
+- Eslint integration
 - Performance optimization
 
 ## Screen Showcase
