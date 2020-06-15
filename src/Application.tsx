@@ -15,6 +15,8 @@ type Props = ReduxProps;
 
 /* ------------- Component ------------- */
 class Application extends React.PureComponent<Props> {
+  bootSplashTimer: NodeJS.Timeout;
+
   componentDidMount() {
     const { initiateNetworkMonitoring } = this.props;
     initiateNetworkMonitoring();
