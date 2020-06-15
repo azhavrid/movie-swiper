@@ -20,12 +20,15 @@ class Application extends React.PureComponent<Props> {
   componentDidMount() {
     const { initiateNetworkMonitoring } = this.props;
     initiateNetworkMonitoring();
-    RNBootSplash.hide({ duration: 400 });
+    this.bootSplashTimer = setTimeout(() => {
+      RNBootSplash.hide({ duration: 300 });
+    }, 300);
   }
 
   componentWillUnmount() {
     const { stopNetworkMonitoring } = this.props;
     stopNetworkMonitoring();
+    this.bootSplashTimer && clearTimeout(this.bootSplashTimer);
   }
 
   render() {
