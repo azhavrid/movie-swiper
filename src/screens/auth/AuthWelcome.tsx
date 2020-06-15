@@ -49,7 +49,7 @@ class AuthWelcome extends React.Component<Props> {
         <ImageOpacityCycler style={styles.opacityCircler} images={images.welcomeArray} />
         <View style={styles.container}>
           <View style={styles.topContainer}>
-            <FastImage style={styles.tmdbLogo} source={images.tmdbLogo} resizeMode="contain" />
+            <FastImage style={styles.appLogo} source={images.appLogo} resizeMode="contain" />
             <AppText style={styles.welcomeText} type="title1">
               Welcome to Movie Swiper
             </AppText>
@@ -88,9 +88,8 @@ const styles = StyleSheet.create({
   opacityCircler: {
     ...StyleSheet.absoluteFillObject,
   },
-  tmdbLogo: {
-    width: undefined,
-    height: 100,
+  appLogo: {
+    height: 72,
     marginTop: theme.spacing.large * 2,
     marginBottom: theme.spacing.large,
   },
