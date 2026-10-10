@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Animated from 'react-native-reanimated';
+import { Animated, StyleSheet, View } from 'react-native';
 
 import { Movie } from '../../redux/movies/types';
 import { theme } from '../../theme';

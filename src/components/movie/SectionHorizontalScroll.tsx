@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import { NavigationInjectedProps, withNavigation } from '../../shims/withNavigation';
 import { connect } from 'react-redux';
 
 import { sectionData } from '../../redux/sections/sectionData';

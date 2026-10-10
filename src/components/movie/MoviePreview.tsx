@@ -1,9 +1,9 @@
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import FastImage from '../../shims/FastImage';
+import { NavigationInjectedProps, withNavigation } from '../../shims/withNavigation';
 import { connect } from 'react-redux';
-import uuid from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 import { getW185ImageUrl } from '../../api/urls';
 import { getMovieSelectorById } from '../../redux/movies/selectors';
@@ -39,7 +39,7 @@ class MoviePreview extends React.PureComponent<Props> {
     if (!movieId) return;
 
     const params: MovieDetailsScreenNavigationParams = { movieId };
-    navigation.navigate({ routeName: routeNames.MovieDetailsScreen, params, key: `${movieId}_${uuid.v4()}` });
+    navigation.navigate(routeNames.MovieDetailsScreen as never, params as never);
   };
 
   renderRatingBadge = () => {

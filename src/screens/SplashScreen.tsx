@@ -1,22 +1,28 @@
 import React from 'react';
-import { NavigationSwitchScreenProps } from 'react-navigation';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { connect } from 'react-redux';
 
 import ScreenWrapper from '../components/ScreenWrapper';
 import { userSelector } from '../redux/auth/selectors';
 import { RootState } from '../redux/types';
+import { RootStackParamList } from '../routes/routes';
 import { routeNames } from '../routes/routeNames';
 
-/* ------------- Props and State ------------- */
-type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
-type Props = NavigationSwitchScreenProps<{}> & ReduxProps;
+type Props = NativeStackScreenProps<RootStackParamList, 'Splash'> &
+  ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps;
 
-/* ------------- Component ------------- */
 class Splash extends React.Component<Props> {
   componentDidMount() {
     const { user, navigation } = this.props;
     const routeName = user ? routeNames.HomeStack : routeNames.AuthStack;
-    navigation.navigate(routeName);
+    // Defer until the navigation tree is fully mounted.
+    requestAnimationFrame(() => {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: routeName as keyof typeof routeNames }],
+      });
+    });
   }
 
   render() {

@@ -1,33 +1,21 @@
-import {
-  NavigationActions,
-  NavigationContainerComponent,
-  NavigationNavigateActionPayload,
-  NavigationReplaceActionPayload,
-  StackActions,
-} from 'react-navigation';
+import { createNavigationContainerRef, CommonActions, StackActions } from '@react-navigation/native';
 
-let _navigator: NavigationContainerComponent;
+export const navigationRef = createNavigationContainerRef();
 
-const setNavigatorReference = (navigatorRef: NavigationContainerComponent) => {
-  _navigator = navigatorRef;
+const setNavigatorReference = (_ref: unknown) => {
+  // Kept for backwards compatibility; NavigationContainer uses navigationRef directly.
 };
 
-const navigate = (routeName: string, options?: NavigationNavigateActionPayload) => {
-  _navigator.dispatch(
-    NavigationActions.navigate({
-      routeName,
-      ...options,
-    }),
-  );
+const navigate = (routeName: string, params?: Record<string, unknown>) => {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(CommonActions.navigate({ name: routeName, params }));
+  }
 };
 
-const replace = (routeName: string, options?: NavigationReplaceActionPayload) => {
-  _navigator.dispatch(
-    StackActions.replace({
-      routeName,
-      ...options,
-    }),
-  );
+const replace = (routeName: string, params?: Record<string, unknown>) => {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(StackActions.replace(routeName, params));
+  }
 };
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import FastImage, { FastImageProperties } from 'react-native-fast-image';
+import FastImage, { FastImageProperties } from '../shims/FastImage';
 
 import { theme } from '../theme';
 import AppText from './common/AppText';

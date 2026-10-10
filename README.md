@@ -8,10 +8,10 @@
 
 <div align="center">
   <a href="https://reactjs.org/">
-    <img src="https://img.shields.io/badge/react-16.9-green.svg" alt="React version">
+    <img src="https://img.shields.io/badge/react-19.2-green.svg" alt="React version">
   </a>
    <a href="https://reactnative.dev/">
-    <img src="https://img.shields.io/badge/react--native-0.61.4-blue.svg" alt="React Native version">
+    <img src="https://img.shields.io/badge/react--native-0.87.1-blue.svg" alt="React Native version">
   </a>
    <a href="https://github.com/azhavrid/movie-swiper-back/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/azhavrid/movie-swiper.svg" alt="License">
@@ -20,7 +20,7 @@
 
 ## 🚀 Version 2.0
 
-- React native 0.60+
+- React Native 0.87
 - All business logic in redux
 - Typescript support
 - Eslint integration

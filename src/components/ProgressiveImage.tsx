@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
-import { ImageStyle, StyleSheet, ViewStyle } from 'react-native';
-import FastImage, { FastImageProperties, OnLoadEvent } from 'react-native-fast-image';
-import Animated, { Easing } from 'react-native-reanimated';
+import React, { useRef, useState } from 'react';
+import { Animated, Easing, ImageProps, ImageSourcePropType, ImageStyle, StyleSheet, ViewStyle } from 'react-native';
 
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage) as FastImage;
+import FastImage from '../shims/FastImage';
 
-/* ------------- Local ------------- */
-const { Value } = Animated;
-
-/* ------------- Props and State ------------- */
 type OwnProps = {
-  source: FastImageProperties['source'];
-  thumbnailSource: FastImageProperties['source'];
+  source: ImageSourcePropType;
+  thumbnailSource: ImageSourcePropType;
   style?: ViewStyle;
   imageStyle?: ImageStyle;
 };
 
-type Props = OwnProps & FastImageProperties;
+type Props = OwnProps & Omit<ImageProps, 'source'>;
 
-/* ------------- Component ------------- */
 const ProgressiveImage = (props: Props) => {
   const { style, source, imageStyle, thumbnailSource, onLoad, ...otherProps } = props;
   const [isImageShown, setIsImageShown] = useState(false);
-  const [imageOpacity] = useState(new Value(0));
+  const imageOpacity = useRef(new Animated.Value(0)).current;
 
-  const onImageLoad = (event: OnLoadEvent) => {
+  const onImageLoad: ImageProps['onLoad'] = event => {
     Animated.timing(imageOpacity, {
       toValue: 1,
       duration: 250,
       easing: Easing.out(Easing.sin),
+      useNativeDriver: true,
     }).start(() => {
       setIsImageShown(true);
     });
@@ -41,11 +35,11 @@ const ProgressiveImage = (props: Props) => {
       {!isImageShown && (
         <FastImage {...otherProps} source={thumbnailSource} style={[StyleSheet.absoluteFill, imageStyle]} />
       )}
-      <AnimatedFastImage
+      <Animated.Image
         {...otherProps}
         source={source}
         onLoad={onImageLoad}
-        style={[StyleSheet.absoluteFill, { opacity: imageOpacity } as any, imageStyle]}
+        style={[StyleSheet.absoluteFill, { opacity: imageOpacity }, imageStyle]}
       />
     </Animated.View>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
 
 import { RESET_PASSWORD_URL } from '../../api/urls';
@@ -20,7 +19,7 @@ import { validatePassword, validateUsername } from '../../utils/validators';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
-type Props = NavigationStackScreenProps & ReduxProps;
+type Props = { navigation: any } & ReduxProps;
 type State = typeof initialState;
 
 const initialState = {
@@ -32,9 +31,6 @@ const initialState = {
 
 /* ------------- Component ------------- */
 class AuthLogin extends React.Component<Props, State> {
-  static navigationOptions = {
-    title: 'Log In',
-  };
 
   state = initialState;
 

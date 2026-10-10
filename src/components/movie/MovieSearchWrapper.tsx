@@ -33,17 +33,18 @@ class MovieSearchWrapper extends React.PureComponent<Props, State> {
   state = initialState;
   searchInputRef = React.createRef<SearchInput>();
   panResponder = this.getKeyboardDismissResponder();
+  backHandlerSubscription: { remove: () => void } | null = null;
 
   get toRenderSearchContent() {
     return this.state.isSearchFocused || !this.props.isSearchTextEmpty;
   }
 
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.onHardwareBackPress);
+    this.backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', this.onHardwareBackPress);
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.onHardwareBackPress);
+    this.backHandlerSubscription?.remove();
   }
 
   onSearchInputFocus = () => this.setState({ isSearchFocused: true });

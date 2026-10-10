@@ -35,8 +35,8 @@ const initialState = {
 class TouchableScale extends React.PureComponent<Props, State> {
   static defaultProps = defaultProps;
   state = initialState;
-  buttonAnimatedValue = new Animated.Value(this.props.initialScale);
-  scaleToValue = this.props.initialScale * this.props.scaleFactor;
+  buttonAnimatedValue = new Animated.Value(this.props.initialScale ?? 1);
+  scaleToValue = (this.props.initialScale ?? 1) * (this.props.scaleFactor ?? 0.95);
 
   onPressIn = (event: GestureResponderEvent) => {
     const { onPressIn } = this.props;
@@ -57,10 +57,11 @@ class TouchableScale extends React.PureComponent<Props, State> {
     onPress(event);
   };
 
-  throttledOnPress = throttle(this.props.throttleTime, true, this.onPress);
+  throttledOnPress = throttle(this.props.throttleTime ?? 800, this.onPress);
 
   getAnimatedStyle = () => {
-    const { activeOpacity, initialScale } = this.props;
+    const activeOpacity = this.props.activeOpacity ?? 0.7;
+    const initialScale = this.props.initialScale ?? 1;
 
     const opacity = this.buttonAnimatedValue.interpolate({
       inputRange: [this.scaleToValue, initialScale],

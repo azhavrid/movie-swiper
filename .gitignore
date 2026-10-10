@@ -59,3 +59,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+# Native build caches
+android/app/.cxx/
+android/.cxx/

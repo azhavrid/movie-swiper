@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, ImageStyle, StyleSheet } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import FastImage from '../../shims/FastImage';
 
 import images from '../../images';
 

@@ -1,21 +1,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <!-- Bottom action bar -->
-        <item name="android:navigationBarColor">@android:color/black</item>
-
-        <!-- Launch colors -->
-        <!-- Background -->
-        <item name="android:windowBackground">@color/background</item>
-        <!-- Status bar -->
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="colorAccent">@color/primaryVariant</item>
-    </style>
-
-    <style name="BootTheme" parent="AppTheme">
-        <!-- set the generated bootsplash.xml drawable as activity background -->
-        <item name="android:background">@drawable/bootsplash</item>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
     </style>
 
 </resources>

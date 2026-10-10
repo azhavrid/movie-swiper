@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { mapValues } from 'lodash';
 import { combineReducers } from 'redux';
 import { getStoredState, persistReducer } from 'redux-persist';
@@ -33,11 +33,10 @@ const rootConfig = {
   version: 2,
   key: 'root',
   whitelist: ['auth', 'explore', 'movies'],
-  getStoredState: async persistConfig => {
+  getStoredState: async (persistConfig: any) => {
     const storedState = await getStoredState(persistConfig);
-    // @ts-ignore
     // Drop persisted store if persist version has changed
-    const isSamePersistVersion = storedState?._persist?.version === persistConfig?.version;
+    const isSamePersistVersion = (storedState as any)?._persist?.version === persistConfig?.version;
     return isSamePersistVersion ? storedState : ({} as any);
   },
 };
@@ -45,7 +44,6 @@ const rootConfig = {
 export const persistedReducer = persistReducer(rootConfig, combinedReducers);
 
 /* ------------- Logout Reducer ------------- */
-// List of sub stores that are not cleared after logout
 const persistReducersAfterLogoutKeys: Partial<ReducersKey>[] = ['network', '_persist'];
 
 const logoutReducer = (inputState: RootState, action: RootAction): RootState => {
@@ -61,7 +59,7 @@ const logoutReducer = (inputState: RootState, action: RootAction): RootState => 
 };
 
 /* ------------- Root Reducer ------------- */
-export const rootReducer = (inputState: RootState, action: RootAction) => {
-  const state = logoutReducer(inputState, action);
+export const rootReducer = (inputState: RootState | undefined, action: RootAction) => {
+  const state = logoutReducer(inputState as RootState, action);
   return persistedReducer(state, action);
 };

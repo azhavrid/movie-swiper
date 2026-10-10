@@ -1,38 +1,26 @@
 import React from 'react';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import AuthenticatedLock from '../components/AuthenticatedLock';
 import BlockButton from '../components/BlockButton';
-import { TouchableScale } from '../components/common';
 import GuestInfo from '../components/GuestInfo';
 import { withDelayedLoading } from '../components/hoc/withDelayedLoading';
 import ScreenWrapper from '../components/ScreenWrapper';
-import { getLibraryFavoriteIcon, getLibrarySettingsIcon, getLibraryWatchlistIcon } from '../helpers/icons';
+import { getLibraryFavoriteIcon, getLibraryWatchlistIcon } from '../helpers/icons';
 import { librarySectionsKeys, sectionData } from '../redux/sections/sectionData';
 import { LibrarySectionKey } from '../redux/sections/types';
-import NavigationService from '../routes/NavigationService';
+import { LibraryStackParamList } from '../routes/routes';
 import { routeNames } from '../routes/routeNames';
 import { SectionListScreenNavigationParams } from './movie/SectionListScreen';
 
-/* ------------- Props and State ------------- */
-type NavigationProps = NavigationStackScreenProps<{}>;
-type Props = NavigationProps;
+type Props = NativeStackScreenProps<LibraryStackParamList, 'LibraryHome'>;
 
-const librarySectionIcons: Record<LibrarySectionKey, JSX.Element> = {
+const librarySectionIcons: Record<LibrarySectionKey, React.ReactElement> = {
   myWatchlist: getLibraryWatchlistIcon(),
   myFavorite: getLibraryFavoriteIcon(),
 };
 
-const navigateToSettings = () => {
-  NavigationService.navigate(routeNames.Settings);
-};
-
-/* ------------- Component ------------- */
 class Library extends React.PureComponent<Props> {
-  static navigationOptions = {
-    headerRight: <TouchableScale onPress={navigateToSettings}>{getLibrarySettingsIcon()}</TouchableScale>,
-  };
-
   renderLibrarySections = () => {
     const { navigation } = this.props;
 

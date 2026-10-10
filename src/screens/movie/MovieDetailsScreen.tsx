@@ -1,6 +1,5 @@
 import React from 'react';
-import { InteractionManager } from 'react-native';
-import { NavigationStackOptions, NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { connect } from 'react-redux';
 
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
@@ -15,26 +14,22 @@ import {
 import { getMovieSelectorById } from '../../redux/movies/selectors';
 import { MovieId } from '../../redux/movies/types';
 import { RootState } from '../../redux/types';
+import { BrowseStackParamList } from '../../routes/routes';
+import { routeNames } from '../../routes/routeNames';
 
-/* ------------- Props and State ------------- */
 export interface MovieDetailsScreenNavigationParams {
   movieId: MovieId;
 }
 
-type NavigationProps = NavigationStackScreenProps<MovieDetailsScreenNavigationParams>;
+type NavigationProps = NativeStackScreenProps<BrowseStackParamList, typeof routeNames.MovieDetailsScreen>;
 type MapStateToProps = ReturnType<typeof makeMapStateToProps>;
 type ReduxProps = ReturnType<MapStateToProps> & typeof mapDispatchToProps;
 type PropsWithoutRedux = NavigationProps;
 type Props = ReduxProps & PropsWithoutRedux;
 
-/* ------------- Component ------------- */
 class MovieDetailsScreen extends React.PureComponent<Props> {
-  static navigationOptions = (): NavigationStackOptions => ({
-    title: '',
-  });
-
   componentDidMount() {
-    InteractionManager.runAfterInteractions(() => {
+    requestAnimationFrame(() => {
       this.fetchMovieData();
     });
   }
@@ -65,8 +60,8 @@ class MovieDetailsScreen extends React.PureComponent<Props> {
   }
 }
 
-const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
-  const movieId = props.navigation.getParam('movieId');
+const makeMapStateToProps = (_state: RootState, props: PropsWithoutRedux) => {
+  const movieId = props.route.params.movieId;
   const movieSelector = getMovieSelectorById(movieId);
 
   return (state: RootState) => ({

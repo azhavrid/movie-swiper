@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import { NavigationInjectedProps, withNavigation } from 'react-navigation';
+import FastImage from '../../shims/FastImage';
+import { NavigationInjectedProps, withNavigation } from '../../shims/withNavigation';
 import { connect } from 'react-redux';
 
 import { getW185ImageUrl } from '../../api/urls';

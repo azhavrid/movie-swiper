@@ -1,33 +1,28 @@
 import React from 'react';
-import { NavigationStackOptions, NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { connect } from 'react-redux';
 
 import { withDelayedLoading } from '../../components/hoc/withDelayedLoading';
 import MovieList from '../../components/movie/MovieList';
 import ScreenWrapper from '../../components/ScreenWrapper';
 import { fetchSectionNextPageRequest, refreshSectionRequest } from '../../redux/sections/actions';
-import { sectionData } from '../../redux/sections/sectionData';
 import { getSectionSelectorByKey } from '../../redux/sections/selectors';
 import { SectionKey } from '../../redux/sections/types';
 import { RootState } from '../../redux/types';
+import { BrowseStackParamList } from '../../routes/routes';
+import { routeNames } from '../../routes/routeNames';
 
-/* ------------- Props and State ------------- */
 export interface SectionListScreenNavigationParams {
   sectionKey: SectionKey;
 }
 
-type NavigationProps = NavigationStackScreenProps<SectionListScreenNavigationParams>;
+type NavigationProps = NativeStackScreenProps<BrowseStackParamList, typeof routeNames.SectionListScreen>;
 type MapStateToProps = ReturnType<typeof makeMapStateToProps>;
 type ReduxProps = ReturnType<MapStateToProps> & typeof mapDispatchToProps;
 type PropsWithoutRedux = NavigationProps;
 type Props = ReduxProps & PropsWithoutRedux;
 
-/* ------------- Component ------------- */
 class SectionListScreen extends React.Component<Props> {
-  static navigationOptions = ({ navigation }: NavigationProps): NavigationStackOptions => ({
-    title: sectionData[navigation.getParam('sectionKey')].title,
-  });
-
   componentDidMount() {
     const { refreshSectionRequest, sectionKey } = this.props;
     refreshSectionRequest(sectionKey);
@@ -61,8 +56,8 @@ class SectionListScreen extends React.Component<Props> {
   }
 }
 
-const makeMapStateToProps = (state: RootState, props: PropsWithoutRedux) => {
-  const sectionKey = props.navigation.getParam('sectionKey');
+const makeMapStateToProps = (_state: RootState, props: PropsWithoutRedux) => {
+  const sectionKey = props.route.params.sectionKey;
   const sectionSelector = getSectionSelectorByKey(sectionKey);
 
   return (state: RootState) => ({

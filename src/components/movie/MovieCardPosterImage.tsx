@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, ImageStyle } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import FastImage from '../../shims/FastImage';
 
 import { getW780ImageUrl } from '../../api/urls';
 import { config } from '../../configs/config';

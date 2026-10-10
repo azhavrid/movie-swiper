@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { NavigationStackScreenProps } from 'react-navigation-stack/lib/typescript/types';
 import { connect } from 'react-redux';
 
 import BlockButton from '../components/BlockButton';
@@ -14,7 +13,7 @@ import { theme } from '../theme';
 
 /* ------------- Props and State ------------- */
 type ReduxProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
-type Props = NavigationStackScreenProps & ReduxProps;
+type Props = { navigation: any } & ReduxProps;
 
 /* ------------- Component ------------- */
 class Settings extends React.PureComponent<Props> {

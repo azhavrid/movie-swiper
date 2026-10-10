@@ -1,5 +1,4 @@
-import { StyleSheet, TextStyle } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { StatusBar, StyleSheet, TextStyle } from 'react-native';
 
 import { config } from './configs/config';
 import { getFontStyle } from './utils/fonts';
@@ -57,7 +56,6 @@ const colors = {
 
 /* ------------- Theme ------------- */
 export const theme = {
-  // --- Dimensions ---
   spacing: {
     xTiny: 4,
     tiny: 8,
@@ -67,7 +65,7 @@ export const theme = {
     xLarge: 64,
   },
   specifications: {
-    statusBarHeight: getStatusBarHeight(),
+    statusBarHeight: StatusBar.currentHeight || 24,
     headerHeight: 54,
     bottomNavbarHeight: 50,
     get fullHeaderHeight() {
@@ -78,13 +76,12 @@ export const theme = {
     iconSize: 30,
     largeIconSize: 40,
     hugeIconSize: 120,
-    activityIndicatorSize: config.isAndroid ? 60 : <const>'large',
-    activitySmallIndicatorSize: config.isAndroid ? 30 : <const>'small',
+    activityIndicatorSize: config.isAndroid ? 60 : ('large' as const),
+    activitySmallIndicatorSize: config.isAndroid ? 30 : ('small' as const),
     posterAspectRation: 0.6667,
     backdropAspectRation: 1.78,
   },
 
-  // --- Colors ---
   gray,
   colors: {
     ...colors,
@@ -94,7 +91,6 @@ export const theme = {
     textInputSelection: `${colors.primary}aa`,
   },
 
-  // --- Typography ---
   typography: StyleSheet.create<AppTypography>({
     largeTitle: {
       fontSize: 34,
